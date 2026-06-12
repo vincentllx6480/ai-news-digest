@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI 每日速递</title>
+    <link>https://ai-digest.paicoding.com</link>
+    <description>每日AI产业资讯聚合：国际大模型动态、国内AI进展、融资快讯、创业机会分析</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 12 Jun 2026 17:25:00 +0800</lastBuildDate>
+    <atom:link href="https://ai-digest.paicoding.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI 速递 · 2026.06.12</title>
+      <link>https://ai-digest.paicoding.com/archive/0612.html</link>
+      <guid>https://ai-digest.paicoding.com/archive/0612.html</guid>
+      <pubDate>2006-12-T09:10:00+08:00</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+  </channel>
+</rss>

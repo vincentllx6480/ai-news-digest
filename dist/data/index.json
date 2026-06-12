@@ -1,0 +1,36 @@
+{
+  "dates": [
+    {
+      "date": "0612",
+      "title": "AI 速递 · 2026.06.12",
+      "headlines": [
+        "Anthropic Claude 5 与 Mythos 5 正式发布",
+        "NVIDIA RTX Spark：端侧 AI 的 iPhone 时刻",
+        "Google Gemini 3.5 Flash GA / Alphabet $847.5 亿融资 / Gemma 4 12B",
+        "OpenAI GPT-5.5 多云端上线 / Dreaming V3 记忆系统 / 秘密递交 IPO",
+        "月之暗面年内第三轮融资：目标 $20 亿，估值冲击 $300 亿",
+        "DeepSeek V4 全面开源：1.6T MoE，首次全栈国产芯片训练",
+        "字节跳动：豆包 DAU 1.4 亿 / 开源 Bernini / 自研 CPU",
+        "智谱 AI 港股市值一度超小米 / 启动科创板 IPO / GLM-5 全面开源"
+      ],
+      "tags": [
+        "融资",
+        "Google",
+        "Kimi",
+        "字节",
+        "阿里",
+        "OpenAI",
+        "Claude",
+        "DeepSeek",
+        "腾讯",
+        "Agent",
+        "IPO",
+        "Gemini",
+        "GPT",
+        "智谱",
+        "Anthropic"
+      ]
+    }
+  ],
+  "lastUpdated": "2026-06-12T17:25:00.192463"
+}
