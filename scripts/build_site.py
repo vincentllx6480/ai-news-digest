@@ -15,7 +15,7 @@ from datetime import datetime
 from pathlib import Path
 
 BASE_DIR = Path(os.environ.get("SITE_DIR", os.path.expanduser("~/ai-news-digest-site")))
-DIST_DIR = BASE_DIR / "dist"
+DIST_DIR = BASE_DIR / "docs"
 DATA_DIR = DIST_DIR / "data"
 ARCHIVE_DIR = DIST_DIR / "archive"
 DESKTOP_FILE = Path(os.environ.get("DESKTOP", os.path.expanduser("~/Desktop")))

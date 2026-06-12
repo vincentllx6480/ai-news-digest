@@ -6,7 +6,7 @@
     "build": "python3 scripts/build_site.py"
   },
   "static": {
-    "directory": "dist"
+    "directory": "docs"
   },
   "build": {
     "builder": "nixpacks"
