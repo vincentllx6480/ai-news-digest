@@ -38,7 +38,7 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
   }
 
-  .page { max-width:900px; margin:0 auto; padding:0 24px 64px; }
+  .page { max-width:1500px; margin:0 auto; padding:0 32px 64px; }
 
   /* ---- MASTHEAD ---- */
   .masthead { padding:60px 0 36px; text-align:center; }
@@ -68,27 +68,26 @@
 
   /* ---- STATS RAINBOW ---- */
   .stats-rainbow {
-    display:grid; grid-template-columns:2fr 1fr 1fr;
-    gap:10px; margin:0 0 52px;
+    display:grid; grid-template-columns:repeat(6,1fr);
+    gap:10px; margin:0 0 40px;
   }
   .stat-card {
     background:var(--surface);
-    border-radius:20px; padding:26px 28px 22px;
+    border-radius:20px; padding:20px 18px 16px;
     position:relative; overflow:hidden;
     box-shadow:0 2px 20px rgba(0,0,0,0.04);
     transition:box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    text-align:center;
   }
   .stat-card:hover { box-shadow:0 8px 40px rgba(0,0,0,0.08); transform:translateY(-2px); }
   .stat-card .stat-top-bar {
     position:absolute; top:0; left:0; right:0; height:3px;
   }
   .stat-card .stat-num {
-    font-size:2.2em; font-weight:800; letter-spacing:-0.03em;
-    display:block; margin:6px 0 2px; line-height:1;
+    font-size:1.8em; font-weight:800; letter-spacing:-0.03em;
+    display:block; margin:8px 0 4px; line-height:1;
   }
-  .stat-card .stat-lbl { font-size:0.82em; color:var(--ink3); line-height:1.4; }
-  .stat-card.hero-stat { grid-row:span 2; }
-  .stat-card.hero-stat .stat-num { font-size:4.6em; margin:10px 0 6px; }
+  .stat-card .stat-lbl { font-size:0.78em; color:var(--ink3); line-height:1.35; }
 
   /* rainbow bars per card */
   .bar-red    { background:var(--red); }
@@ -104,20 +103,19 @@
   .num-blue   { color:var(--blue); }
   .num-purple { color:var(--purple); }
 
-  @media(max-width:768px){
-    .stats-rainbow{grid-template-columns:1fr 1fr}
-    .stat-card.hero-stat{grid-row:span 1;grid-column:span 2}
-    .stat-card.hero-stat .stat-num{font-size:3em}
-    .stat-card .stat-num{font-size:1.7em}
+  @media(max-width:1100px){
+    .stats-rainbow{grid-template-columns:repeat(3,1fr)}
   }
   @media(max-width:768px){
+    .stats-rainbow{grid-template-columns:repeat(2,1fr)}
     .tab-btn{font-size:0.78em;padding:7px 14px}
     .tab-bar-wrap{margin:0 -16px 28px}
     .tab-bar{padding:0 16px}
   }
   @media(max-width:480px){
-    .stats-rainbow{grid-template-columns:1fr}
-    .stat-card.hero-stat{grid-column:span 1}
+    .stats-rainbow{grid-template-columns:repeat(2,1fr)}
+    .stat-card{padding:14px 10px 12px}
+    .stat-card .stat-num{font-size:1.3em}
     .tab-btn{font-size:0.75em;padding:6px 12px}
     .tab-btn .tab-dot{width:5px;height:5px;margin-right:4px}
   }
@@ -438,10 +436,10 @@
 
 <!-- ====== STATS BENTO ====== -->
 <div class="stats-rainbow reveal d1" data-category="all">
-  <div class="stat-card hero-stat">
+  <div class="stat-card">
     <div class="stat-top-bar bar-red"></div>
     <span class="stat-num num-red">$152B+</span>
-    <span class="stat-lbl">本周 AI 赛道融资总额<br>覆盖基础模型、Agent 与基础设施</span>
+    <span class="stat-lbl">本周AI融资总额<br>模型·Agent·基础设施</span>
   </div>
   <div class="stat-card">
     <div class="stat-top-bar bar-orange"></div>
