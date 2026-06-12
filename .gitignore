@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+data/redfox_latest.json
+
+# IDE
+.idea/
+.vscode/

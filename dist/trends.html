@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>趋势追踪 - AI 每日速递</title>
+<meta name="description" content="AI 行业关键指标追踪：公司估值、融资趋势、大模型发布节奏。">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/css/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  .trend-section { margin-bottom: 48px; }
+  .metric-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .metric-card {
+    padding: 24px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  .metric-card .metric-title { font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+  .metric-card .metric-value { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .metric-card .metric-change { font-size: 13px; }
+  .chart-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 240px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    color: var(--muted);
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <span class="dot"></span>
+      AI 每日速递
+    </a>
+    <div class="nav-links">
+      <a href="/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="label">首页</span>
+      </a>
+      <a href="/archive/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span class="label">归档</span>
+      </a>
+      <a href="/search.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="label">搜索</span>
+      </a>
+      <a href="/trends.html" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <span class="label">趋势</span>
+      </a>
+      <a href="/feed.xml">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        <span class="label">RSS</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="site-main">
+
+  <section class="hero">
+    <div class="hero-eyebrow">TRENDS</div>
+    <h1>关键指标<span class="gradient-text">追踪</span></h1>
+    <p>AI 行业核心数据趋势，每日更新。</p>
+  </section>
+
+  <!-- 估值追踪 -->
+  <section class="trend-section">
+    <div class="section-head"><h2>头部AI公司估值</h2></div>
+    <div class="data-table" style="border-radius:var(--radius-lg)">
+      <table style="width:100%;border-collapse:collapse">
+        <thead><tr>
+          <th>公司</th><th>估值 (B$)</th><th>月变化</th><th>关键驱动力</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td><strong>210</strong></td><td class="trend-up">↑ +12%</td><td>GPT-5 即将发布</td></tr>
+          <tr><td>Anthropic</td><td><strong>85</strong></td><td class="trend-up">↑ +8%</td><td>Claude 4.7 发布</td></tr>
+          <tr><td>DeepSeek</td><td><strong>46</strong></td><td class="trend-up">↑ +22%</td><td>全新架构开源</td></tr>
+          <tr><td>智谱AI</td><td><strong>32</strong></td><td class="trend-flat">→ 0%</td><td>IPO 筹备中</td></tr>
+          <tr><td>月之暗面</td><td><strong>18</strong></td><td class="trend-up">↑ +5%</td><td>Kimi 用户增长</td></tr>
+          <tr><td>MiniMax</td><td><strong>15</strong></td><td class="trend-flat">→ +2%</td><td>海外市场拓展</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 融资趋势 -->
+  <section class="trend-section">
+    <div class="section-head"><h2>近期重大融资</h2></div>
+    <div class="data-table" style="border-radius:var(--radius-lg)">
+      <table style="width:100%;border-collapse:collapse">
+        <thead><tr>
+          <th>公司</th><th>轮次</th><th>金额</th><th>投资方</th><th>日期</th>
+        </tr></thead>
+        <tbody id="fundingTable">
+          <tr><td>Mistral AI</td><td>Series D</td><td>$640M</td><td>a16z, Lightspeed</td><td>06.11</td></tr>
+          <tr><td>Cohere</td><td>Series E</td><td>$500M</td><td>AMD, NVIDIA</td><td>06.10</td></tr>
+          <tr><td>Perplexity</td><td>Series D</td><td>$250M</td><td>IVP, NEA</td><td>06.09</td></tr>
+          <tr><td>硅基流动</td><td>Series B</td><td>$150M</td><td>腾讯, 高瓴</td><td>06.08</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">首页</a>
+    <a href="/archive/">归档</a>
+    <a href="/search.html">搜索</a>
+    <a href="/feed.xml">RSS</a>
+  </div>
+  <p>数据来源：公开信息整理 · AI 每日速递 &copy; 2026</p>
+</footer>
+
+<script src="/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "ai-news-digest",
+  "description": "AI 每日速递 - 聚合全球 AI 产业资讯的自动化日报网站",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "python3 scripts/build_site.py"
+  },
+  "static": {
+    "directory": "dist"
+  },
+  "build": {
+    "builder": "nixpacks"
+  }
+}
