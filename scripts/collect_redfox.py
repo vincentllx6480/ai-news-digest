@@ -21,22 +21,32 @@ from datetime import datetime
 REDFOX_BASE = "https://redfox.hk/story/api"
 
 # 平台采集配置
+# 注：抖音和小红书的搜索 API 需要从 RedFox Skills 获取具体端点。
+# 当前已验证可用的端点：
+#   公众号: /story/api/gzhData/searchArticle (关键词搜索)
+#   抖音:   /story/api/dyData/queryWork (需 workId，无直接搜索端点)
+#   小红书: 端点路径待确认（非 xhsData 前缀）
 PLATFORMS = {
     "douyin": {
-        "search": f"{REDFOX_BASE}/dyData/searchWork",
+        "search": f"{REDFOX_BASE}/dyData/queryWork",
         "detail": f"{REDFOX_BASE}/dyData/queryWork",
         "keywords": ["AI", "人工智能", "大模型"],
         "label": "抖音",
+        "disabled": True,
+        "note": "queryWork 需要 workId 参数，无法直接关键词搜索。需从 RedFox Skills 获取搜索端点。",
     },
     "xiaohongshu": {
         "search": f"{REDFOX_BASE}/xhsData/queryWork",
         "keywords": ["AI工具", "AI编程", "AI智能体", "Agent", "大模型"],
         "label": "小红书",
+        "disabled": True,
+        "note": "所有已知端点路径返回 404。需从 RedFox Skills 获取正确路径。",
     },
     "wechat": {
         "search": f"{REDFOX_BASE}/gzhData/searchArticle",
         "keywords": ["AI工具", "AI编程", "AI智能体", "Agent", "大模型"],
         "label": "公众号",
+        "disabled": False,
     },
 }
 
@@ -60,10 +70,21 @@ def call_api(url: str, payload: dict, api_key: str, timeout: int = 15) -> dict:
 
 
 def collect_douyin(api_key: str) -> list:
-    """采集抖音 AI 相关热门作品"""
+    """采集抖音 AI 相关热门作品
+
+    注意：当前 RedFox API 中 douyin 无关键词搜索端点。
+    queryWork 端点需要具体的 workId 参数。
+    需要使用 RedFox Skills (douyin-search) 的预置搜索逻辑。
+    """
     results = []
     cfg = PLATFORMS["douyin"]
 
+    if cfg.get("disabled"):
+        print(f"  [抖音] 跳过 — {cfg.get('note', '无搜索端点')}")
+        return results
+
+    # Douyin queryWork requires workId - keyword search not directly available
+    # This collector requires pre-obtained workIds (e.g. from Skills)
     for keyword in cfg["keywords"]:
         try:
             resp = call_api(cfg["search"], {
@@ -73,36 +94,53 @@ def collect_douyin(api_key: str) -> list:
             }, api_key)
 
             if resp.get("code") == 2000:
-                for item in resp.get("data", {}).get("list", [])[:3]:
-                    results.append({
-                        "platform": "douyin",
-                        "title": item.get("title", ""),
-                        "author": item.get("author", ""),
-                        "likeCount": item.get("likeCount", 0),
-                        "commentCount": item.get("commentCount", 0),
-                        "shareCount": item.get("shareCount", 0),
-                        "collectCount": item.get("collectCount", 0),
-                        "workUrl": item.get("workUrl", ""),
-                        "coverUrl": item.get("coverUrl", ""),
-                        "keyword": keyword,
-                    })
-            time.sleep(0.2)  # Rate limiting
+                data = resp.get("data", {})
+                # queryWork returns a single work detail, not a list
+                if isinstance(data, dict) and data.get("title"):
+                    results.append(parse_douyin_item(data, keyword))
+                elif isinstance(data, list):
+                    for item in data[:3]:
+                        results.append(parse_douyin_item(item, keyword))
+            time.sleep(0.2)
         except Exception as e:
-            print(f"  [Douyin Error] keyword={keyword}: {e}", file=sys.stderr)
+            print(f"  [Douyin Error] keyword={keyword}: {e}")
 
     return results[:5]
 
 
+def parse_douyin_item(item: dict, keyword: str) -> dict:
+    return {
+        "platform": "douyin",
+        "title": item.get("title", ""),
+        "author": item.get("authorName", item.get("accountName", "")),
+        "likeCount": item.get("likeCount", 0),
+        "commentCount": item.get("commentCount", 0),
+        "shareCount": item.get("shareCount", 0),
+        "collectCount": item.get("collectCount", 0),
+        "workUrl": item.get("workUrl", ""),
+        "coverUrl": item.get("coverUrl", ""),
+        "keyword": keyword,
+    }
+
+
 def collect_xiaohongshu(api_key: str) -> list:
-    """采集小红书 AI 相关爆款笔记"""
+    """采集小红书 AI 相关爆款笔记
+
+    注意：当前所有已知 XHS API 端点路径均返回 404。
+    需要使用 RedFox Skills (xiaohongshu-weeklytop) 获取正确路径。
+    """
     results = []
     cfg = PLATFORMS["xiaohongshu"]
+
+    if cfg.get("disabled"):
+        print(f"  [小红书] 跳过 — {cfg.get('note', '无可用端点')}")
+        return results
 
     for keyword in cfg["keywords"]:
         try:
             resp = call_api(cfg["search"], {
                 "keyword": keyword,
-                "sortType": "_4",  # 按热度
+                "sortType": "_4",
                 "offset": 0,
             }, api_key)
 
@@ -121,7 +159,7 @@ def collect_xiaohongshu(api_key: str) -> list:
                     })
             time.sleep(0.2)
         except Exception as e:
-            print(f"  [XHS Error] keyword={keyword}: {e}", file=sys.stderr)
+            print(f"  [XHS Error] keyword={keyword}: {e}")
 
     return results[:5]
 

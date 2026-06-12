@@ -110,10 +110,75 @@
     .stat-card.hero-stat .stat-num{font-size:3em}
     .stat-card .stat-num{font-size:1.7em}
   }
+  @media(max-width:768px){
+    .tab-btn{font-size:0.78em;padding:7px 14px}
+    .tab-bar-wrap{margin:0 -16px 28px}
+    .tab-bar{padding:0 16px}
+  }
   @media(max-width:480px){
     .stats-rainbow{grid-template-columns:1fr}
     .stat-card.hero-stat{grid-column:span 1}
+    .tab-btn{font-size:0.75em;padding:6px 12px}
+    .tab-btn .tab-dot{width:5px;height:5px;margin-right:4px}
   }
+
+  /* ---- CATEGORY TABS ---- */
+  .tab-bar-wrap {
+    position:sticky; top:5px; z-index:50;
+    background:rgba(250,249,247,0.85);
+    backdrop-filter:blur(18px) saturate(160%);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+    padding:10px 0; margin:0 -24px 36px;
+  }
+  .tab-bar {
+    display:flex; gap:6px; overflow-x:auto;
+    padding:0 24px; scrollbar-width:none;
+    -ms-overflow-style:none;
+    scroll-behavior:smooth;
+  }
+  .tab-bar::-webkit-scrollbar{display:none}
+  .tab-btn {
+    flex-shrink:0;
+    padding:8px 18px;
+    border-radius:100px;
+    border:1.5px solid rgba(0,0,0,0.08);
+    background:var(--surface);
+    font-family:inherit;
+    font-size:0.83em; font-weight:600;
+    color:var(--ink2);
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all 0.25s cubic-bezier(0.16,1,0.3,1);
+    position:relative;
+  }
+  .tab-btn:hover {
+    border-color:rgba(0,0,0,0.2);
+    color:var(--ink);
+    transform:translateY(-1px);
+  }
+  .tab-btn.active {
+    color:#fff;
+    border-color:transparent;
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  }
+  .tab-btn .tab-dot {
+    display:inline-block; width:6px; height:6px;
+    border-radius:50%; margin-right:6px;
+    vertical-align:middle; position:relative; top:-1px;
+  }
+  /* Tab colors */
+  .tab-all.active       { background:linear-gradient(135deg,var(--ink),#333) }
+  .tab-brief.active     { background:linear-gradient(135deg,var(--red),#e55555) }
+  .tab-news.active      { background:linear-gradient(135deg,var(--blue),#4080e0) }
+  .tab-funding.active   { background:linear-gradient(135deg,var(--orange),#e88820) }
+  .tab-social.active    { background:linear-gradient(135deg,var(--pink),#e05580) }
+  .tab-opportunity.active { background:linear-gradient(135deg,var(--green),#20a060) }
+  .tab-tracker.active   { background:linear-gradient(135deg,var(--purple),#8040d0) }
+  .tab-watch.active     { background:linear-gradient(135deg,var(--indigo),#4c2fb0) }
+
+  /* Section show/hide */
+  .sec-wrap.hidden { display:none; }
+  .stats-rainbow.hidden { display:none; }
 
   /* ---- SECTION HEADERS ---- */
   .sec-wrap { margin-top:48px; }
@@ -357,8 +422,22 @@
   </p>
 </header>
 
+<!-- ====== CATEGORY TABS ====== -->
+<div class="tab-bar-wrap">
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn tab-all active" data-tab="all"><span class="tab-dot" style="background:#333"></span>全部</button>
+    <button class="tab-btn tab-brief" data-tab="brief"><span class="tab-dot" style="background:var(--red)"></span>简报</button>
+    <button class="tab-btn tab-news" data-tab="news"><span class="tab-dot" style="background:var(--blue)"></span>大模型动态</button>
+    <button class="tab-btn tab-funding" data-tab="funding"><span class="tab-dot" style="background:var(--orange)"></span>融资快讯</button>
+    <button class="tab-btn tab-social" data-tab="social"><span class="tab-dot" style="background:var(--pink)"></span>社交热点</button>
+    <button class="tab-btn tab-opportunity" data-tab="opportunity"><span class="tab-dot" style="background:var(--green)"></span>创业机会</button>
+    <button class="tab-btn tab-tracker" data-tab="tracker"><span class="tab-dot" style="background:var(--purple)"></span>指标追踪</button>
+    <button class="tab-btn tab-watch" data-tab="watch"><span class="tab-dot" style="background:var(--indigo)"></span>明日关注</button>
+  </div>
+</div>
+
 <!-- ====== STATS BENTO ====== -->
-<div class="stats-rainbow reveal d1">
+<div class="stats-rainbow reveal d1" data-category="all">
   <div class="stat-card hero-stat">
     <div class="stat-top-bar bar-red"></div>
     <span class="stat-num num-red">$152B+</span>
@@ -392,7 +471,7 @@
 </div>
 
 <!-- ====== BRIEF ====== -->
-<section class="sec-wrap reveal d2">
+<section class="sec-wrap reveal d2" data-category="brief">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--red)"></div>
     <h2>简报</h2>
@@ -412,7 +491,7 @@
 </section>
 
 <!-- ====== KEY NEWS ====== -->
-<section class="sec-wrap reveal d3">
+<section class="sec-wrap reveal d3" data-category="news">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--blue)"></div>
     <h2>关键信息</h2>
@@ -480,7 +559,7 @@
 </section>
 
 <!-- ====== FUNDING TABLE ====== -->
-<section class="sec-wrap reveal d4">
+<section class="sec-wrap reveal d4" data-category="funding">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--orange)"></div>
     <h2>本周融资快讯</h2>
@@ -512,7 +591,7 @@
 </section>
 
 <!-- ====== SOCIAL ====== -->
-<section class="sec-wrap reveal d4">
+<section class="sec-wrap reveal d4" data-category="social">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--pink)"></div>
     <h2>社交媒体与 AI 博主</h2>
@@ -546,7 +625,7 @@
 </section>
 
 <!-- ====== OPPORTUNITIES ====== -->
-<section class="sec-wrap reveal d5">
+<section class="sec-wrap reveal d5" data-category="opportunity">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--green)"></div>
     <h2>创业与商业变现机会</h2>
@@ -596,7 +675,7 @@
 </section>
 
 <!-- ====== TRACKER ====== -->
-<section class="sec-wrap reveal d5">
+<section class="sec-wrap reveal d5" data-category="tracker">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--purple)"></div>
     <h2>关键指标追踪</h2>
@@ -621,7 +700,7 @@
 </section>
 
 <!-- ====== WATCH ====== -->
-<section class="sec-wrap reveal d5">
+<section class="sec-wrap reveal d5" data-category="watch">
   <div class="sec-hd">
     <div class="rainbow-dot" style="background:var(--indigo)"></div>
     <h2>明日关注</h2>
@@ -655,10 +734,51 @@
 
 <script>
 (function(){
-  if(typeof IntersectionObserver==='undefined')return;
-  const o=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running'})},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>{o.observe(el);el.style.animationPlayState='paused'});
-  setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.style.animationPlayState='running')},100);
+  // Scroll reveal (IntersectionObserver)
+  if(typeof IntersectionObserver!=='undefined'){
+    const o=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running'})},{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el=>{o.observe(el);el.style.animationPlayState='paused'});
+    setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.style.animationPlayState='running')},100);
+  }
+
+  // Tab switching
+  const tabs=document.querySelectorAll('.tab-btn');
+  const sections=document.querySelectorAll('[data-category]');
+
+  function activateTab(tabName){
+    tabs.forEach(t=>t.classList.remove('active'));
+    const activeTab=document.querySelector(`[data-tab="${tabName}"]`);
+    if(activeTab)activeTab.classList.add('active');
+
+    if(tabName==='all'){
+      sections.forEach(s=>s.classList.remove('hidden'));
+    }else{
+      sections.forEach(s=>{
+        s.classList.toggle('hidden',s.dataset.category!==tabName && s.dataset.category!=='all');
+      });
+    }
+
+    // Re-trigger reveal animations for visible sections
+    setTimeout(()=>{
+      document.querySelectorAll('.reveal:not(.hidden)').forEach(el=>{
+        el.style.animationPlayState='running';
+      });
+    },100);
+  }
+
+  tabs.forEach(tab=>{
+    tab.addEventListener('click',()=>activateTab(tab.dataset.tab));
+  });
+
+  // URL hash support: #brief → switch to that tab
+  const hash=window.location.hash.replace('#','');
+  if(hash && document.querySelector(`[data-tab="${hash}"]`)){
+    activateTab(hash);
+  }
+
+  // Scroll active tab into view
+  const active=document.querySelector('.tab-btn.active');
+  if(active)active.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
 })();
 </script>
 </html>
