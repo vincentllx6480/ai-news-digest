@@ -1,6 +1,21 @@
 {
   "dates": [
     {
+      "date": "0615",
+      "title": "AI 速递 · 2026.06.15",
+      "headlines": [
+        "月之暗面寻求 $30B 估值新一轮融资，半年估值翻 7 倍，推进香港 IPO",
+        "Google Gemini 3.5 Pro 本月发布，目标缩小推理差距",
+        "特朗普签署 AI 行政令：先进模型发布前需提交政府自愿审查",
+        "中央网信办开设涉AI应用乱象举报专区，14类问题纳入专项整治",
+        "Flourish 获 $500M 融资（Bezos 领投），脑启发 AI 芯片功耗仅 20-50W",
+        "DeepSeek V4 首次实现 1000 颗华为昇腾 910C 全参数训练，彻底去英伟达",
+        "YouTube Brandcast 2026 宣布 AI 赞助匹配、创作者内容接管等变现新工具",
+        "欧盟 AI 法案将于 8 月生效，高风险 AI 系统面临 11 项强制性合规要求"
+      ],
+      "tags": ["融资","月之暗面","Google","Gemini","监管","Anthropic","DeepSeek","创作者","欧盟","IPO"]
+    },
+    {
       "date": "0612",
       "title": "AI 速递 · 2026.06.12",
       "headlines": [
@@ -13,24 +28,8 @@
         "字节跳动：豆包 DAU 1.4 亿 / 开源 Bernini / 自研 CPU",
         "智谱 AI 港股市值一度超小米 / 启动科创板 IPO / GLM-5 全面开源"
       ],
-      "tags": [
-        "融资",
-        "Google",
-        "Kimi",
-        "字节",
-        "阿里",
-        "OpenAI",
-        "Claude",
-        "DeepSeek",
-        "腾讯",
-        "Agent",
-        "IPO",
-        "Gemini",
-        "GPT",
-        "智谱",
-        "Anthropic"
-      ]
+      "tags": ["融资","Google","Kimi","字节","阿里","OpenAI","Claude","DeepSeek","腾讯","Agent","IPO","Gemini","GPT","智谱","Anthropic"]
     }
   ],
-  "lastUpdated": "2026-06-12T17:25:00.192463"
+  "lastUpdated": "2026-06-15T09:40:00"
 }

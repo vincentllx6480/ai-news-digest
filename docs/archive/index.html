@@ -8,6 +8,53 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="stylesheet" href="/css/site.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  .archive-wrap { max-width: 960px; margin: 0 auto; padding: 24px; }
+
+  .archive-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+
+  .archive-table thead th {
+    background: #1e293b; color: #e2e8f0; text-align: left; padding: 14px 20px; font-size: 13px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+  }
+  .archive-table thead th:first-child { border-radius: var(--radius-lg) 0 0 0; }
+  .archive-table thead th:last-child { border-radius: 0 var(--radius-lg) 0 0; }
+
+  .archive-row { cursor: pointer; transition: background .15s; }
+  .archive-row:hover { background: #f0f4ff; }
+  .archive-row.expanded { background: #e8f0fe; }
+  .archive-row td { padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: middle; }
+
+  .archive-row .date-col { font-weight: 700; white-space: nowrap; color: var(--accent); font-size: 15px; }
+  .archive-row .title-col { font-weight: 600; color: var(--text); }
+  .archive-row .count-col { text-align: center; }
+  .archive-row .count-badge { display: inline-block; background: var(--accent-light); color: var(--accent); padding: 2px 10px; border-radius: 12px; font-size: 13px; font-weight: 600; }
+
+  .tag-chip { display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 6px; font-size: 12px; margin: 1px 3px 1px 0; }
+  .tag-chip.hot { background: #fef3c7; color: #92400e; }
+
+  .expand-icon { display: inline-block; transition: transform .25s; font-size: 12px; margin-right: 4px; color: #94a3b8; }
+  .archive-row.expanded .expand-icon { transform: rotate(90deg); }
+
+  .detail-row { display: none; }
+  .detail-row.show { display: table-row; }
+  .detail-row td { padding: 0 20px 20px 20px; border-bottom: 1px solid var(--line); background: #fafbfc; }
+
+  .headlines-list { list-style: none; padding: 0; display: grid; gap: 8px; }
+  .headlines-list li { padding: 10px 14px; background: #fff; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
+  .headlines-list li .idx { color: var(--accent); font-weight: 700; font-size: 12px; min-width: 20px; }
+
+  .detail-actions { margin-top: 12px; }
+  .detail-actions a { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; padding: 6px 14px; background: var(--accent); color: #fff; border-radius: 8px; text-decoration: none; transition: background .2s; }
+  .detail-actions a:hover { background: #1542b0; color: #fff; }
+
+  @media (max-width: 768px) {
+    .archive-table thead th:nth-child(3),
+    .archive-table thead th:nth-child(4),
+    .archive-row td:nth-child(3),
+    .archive-row td:nth-child(4) { display: none; }
+    .tag-chips { display: none; }
+  }
+</style>
 </head>
 <body>
 
@@ -49,21 +96,24 @@
   <section class="hero">
     <div class="hero-eyebrow">ARCHIVE</div>
     <h1>历史<span class="gradient-text">日报</span>归档</h1>
-    <p>按日期浏览过往所有 AI 每日速递。</p>
+    <p>点击行展开查看要闻，最新日报排在最前面。</p>
   </section>
 
-  <section class="section-head">
-    <h2>本月归档</h2>
-    <span class="badge badge-new" id="archiveCount">加载中...</span>
-  </section>
-
-  <div id="archiveCalendar"></div>
-
-  <section class="section-head" style="margin-top:40px">
-    <h2>全部历史</h2>
-  </section>
-
-  <div id="archiveList"></div>
+  <div class="archive-wrap">
+    <table class="archive-table">
+      <thead>
+        <tr>
+          <th style="width:100px">日期</th>
+          <th>标题</th>
+          <th style="width:80px">要闻</th>
+          <th style="width:200px">标签</th>
+        </tr>
+      </thead>
+      <tbody id="archiveBody">
+        <tr><td colspan="4" style="text-align:center;padding:40px;color:var(--muted)">加载中...</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </main>
 
@@ -77,6 +127,75 @@
   <p>AI 每日速递 &copy; 2026 · 由 Claude AI 驱动自动生成</p>
 </footer>
 
-<script src="/js/site.js"></script>
+<script>
+(async function() {
+  const tbody = document.getElementById('archiveBody');
+
+  try {
+    const resp = await fetch('/data/index.json');
+    const data = await resp.json();
+    const dates = (data.dates || []).sort((a, b) => b.date.localeCompare(a.date));
+
+    if (dates.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:40px;color:var(--muted)">暂无历史日报</td></tr>';
+      return;
+    }
+
+    let html = '';
+    dates.forEach((item, i) => {
+      const y = '20' + item.date.substring(0, 2);
+      const m = item.date.substring(2, 4);
+      const d = item.date.substring(4, 6);
+      const tags = (item.tags || []).slice(0, 6);
+      const tagHtml = tags.map((t, ti) => {
+        const cls = t === '融资' || t === 'IPO' ? 'tag-chip hot' : 'tag-chip';
+        return `<span class="${cls}">${t}</span>`;
+      }).join('');
+
+      html += `<tr class="archive-row" data-idx="${i}" data-expanded="false">
+        <td class="date-col">${m}.${d}</td>
+        <td class="title-col">${item.title}</td>
+        <td class="count-col"><span class="count-badge">${(item.headlines || []).length} 条</span></td>
+        <td class="tag-chips">${tagHtml}</td>
+      </tr>
+      <tr class="detail-row" id="detail-${i}">
+        <td colspan="4">
+          <ol class="headlines-list">
+            ${(item.headlines || []).map((h, hi) => `<li><span class="idx">${hi + 1}.</span><span>${h}</span></li>`).join('')}
+          </ol>
+          <div class="detail-actions">
+            <a href="/archive/${item.date}.html">📄 查看完整日报</a>
+          </div>
+        </td>
+      </tr>`;
+    });
+
+    tbody.innerHTML = html;
+
+    // Click to expand/collapse
+    tbody.addEventListener('click', (e) => {
+      const row = e.target.closest('.archive-row');
+      if (!row) return;
+      const idx = row.dataset.idx;
+      const detail = document.getElementById('detail-' + idx);
+      const isExpanded = row.dataset.expanded === 'true';
+
+      if (isExpanded) {
+        row.dataset.expanded = 'false';
+        row.classList.remove('expanded');
+        detail.classList.remove('show');
+      } else {
+        row.dataset.expanded = 'true';
+        row.classList.add('expanded');
+        detail.classList.add('show');
+      }
+    });
+  } catch (err) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:40px;color:var(--muted)">加载失败，请刷新重试</td></tr>';
+    console.error('Archive load error:', err);
+  }
+})();
+</script>
+
 </body>
 </html>
