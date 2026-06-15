@@ -2,18 +2,36 @@
   "dates": [
     {
       "date": "0615",
-      "title": "AI 速递 · 2026.06.15",
+      "title": "今天 06.15 AI 速递",
       "headlines": [
-        "美国商务部首次对 AI 模型实施出口管制，Anthropic Fable 5/Mythos 5 被禁，全球 AI 格局重塑",
-        "Alphabet 启动 $847.5 亿股权融资（伯克希尔 $100 亿），用于 TPU 芯片和数据中心扩张",
-        "OpenAI 通用模型自主解决 Erdős 1946 年平面单位距离问题，外部数学家验证通过",
-        "巴西市政 IT 公司开源模型 Rio 3.5 397B 杀入全球第一梯队，超越 Qwen 3.7 Plus",
-        "蚂蚁集团密测 AI 版支付宝，阿里巴巴辟谣周靖人辞职",
-        "苹果新版 Siri 发布，与 Google 合作开发，具备屏幕感知和逻辑推理",
-        "燧原科技今日 IPO 上会，国产 GPU 四小龙即将齐聚资本市场",
-        "Microsoft 发布 Web IQ——面向 AI Agent 而非人类用户的搜索引擎"
+        "核心要闻简报",
+        "🌍 国际大模型动态",
+        "美国首次对 AI 模型实施出口管制，Anthropic Fable 5 被禁",
+        "OpenAI 模型自主解决 80 年几何难题",
+        "苹果新版 Siri 发布：现代 AI 终于来了，但仍落后 6 个月",
+        "Microsoft 发布 Web IQ——给 AI Agent 用的搜索引擎",
+        "🌍 国际动态 · 下午增量",
+        "Meta 完成与 Manus AI 切割，解除 $20 亿交易"
       ],
-      "tags": ["出口管制","Anthropic","Alphabet","OpenAI","开源","蚂蚁","苹果","燧原","Microsoft","IPO"]
+      "tags": [
+        "Gemini",
+        "GPT",
+        "DeepSeek",
+        "Alphabet",
+        "出口管制",
+        "Agent",
+        "大模型",
+        "智谱",
+        "OpenAI",
+        "阿里",
+        "苹果",
+        "Microsoft",
+        "融资",
+        "开源",
+        "蚂蚁"
+      ],
+      "hasUpdate": true,
+      "updateTime": "15:06"
     },
     {
       "date": "0612",
@@ -28,8 +46,24 @@
         "字节跳动：豆包 DAU 1.4 亿 / 开源 Bernini / 自研 CPU",
         "智谱 AI 港股市值一度超小米 / 启动科创板 IPO / GLM-5 全面开源"
       ],
-      "tags": ["融资","Google","Kimi","字节","阿里","OpenAI","Claude","DeepSeek","腾讯","Agent","IPO","Gemini","GPT","智谱","Anthropic"]
+      "tags": [
+        "融资",
+        "Google",
+        "Kimi",
+        "字节",
+        "阿里",
+        "OpenAI",
+        "Claude",
+        "DeepSeek",
+        "腾讯",
+        "Agent",
+        "IPO",
+        "Gemini",
+        "GPT",
+        "智谱",
+        "Anthropic"
+      ]
     }
   ],
-  "lastUpdated": "2026-06-15T09:40:00"
+  "lastUpdated": "2026-06-15T15:06:45.981746"
 }
