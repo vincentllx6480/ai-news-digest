@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>今天 06.15 AI 速递</title>
-<meta name="description" content="AI 每日速递 2026.06.15：月之暗面 $30B 估值、Google Gemini 3.5 Pro、DeepSeek V4 昇腾训练、AI 监管密集出台、创作者生态 AI 化">
+<meta name="description" content="AI 每日速递 2026.06.15：美国首次对AI模型实施出口管制阻断Anthropic Fable 5、Alphabet融资$847.5亿、OpenAI解决80年数学难题、巴西开源模型冲入第一梯队">
 <link rel="icon" type="image/svg+xml" href="/ai-news-digest/assets/favicon.svg">
 <link rel="stylesheet" href="/ai-news-digest/css/site.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,17 +16,13 @@
   .tag-chip.policy { background: #f3e8ff; color: #7c3aed; }
   .tag-chip.platform { background: #fce7f3; color: #9d174d; }
   .tag-chip.product { background: #dcfce7; color: #166534; }
-
   .brief-list { list-style: none; padding: 0; display: grid; gap: 6px; }
   .brief-list li { padding: 10px 16px; background: var(--panel-alt); border-radius: 10px; font-size: 14px; display: flex; gap: 10px; align-items: flex-start; }
   .brief-list li .dot { color: var(--accent); font-weight: 700; flex-shrink: 0; }
-
   .section-icon { font-size: 20px; }
-
   .tomorrow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
   .tomorrow-item { padding: 16px; background: var(--panel-alt); border: 1px solid var(--line); border-radius: var(--radius); font-size: 13px; line-height: 1.6; }
   .tomorrow-item h4 { font-size: 14px; margin-bottom: 4px; }
-
   .footer-note { margin-top: 8px; font-size: 12px; color: var(--muted); }
   .footer-note a { color: var(--accent); }
 </style>
@@ -37,10 +33,7 @@
 
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="/ai-news-digest/" class="nav-brand">
-      <span class="dot"></span>
-      AI 每日速递
-    </a>
+    <a href="/ai-news-digest/" class="nav-brand"><span class="dot"></span>AI 每日速递</a>
     <div class="nav-links">
       <a href="/ai-news-digest/" class="active">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -69,38 +62,38 @@
 <main class="site-main">
 
   <section class="hero">
-    <div class="hero-eyebrow"><span class="live-dot"></span> 2026年6月15日 · 星期一</div>
+    <div class="hero-eyebrow"><span class="live-dot"></span> 2026年6月15日 · 星期一 · 9:10 更新</div>
     <h1>今天 <span class="gradient-text">06.15</span> AI 速递</h1>
-    <p>月之暗面冲刺 $30B 估值 · Google Gemini 3.5 Pro 将至 · DeepSeek 昇腾全参数训练 · 全球 AI 监管密集出拳</p>
+    <p>美国首次对 AI 模型实施出口管制阻断 Anthropic · Alphabet 融资 $847.5 亿 · OpenAI 解决 80 年数学难题 · 巴西开源模型冲入第一梯队</p>
     <div class="tag-row">
       <span class="tag-chip model">大模型</span>
       <span class="tag-chip fund">融资快讯</span>
       <span class="tag-chip policy">政策监管</span>
-      <span class="tag-chip platform">AI创作者</span>
-      <span class="tag-chip product">创业机会</span>
+      <span class="tag-chip platform">开源</span>
+      <span class="tag-chip product">产品动态</span>
     </div>
   </section>
 
   <section class="stats-row">
     <div class="stat-card">
-      <div class="stat-value">$12B+</div>
-      <div class="stat-label">本周全球AI融资总额</div>
-      <div class="stat-trend up">↑ 持续活跃</div>
+      <div class="stat-value">$847.5亿</div>
+      <div class="stat-label">Alphabet 单笔AI融资</div>
+      <div class="stat-trend up">↑ 史上最大股权融资之一</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">3家</div>
-      <div class="stat-label">AI公司启动IPO进程</div>
-      <div class="stat-trend up">↑ Anthropic/月之暗面/智谱</div>
+      <div class="stat-value">140万亿</div>
+      <div class="stat-label">中国日均词元调用量</div>
+      <div class="stat-trend up">↑ 较2024增长超千倍</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">7x</div>
-      <div class="stat-label">月之暗面半年估值涨幅</div>
-      <div class="stat-trend up">↑ $4B → $30B</div>
+      <div class="stat-value">$8000亿</div>
+      <div class="stat-label">阿里预警年度云资本支出</div>
+      <div class="stat-trend up">↑ 全球AI基建狂飙</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">$30B</div>
-      <div class="stat-label">月之暗面最新目标估值</div>
-      <div class="stat-trend up">↑ 推进香港IPO</div>
+      <div class="stat-value">首次</div>
+      <div class="stat-label">美国对AI模型实施出口管制</div>
+      <div class="stat-trend up">🔥 全球AI格局重塑</div>
     </div>
   </section>
 
@@ -110,14 +103,14 @@
       <span class="badge badge-hot">8 条</span>
     </div>
     <ul class="brief-list">
-      <li><span class="dot">●</span>月之暗面寻求 $30B 估值新一轮融资，半年估值翻 7 倍，同时推进香港 IPO</li>
-      <li><span class="dot">●</span>Google Gemini 3.5 Pro 本月发布，目标缩小与 Claude 的推理差距</li>
-      <li><span class="dot">●</span>特朗普签署 AI 行政令：先进模型发布前需提交政府"自愿审查"，Anthropic Mythos 为直接推手</li>
-      <li><span class="dot">●</span>中央网信办开设"涉AI应用乱象举报专区"，14类问题纳入专项整治</li>
-      <li><span class="dot">●</span>Flourish 获 $500M 融资（Bezos 领投），脑启发 AI 芯片功耗仅 20-50W</li>
-      <li><span class="dot">●</span>DeepSeek V4 首次实现 1000 颗华为昇腾 910C 全参数训练，彻底去英伟达</li>
-      <li><span class="dot">●</span>YouTube Brandcast 2026 宣布 AI 赞助匹配、创作者内容接管等变现新工具</li>
-      <li><span class="dot">●</span>欧盟 AI 法案将于 8 月生效，高风险 AI 系统面临 11 项强制性合规要求</li>
+      <li><span class="dot">●</span>美国商务部首次对 AI 模型实施出口管制，Anthropic Fable 5/Mythos 5 被禁止向海外用户开放，亚马逊 CEO 被指为"推手"</li>
+      <li><span class="dot">●</span>Alphabet 启动 $847.5 亿股权融资（伯克希尔 $100 亿），用于 TPU 芯片和数据中心扩张，2026 总资本支出 $1800-1900 亿</li>
+      <li><span class="dot">●</span>OpenAI 通用模型自主解决 Erdős 1946 年提出的平面单位距离问题，外部数学家验证通过</li>
+      <li><span class="dot">●</span>巴西里约市政 IT 公司开源模型 Rio 3.5 397B 杀入全球第一梯队，超越 Qwen 3.7 Plus</li>
+      <li><span class="dot">●</span>蚂蚁集团密测 AI 版支付宝，阿里巴巴辟谣"周靖人辞职"称纯属谣言</li>
+      <li><span class="dot">●</span>苹果推出新版 Siri（与 Google 合作开发），具备屏幕感知和逻辑推理，但仍落后头部 AI 约 6 个月</li>
+      <li><span class="dot">●</span>燧原科技今日上会，"国产 GPU 四小龙"即将在资本市场聚齐</li>
+      <li><span class="dot">●</span>Microsoft 发布 Web IQ——面向 AI Agent 而非人类用户的搜索引擎</li>
     </ul>
   </section>
 
@@ -127,37 +120,38 @@
     </div>
     <div class="card-grid">
       <div class="card">
-        <div class="card-tag tag-model">Google</div>
-        <h3>Gemini 3.5 Pro 本月发布</h3>
-        <p>Gemini 3.5 Flash 已在 Google I/O 正式 GA，API 定价 $1.50/$9.00 每百万 token。Gemini 3.5 Pro 将在 6 月发布，定位为缩小推理差距的关键版本。Sundar Pichai 原话："give us until next month。"</p>
+        <div class="card-tag tag-policy">重磅</div>
+        <h3>美国首次对 AI 模型实施出口管制，Anthropic Fable 5 被禁</h3>
+        <p>美国商务部将 Anthropic 最新的 Claude Fable 5 及 Mythos 5 列入出口管制名单，禁止海外用户及在美外籍人员访问。亚马逊 CEO 贾西联合多位科技高管向特朗普政府报告了该模型存在安全漏洞。韩国三星、SK 海力士、SK 电信等企业参与的 Glasswing 项目集体被锁。Anthropic CEO Dario Amodei 据报拒绝了政府"自愿修复或下架"的要求。加拿大、英国、澳大利亚等盟国企业亦受影响。</p>
         <div class="card-meta">
-          <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank" class="source-link">WaveSpeed</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-model">Anthropic</div>
-        <h3>Claude Mythos 1 扩圈至 150 家企业</h3>
-        <p>Mythos 1 自 4 月通过"Project Glasswing"限量发布后，在 1000+ 开源项目中发现 23,019 个漏洞。特朗普签署 AI 行政令当日，Anthropic 宣布将访问范围从 ~50 家扩大至全球 ~150 家企业。Claude Sonnet 4.8 传闻仍待确认。</p>
-        <div class="card-meta">
-          <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank" class="source-link">WaveSpeed</a>
-          <a href="https://news.bjd.com.cn/2026/06/03/11784452.shtml" target="_blank" class="source-link">北京日报</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-model">xAI</div>
-        <h3>Grok 5 训练中，Q3 更可能发布</h3>
-        <p>xAI 的 Grok 5（~6T 参数 MoE、1.5M 上下文、原生多模态）仍在 Colossus 2 上训练。Polymarket 显示 6 月 30 日前发布概率仅 12-33%，Q3 发布更现实。SpaceX（含 xAI）正推进 $75B IPO。</p>
-        <div class="card-meta">
-          <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank" class="source-link">WaveSpeed</a>
+          <a href="https://www.ajupress.com/view/20260615084570856" target="_blank" class="source-link">AJU Press</a>
+          <a href="https://www.afpbb.com/articles/-/3639561" target="_blank" class="source-link">AFP</a>
+          <a href="http://www.nbd.com.cn/articles/2026-06-15/4426140.html" target="_blank" class="source-link">每日经济新闻</a>
         </div>
       </div>
       <div class="card">
         <div class="card-tag tag-model">OpenAI</div>
-        <h3>OpenAI 6 月暂无重大发布</h3>
-        <p>与 Google、Anthropic、xAI 的密集动作不同，OpenAI 在 6 月保持安静。GPT-5 级别模型的发布尚无时间表。CEO Sam Altman 推迟访韩计划。但 OpenAI 员工以个人身份参与了 AI 法律科技创业公司 Courtroom 的投资。</p>
+        <h3>OpenAI 模型自主解决 80 年几何难题</h3>
+        <p>OpenAI 宣布通用 AI 模型自主解决了 Paul Erdős 1946 年提出的平面单位距离问题，发现了优于已知网格模式的新的点排列方案。外部数学家已验证证明。公司称这是 AI 在科学研究中推理能力的里程碑。同时，OpenAI 收购编程助手初创公司 Ona，团队整体加入以强化 Codex 竞争力。</p>
         <div class="card-meta">
-          <a href="https://www.36kr.com/p/3849942472512769" target="_blank" class="source-link">36氪</a>
-          <a href="https://www.law.com/legaltechnews/2026/06/11/courtroom-simulator-startup-receives-funding-from-rel-labs-open-ai-employees-/" target="_blank" class="source-link">Law.com</a>
+          <a href="http://www.szdaily.com/content/2026-06/15/content_32089640.htm" target="_blank" class="source-link">Shenzhen Daily</a>
+          <a href="https://www.semi.org.cn/site/semi/article/b4605458df3c4cac99b85365e5b1c54a.html" target="_blank" class="source-link">SEMI</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-model">Apple</div>
+        <h3>苹果新版 Siri 发布：现代 AI 终于来了，但仍落后 6 个月</h3>
+        <p>Bloomberg 的 Mark Gurman 报道，苹果与 Google 合作开发的新版 Siri 是一次真正升级——具备逻辑推理、个人上下文感知、屏幕理解能力。但整体水平仍落后 ChatGPT/Claude 约 6 个月。对于大多数用户而言，新版 Siri 可能已足够消除打开第三方 AI 应用的需求。</p>
+        <div class="card-meta">
+          <a href="https://www.163.com/dy/article/KVETFAER0556I485.html" target="_blank" class="source-link">网易</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-platform">Microsoft</div>
+        <h3>Microsoft 发布 Web IQ——给 AI Agent 用的搜索引擎</h3>
+        <p>Microsoft 推出全新搜索引擎 Web IQ，定位为面向 AI Agent 而非人类用户的搜索基础设施。这是首次有科技巨头专门为 AI-to-Web 交互设计搜索产品。同期 Google 将 AI Plus 订阅从 $7.99 降至 $4.99/月，存储空间翻倍，价格战加剧。</p>
+        <div class="card-meta">
+          <a href="https://www.ajupress.com/view/20260615084570856" target="_blank" class="source-link">AJU Press</a>
         </div>
       </div>
     </div>
@@ -169,36 +163,36 @@
     </div>
     <div class="card-grid">
       <div class="card">
-        <div class="card-tag tag-fund">融资</div>
-        <h3>月之暗面估值 $30B，半年涨 7 倍</h3>
-        <p>Kimi 母公司月之暗面启动新一轮 $1-2B 融资，目标估值 $30B（去年 12 月为 $4B）。4 月 ARR 突破 $200M，香港 IPO 加速推进中。这是其半年内第三轮大额融资。</p>
+        <div class="card-tag tag-model">开源</div>
+        <h3>巴西 Rio 3.5 397B 开源模型杀入全球第一梯队</h3>
+        <p>巴西里约热内卢市政府旗下 IT 公司 IplanRIO 发布的 Rio 3.5 397B 开源模型，基于 Qwen3.5-397B-A17B 构建，MoE 架构（397B 总参数/17B 激活），支持百万级上下文窗口，在多项基准测试中超越 Qwen 3.7 Plus 等主流模型，成为开源 SOTA。</p>
         <div class="card-meta">
-          <a href="https://theedgemalaysia.com/node/806162" target="_blank" class="source-link">Bloomberg</a>
-          <a href="https://eu.36kr.com/en/p/3844092401666564" target="_blank" class="source-link">36氪</a>
+          <a href="https://36kr.com/p/3852558555796745" target="_blank" class="source-link">36氪</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-tag tag-model">DeepSeek</div>
-        <h3>DeepSeek V4：1000 颗昇腾 910C 全参数训练</h3>
-        <p>DeepSeek V4（1.6T MoE、384 专家、1M 上下文）首次实现完全不依赖英伟达 GPU，在 1000 颗华为昇腾 910C 上完成全参数训练。FlashMLA 推理引擎使推理速度提升 35 倍。同步寻求 ~$50B 估值首轮融资。</p>
+        <div class="card-tag tag-model">华为</div>
+        <h3>华为云发布 Agentic Infra 新范式 + AICS 灵衢智算集群</h3>
+        <p>华为云提出"Agentic Infra"新范式，发布 AICS 灵衢智算集群等十余款新品，推动 AI 基础设施从"模型训练"向"智能体运行"转型。中国日均词元调用量已突破 140 万亿，较 2024 年初增长超千倍。</p>
         <div class="card-meta">
-          <a href="https://hwcomputing.csdn.net/6a2b6dc210ee7a33f27b7c26.html" target="_blank" class="source-link">CSDN</a>
+          <a href="https://www.news.cn/tech/20260615/dfe3e895a2f149b9b8eaa99ebca531b0/c.html" target="_blank" class="source-link">新华网</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-tag tag-model">行业格局</div>
-        <h3>国产大模型六大派系全 MoE 化</h3>
-        <p>百度 ERNIE 5.0（~1.8T MoE）、阿里 Qwen 3.5（~1T MoE）、智谱 GLM-5.1（1M+上下文）、字节 Seed 2.0 Pro、腾讯混元（389B MoE）、MiniMax 均已全面转向 MoE 架构。开闭源分化加剧：DeepSeek/Qwen/GLM 坚持开源，百度/字节/腾讯闭源。</p>
+        <div class="card-tag tag-product">产品</div>
+        <h3>蚂蚁集团密测 AI 版支付宝，阿里否认周靖人离职</h3>
+        <p>蚂蚁集团正秘密测试 AI 版支付宝。阿里巴巴辟谣称"通义大模型负责人周靖人辞职"纯属谣言。阿里同时预警今年云基础设施资本支出可能达 $8000 亿，AI 正从云端走向终端。</p>
         <div class="card-meta">
-          <a href="https://hwcomputing.csdn.net/6a2b6dc210ee7a33f27b7c26.html" target="_blank" class="source-link">CSDN</a>
+          <a href="https://fund.eastmoney.com/a/202606153770822651.html" target="_blank" class="source-link">东方财富</a>
+          <a href="http://www3.xinhuanet.com/tech/20260615/1017b4fdeb614961bd5e51a05c34e025/c.html" target="_blank" class="source-link">新华网</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-tag tag-model">阿里</div>
-        <h3>阿里周靖人未离职，但决策层"慢性消耗"</h3>
-        <p>36氪独家：阿里通义大模型负责人周靖人仍在职，但阿里 AI 决策层正经历复杂变动。阿里云百炼平台深度整合 Qwen 系列，通义千问继续开源策略并扩大生态。</p>
+        <div class="card-tag tag-fund">芯片</div>
+        <h3>燧原科技今日上会，国产 GPU 四小龙即将齐聚</h3>
+        <p>"国产 GPU 四小龙"之一的燧原科技今日 IPO 上会，本土算力供应链加速成型。在中美 AI 芯片管控升级背景下，国产替代需求持续升温。</p>
         <div class="card-meta">
-          <a href="https://36kr.com/p/3853052753460098" target="_blank" class="source-link">36氪</a>
+          <a href="https://www.163.com/dy/article/KVEVSACD05199NPP.html" target="_blank" class="source-link">网易</a>
         </div>
       </div>
     </div>
@@ -207,63 +201,21 @@
   <section>
     <div class="section-head">
       <h2><span class="section-icon">💰</span> 融资快讯</h2>
-      <span class="badge badge-hot">8 笔</span>
+      <span class="badge badge-hot">6 笔</span>
     </div>
     <table class="data-table">
       <thead>
-        <tr><th>公司</th><th>轮次</th><th>金额</th><th>估值</th><th>领域</th><th>亮点</th></tr>
+        <tr><th>公司/机构</th><th>事件</th><th>金额</th><th>估值</th><th>领域</th><th>亮点</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>月之暗面</strong></td><td>新一轮</td><td>$1-2B</td><td>$30B</td><td>大模型/Chatbot</td><td>半年估值 7x，ARR $200M+，推进 HK IPO</td></tr>
-        <tr><td><strong>Flourish</strong></td><td>Cortex AI</td><td>$500M</td><td>$2.5B</td><td>脑启发AI芯片</td><td>Bezos 领投，功耗仅 20-50W</td></tr>
-        <tr><td><strong>Emergent</strong></td><td>新一轮</td><td>~$200M</td><td>$1.5B</td><td>Vibe-coding平台</td><td>Amazon 参投，5 月估值 5x</td></tr>
-        <tr><td><strong>DeepSeek</strong></td><td>首轮</td><td>待定</td><td>~$50B</td><td>基础大模型</td><td>首轮外部融资，坚定开源</td></tr>
-        <tr><td><strong>智谱 AI</strong></td><td>-</td><td>数亿</td><td>$80B</td><td>基础大模型</td><td>GLM-5.1 开源后股价涨 40%</td></tr>
-        <tr><td><strong>MiniMax</strong></td><td>-</td><td>-</td><td>$20B</td><td>语音多模态</td><td>海外 Hailuo AI 增长强劲，HK IPO 推进</td></tr>
-        <tr><td><strong>Equal AI</strong></td><td>B轮</td><td>$30M</td><td>-</td><td>AI应用层</td><td>印度，Prosus 领投</td></tr>
-        <tr><td><strong>GIM</strong></td><td>天使轮</td><td>¥1亿+</td><td>-</td><td>金融垂直AI</td><td>金融大模型赛道新玩家</td></tr>
+        <tr><td><strong>Alphabet</strong></td><td>股权融资</td><td>$847.5亿</td><td>-</td><td>AI基础设施</td><td>伯克希尔 $100亿，含公开增发+强制可转债+ATM</td></tr>
+        <tr><td><strong>燧原科技</strong></td><td>IPO上会</td><td>-</td><td>-</td><td>国产GPU</td><td>国产GPU四小龙即将齐聚资本市场</td></tr>
+        <tr><td><strong>OpenAI → Ona</strong></td><td>收购</td><td>未披露</td><td>-</td><td>编程助手</td><td>强化 Codex，Ona 团队整体加入</td></tr>
+        <tr><td><strong>Anthropic</strong></td><td>IPO</td><td>$650亿</td><td>$9650亿</td><td>基础大模型</td><td>Fable 5 遭出口管制当日股价承压</td></tr>
+        <tr><td><strong>SpaceX/xAI</strong></td><td>IPO推进</td><td>~$750亿</td><td>$1.75万亿</td><td>航天+AI</td><td>史上最大规模 IPO</td></tr>
+        <tr><td><strong>Waymo</strong></td><td>资产收购</td><td>$2.2亿</td><td>-</td><td>自动驾驶</td><td>购入苹果亚利桑那前 Titan 测试场地</td></tr>
       </tbody>
     </table>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2><span class="section-icon">📱</span> 社交平台 & AI创作者生态</h2>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-tag tag-platform">YouTube</div>
-        <h3>Brandcast 2026：AI 变现大升级</h3>
-        <p>YouTube 宣布 H2 2026 推出 AI 赞助匹配（自动撮合品牌与创作者）、创作者内容接管广告、2 键 TV 结账（Google Pay）。Gemini Omni Shorts 混音免费开放，AI 数字水印保护原创。</p>
-        <div class="card-meta">
-          <a href="https://theinfluencermarketingfactory.com/best-creator-platforms-2026/" target="_blank" class="source-link">Influencer Marketing Factory</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-platform">Instagram</div>
-        <h3>AI Creator 标签 + AI Studio</h3>
-        <p>Instagram 推出账号级"AI Creator"透明度标签（显示在 bio 和每篇帖子），Meta AI Studio 免费开放（可构建自己的 AI 聊天机器人），Edits App 每周基于历史 Reels 推送 10 个 AI 内容创意。</p>
-        <div class="card-meta">
-          <a href="https://www.socialpilot.co/blog/social-media-updates" target="_blank" class="source-link">SocialPilot</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-platform">TikTok</div>
-        <h3>TikTok Shop AI 工具矩阵</h3>
-        <p>TikTok 推出 AI 时尚视频制作器（产品图→带货视频）、AI 配音（合成语音+口型同步）、AI 商品 Listing（自动生成标题/描述/分类）。GMV Max 全自动广告投放上线。</p>
-        <div class="card-meta">
-          <a href="https://theinfluencermarketingfactory.com/best-creator-platforms-2026/" target="_blank" class="source-link">Influencer Marketing Factory</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-platform">行业趋势</div>
-        <h3>84% 创作者已使用 AI 工具</h3>
-        <p>Archive 2026 创作者经济报告：全球创作者经济规模 $234.65B，84% 创作者在日常工作流中使用 AI 工具。头部工具：CapCut、Canva、ChatGPT/Claude、Synthesia、ElevenLabs。跨平台 AI 工具栈成为竞争力关键。</p>
-        <div class="card-meta">
-          <a href="https://ai.plainenglish.io/ai-tools-for-every-social-media-platform-the-ultimate-2026-guide-972eff1b699d" target="_blank" class="source-link">AI PlainEnglish</a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section>
@@ -273,35 +225,35 @@
     <div class="card-grid">
       <div class="card">
         <div class="card-tag tag-policy">美国</div>
-        <h3>特朗普签署 AI 行政令：模型发布前"自愿审查"</h3>
-        <p>6/2 签署，要求 AI 企业发布先进模型前最多 30 天提交政府安全评估。由 Anthropic Mythos 发现 23,019 个漏洞直接推动。强调"自愿参与"非强制许可，科技界反对下审查期从 90 天缩短至 30 天。</p>
+        <h3>首次对 AI 模型实施出口管制，全球 AI 格局重塑</h3>
+        <p>美国商务部将 Claude Fable 5 / Mythos 5 列入出口管制，这是史上首次对 AI 模型本身而非芯片实施管控。韩国三星、SK 海力士等参与的 Glasswing 项目被集体锁。加拿大、英国、澳大利亚等盟国企业亦受波及。此举标志着 AI 正式成为地缘政治武器。</p>
         <div class="card-meta">
-          <a href="https://news.bjd.com.cn/2026/06/03/11784452.shtml" target="_blank" class="source-link">北京日报</a>
-          <a href="https://news.ifeng.com/c/8teNmgDJ0FF" target="_blank" class="source-link">凤凰网</a>
+          <a href="https://www.afpbb.com/articles/-/3639561" target="_blank" class="source-link">AFP</a>
+          <a href="https://www.newdaily.co.kr/site/data/html/2026/06/15/2026061500027.html" target="_blank" class="source-link">NewDaily</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-tag tag-policy">中国</div>
-        <h3>中央网信办开设"涉AI应用乱象举报专区"</h3>
-        <p>6 月 12 日起，12377 热线/网站/微信公众号三渠道受理 14 类问题：未备案大模型、AI 生成内容未标识、AI"魔改"经典、虚假信息、侵害未成年人权益等，配合"清朗·整治AI应用乱象"专项行动。</p>
+        <div class="card-tag tag-policy">加拿大</div>
+        <h3>加拿大总理警告：过度依赖美国 AI 的危险</h3>
+        <p>加拿大总理 Mark Carney 在访问爱尔兰时警告，Anthropic 出口管制事件证明了过度依赖少数美国 AI 供应商的风险。他呼吁 AI 主权和供应商多元化，指出加拿大、英国、澳大利亚等盟国均被此次禁令波及。</p>
         <div class="card-meta">
-          <a href="https://app.xinhuanet.com/news/article.html?articleId=2026061274798dec0d3d4928b8fe47131fd3a4e8" target="_blank" class="source-link">新华社</a>
+          <a href="https://www.ajupress.com/view/20260615084570856" target="_blank" class="source-link">AJU Press</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-tag tag-policy">中国</div>
-        <h3>中国收紧海外 AI 投资管制</h3>
-        <p>国务院发布新规（7/1 生效），首次赋予政府强制撤销已完成海外交易的权力。此前已叫停 Meta 对 Manus 的收购。新规特别限制 AI 等敏感技术领域跨境人才转移和投资安全审查。</p>
+        <div class="card-tag tag-policy">行业</div>
+        <h3>AI 安全攻击已开始，零信任架构需重新定义</h3>
+        <p>AppGate CEO 在安全峰会上警告：AI 驱动的网络攻击已实际发生，攻击者利用 AI 自动化侦察、漏洞发现和利用，速度前所未有。传统 VPN 安全已过时，Zero Trust 架构需彻底重新定义。</p>
         <div class="card-meta">
-          <a href="https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%9C%8B%E9%9A%9B/60355551" target="_blank" class="source-link">香港01</a>
+          <a href="http://www.datanet.co.kr/news/articleView.html?idxno=212333" target="_blank" class="source-link">DataNet</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-tag tag-policy">欧盟</div>
-        <h3>欧盟 AI 法案 8 月生效，最高罚 €35M</h3>
-        <p>全球首部全面 AI 监管法律将于 2026 年 8 月正式生效。采用风险分级框架（禁止/高风险/有限风险），高风险系统需满足 11 项强制要求，违规企业最高可被罚 3500 万欧元或全球年收入 7%。</p>
+        <div class="card-tag tag-policy">产业</div>
+        <h3>AI 加速走向物理世界：人形机器人先在工厂规模化</h3>
+        <p>Bosch Connected World 大会上，阿里蔡崇信、Bosch 总裁等达成共识：AI 正从数字内容转向物理世界应用。关键判断：人形机器人将先在工厂而非家庭规模化；德国和中国定位为工业 AI 数据领导者。</p>
         <div class="card-meta">
-          <a href="https://news.cri.cn/2026-06-03/e2367fad-8bfa-de99-705d-b6c3ca37605b.html" target="_blank" class="source-link">国际在线</a>
+          <a href="http://www3.xinhuanet.com/tech/20260615/1017b4fdeb614961bd5e51a05c34e025/c.html" target="_blank" class="source-link">新华网</a>
         </div>
       </div>
     </div>
@@ -313,48 +265,48 @@
       <span class="badge badge-new">5 个机会</span>
     </div>
     <div class="opp-card">
-      <h3>1. AI 视频合规标注 SaaS</h3>
-      <p>中央网信办强制要求 AI 生成内容标识 + 欧盟 AI 法案 8 月生效 + Instagram 推出 AI Creator 标签。为短视频平台/MCN 提供自动化 AI 内容识别与合规标注工具，一键为批量内容添加合规水印和标签，按 API 调用量收费。</p>
+      <h3>1. AI 模型合规审查与国际转售</h3>
+      <p>美国首次对 AI 模型实施出口管制，大量海外企业被锁。机会：为受限市场提供合规的模型评估、替代方案推荐和本地部署服务，或帮助国内企业评估"被断供"风险并制定应急预案。目标客户：韩国/日本/东南亚使用美国闭源模型的企业。</p>
       <div class="opp-meta">
-        <span class="opp-chip">📊 市场：$234B 创作者经济</span>
-        <span class="opp-chip">🔧 门槛：中低</span>
+        <span class="opp-chip">📊 市场：受出口管制影响的 AI 市场 $100B+</span>
+        <span class="opp-chip">🔧 门槛：中高</span>
+        <span class="opp-chip">⏰ 窗口：立即</span>
+      </div>
+    </div>
+    <div class="opp-card">
+      <h3>2. AI Agent 搜索引擎优化（AEO）</h3>
+      <p>Microsoft Web IQ 的发布标志着"AI-to-Web"搜索时代开启。机会：提供 AEO（Agent Engine Optimization）服务，类似 SEO 但面向 AI 爬虫，帮助企业内容和 API 被 AI Agent 更好地发现和调用。</p>
+      <div class="opp-meta">
+        <span class="opp-chip">📊 市场：新兴蓝海</span>
+        <span class="opp-chip">🔧 门槛：中</span>
         <span class="opp-chip">⏰ 窗口：1-3 月</span>
       </div>
     </div>
     <div class="opp-card">
-      <h3>2. 国产芯片适配中间件</h3>
-      <p>DeepSeek V4 证明昇腾 910C 可全参数训练，但迁移成本仍高。提供"英伟达→国产芯片"模型迁移中间件，自动转换 CUDA 代码、优化显存分配、提供性能对比报告。目标客户：需信创合规的政企 AI 团队。</p>
+      <h3>3. 端侧 AI 智能体开发工具链</h3>
+      <p>华为提出 Agentic Infra + 荣耀发布端侧智能体 + 中国日均 140 万亿 Token 调用。机会：为中小企业提供端侧 AI 智能体的低代码开发平台，整合华为/荣耀/小米端侧算力，降低 Agent 开发门槛。</p>
       <div class="opp-meta">
-        <span class="opp-chip">📊 市场：国产芯片替代千亿市场</span>
+        <span class="opp-chip">📊 市场：端侧 AI 市场 CAGR 40%+</span>
+        <span class="opp-chip">🔧 门槛：中</span>
+        <span class="opp-chip">⏰ 窗口：1-2 月</span>
+      </div>
+    </div>
+    <div class="opp-card">
+      <h3>4. 国产 GPU 算力调度平台</h3>
+      <p>燧原科技上会 + DeepSeek 昇腾全参数训练 + AI 模型出口管制升级。机会：构建多品牌国产 GPU（燧原/昇腾/寒武纪/摩尔线程）统一算力调度平台，帮助企业无缝迁移英伟达→国产芯片，按算力时长收费。</p>
+      <div class="opp-meta">
+        <span class="opp-chip">📊 市场：国产 GPU 替代千亿市场</span>
         <span class="opp-chip">🔧 门槛：高</span>
         <span class="opp-chip">⏰ 窗口：3-6 月</span>
       </div>
     </div>
     <div class="opp-card">
-      <h3>3. TikTok Shop AI 代运营</h3>
-      <p>TikTok 密集推出 AI 电商工具（视频制作/配音/Listing/GMV Max），但商家学习成本高。提供一站式 AI 电商代运营：用 TikTok AI 工具矩阵 + CapCut + 自研工作流，为跨境品牌批量生产本土化带货内容，按 GMV 分成。</p>
+      <h3>5. AI 安全审计即服务</h3>
+      <p>AppGate 警告 AI 攻击已开始 + Fable 5 因安全漏洞被禁。机会：为企业提供 AI 模型安全审计 SaaS（自动化红队测试 + 越狱检测 + 漏洞扫描），尤其针对使用开源模型的国内企业，按模型规模收费。</p>
       <div class="opp-meta">
-        <span class="opp-chip">📊 市场：TikTok Shop GMV 增速 200%+</span>
-        <span class="opp-chip">🔧 门槛：低</span>
-        <span class="opp-chip">⏰ 窗口：1-2 月</span>
-      </div>
-    </div>
-    <div class="opp-card">
-      <h3>4. AI 创作者工具导航 + 培训</h3>
-      <p>84% 创作者使用 AI 但效率参差不齐。做一个"AI Creator Stack"垂直导航站 + 付费课程：按平台（YT/IG/TT）× 场景（脚本/剪辑/封面/数据分析）推荐最优 AI 工具组合，附实操 SOP，月费 $19/mo。</p>
-      <div class="opp-meta">
-        <span class="opp-chip">📊 市场：Creator Tools 搜索量 +150%</span>
-        <span class="opp-chip">🔧 门槛：低</span>
-        <span class="opp-chip">⏰ 窗口：立即</span>
-      </div>
-    </div>
-    <div class="opp-card">
-      <h3>5. 欧盟 AI 法案合规咨询</h3>
-      <p>2026 年 8 月生效，高风险 AI 系统需满足 11 项强制要求。大量中小企业未准备。提供轻量级合规评估 SaaS（自检问卷→差距分析→整改清单）+ 律师网络对接，$999/次评估。</p>
-      <div class="opp-meta">
-        <span class="opp-chip">📊 市场：类比 GDPR 合规 $12B</span>
-        <span class="opp-chip">🔧 门槛：中</span>
-        <span class="opp-chip">⏰ 窗口：1-2 月</span>
+        <span class="opp-chip">📊 市场：AI 安全市场 $50B+ 预测</span>
+        <span class="opp-chip">🔧 门槛：高</span>
+        <span class="opp-chip">⏰ 窗口：1-3 月</span>
       </div>
     </div>
   </section>
@@ -368,14 +320,14 @@
         <tr><th>公司/领域</th><th>指标</th><th>数值</th><th>趋势</th></tr>
       </thead>
       <tbody>
-        <tr><td>月之暗面</td><td>估值</td><td>$30B</td><td><span class="trend-up">↑ 7x (6个月)</span></td></tr>
-        <tr><td>DeepSeek</td><td>估值</td><td>~$50B</td><td><span class="trend-up">↑ 首轮</span></td></tr>
-        <tr><td>智谱 AI</td><td>估值</td><td>$80B</td><td><span class="trend-up">↑ 40%</span></td></tr>
-        <tr><td>Anthropic</td><td>估值</td><td>$965B</td><td><span class="trend-up">↑ IPO后</span></td></tr>
-        <tr><td>Flourish</td><td>估值</td><td>$2.5B</td><td><span class="trend-up">↑ 新融资</span></td></tr>
-        <tr><td>全球创作者经济</td><td>市场规模</td><td>$234.65B</td><td><span class="trend-up">↑ 持续增长</span></td></tr>
-        <tr><td>AI 创作者工具渗透率</td><td>使用率</td><td>84%</td><td><span class="trend-up">↑ 已成标配</span></td></tr>
-        <tr><td>国产 MoE 模型</td><td>厂商数量</td><td>8家</td><td><span class="trend-up">↑ 全面转向</span></td></tr>
+        <tr><td>Alphabet</td><td>AI融资</td><td>$847.5亿</td><td><span class="trend-up">↑ 史上最大</span></td></tr>
+        <tr><td>Anthropic</td><td>估值</td><td>$9650亿</td><td><span class="trend-down">↓ 出口管制承压</span></td></tr>
+        <tr><td>SpaceX/xAI</td><td>IPO估值</td><td>$1.75万亿</td><td><span class="trend-up">↑ 史上最大</span></td></tr>
+        <tr><td>中国日均 Token</td><td>调用量</td><td>140万亿</td><td><span class="trend-up">↑ 千倍增长</span></td></tr>
+        <tr><td>全球 AI 基建 Capex</td><td>年度支出</td><td>$7000亿+</td><td><span class="trend-up">↑ 2026 四大巨头</span></td></tr>
+        <tr><td>阿里云</td><td>年度 Capex 预警</td><td>$8000亿</td><td><span class="trend-up">↑ 超预期</span></td></tr>
+        <tr><td>Claude Fable 5</td><td>基准评分</td><td>65分（#1）</td><td><span class="trend-down">↓ 遭出口管制</span></td></tr>
+        <tr><td>AI 安全攻击</td><td>攻击频率</td><td>已开始</td><td><span class="trend-up">↑ Zero Trust 重新定义</span></td></tr>
       </tbody>
     </table>
   </section>
@@ -386,24 +338,24 @@
     </div>
     <div class="tomorrow-grid">
       <div class="tomorrow-item">
-        <h4>Google Gemini 3.5 Pro 发布日期</h4>
-        <p>Google 承诺 6 月发布，随时可能官宣。关注其在推理基准上的表现。</p>
+        <h4>Anthropic 出口管制后续</h4>
+        <p>韩国/日本/欧洲企业的反应和应对策略，是否会有豁免条款出台。</p>
       </div>
       <div class="tomorrow-item">
-        <h4>月之暗面融资进展</h4>
-        <p>$30B 估值能否落定？$200M ARR 支撑 150x 倍数的接受度是关键。</p>
+        <h4>Alphabet 融资定价</h4>
+        <p>$847.5 亿股权融资的具体定价和伯克希尔入股价。</p>
       </div>
       <div class="tomorrow-item">
-        <h4>Anthropic IPO 后续</h4>
-        <p>$965B 后市值走势 + Mythos 扩圈后的安全争议。</p>
+        <h4>燧原科技 IPO 结果</h4>
+        <p>国产 GPU 上市首日表现，将影响后续国产芯片企业上市节奏。</p>
       </div>
       <div class="tomorrow-item">
-        <h4>中国 AI 监管首批案例</h4>
-        <p>中央网信办举报专区刚上线，首批违规案例将释放监管信号。</p>
+        <h4>OpenAI 数学突破论文</h4>
+        <p>完整论文和同行评审结果，对 AI 在科学研究中的应用意义。</p>
       </div>
       <div class="tomorrow-item">
-        <h4>DeepSeek 首轮融资方案</h4>
-        <p>$50B 估值的首轮条款和领投方将影响国产大模型格局。</p>
+        <h4>Rio 3.5 开源生态</h4>
+        <p>巴西政府背景的开源模型能否持续获得社区支持和生态建设。</p>
       </div>
     </div>
   </section>
@@ -418,7 +370,7 @@
     <a href="/ai-news-digest/feed.xml">RSS</a>
   </div>
   <p>AI 每日速递 &copy; 2026 · 由 Claude AI 驱动自动生成</p>
-  <p class="footer-note">数据来源：Bloomberg、36氪、新华社、WaveSpeed、CSDN、SocialPilot 等 | <a href="https://ai-digest.paicoding.com">ai-digest.paicoding.com</a></p>
+  <p class="footer-note">数据来源：AJU Press、AFP、每日经济新闻、36氪、新华网、Bloomberg、Shenzhen Daily 等 | <a href="https://ai-digest.paicoding.com">ai-digest.paicoding.com</a></p>
 </footer>
 
 </body>
