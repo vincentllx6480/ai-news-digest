@@ -27,6 +27,17 @@ def get_date_display():
     now = datetime.now()
     return f"{now.month:02d}.{now.day:02d}"
 
+def fix_ghpages_paths(html: str) -> str:
+    """为所有本地绝对路径添加 /ai-news-digest/ 前缀（GitHub Pages 子路径）"""
+    def fix_path(m):
+        attr = m.group(1)
+        path = m.group(2)
+        if path.startswith('/ai-news-digest/') or path.startswith('//'):
+            return m.group(0)
+        return f'{attr}="/ai-news-digest{path}"'
+    return re.sub(r'(href|src)="(/[^"]*)"', fix_path, html)
+
+
 def extract_report_content(html_path: Path) -> dict:
     """从 Claude 生成的 HTML 中提取关键内容块"""
     if not html_path.exists():
@@ -37,6 +48,9 @@ def extract_report_content(html_path: Path) -> dict:
     # Extract title
     title_match = re.search(r'<title>(.*?)</title>', content)
     title = title_match.group(1) if title_match else "AI 每日速递"
+
+    # Detect afternoon update
+    is_update = 'new-badge' in content or '17:30 更新' in content
 
     # Extract meta description
     desc_match = re.search(r'<meta[^>]+name="description"[^>]+content="([^"]*)"', content)
@@ -65,6 +79,7 @@ def extract_report_content(html_path: Path) -> dict:
         "tags": tags,
         "date": get_today_str(),
         "dateDisplay": get_date_display(),
+        "isUpdate": is_update,
     }
 
 
@@ -77,20 +92,31 @@ def update_archive_index(date_str: str, metadata: dict):
     else:
         index = {"dates": [], "lastUpdated": ""}
 
+    is_update = metadata.get("isUpdate", False)
+    current_time = datetime.now().strftime("%H:%M")
+
     # Check if date already exists
     existing = [d for d in index["dates"] if d["date"] == date_str]
     if existing:
-        existing[0].update({
-            "title": metadata.get("title", ""),
-            "tags": metadata.get("tags", []),
-        })
+        entry = existing[0]
+        # Afternoon update: refresh headlines but mark as updated
+        entry["title"] = metadata.get("title", entry.get("title", ""))
+        entry["headlines"] = metadata.get("headlines", entry.get("headlines", []))[:8]
+        entry["tags"] = list(set(entry.get("tags", []) + metadata.get("tags", [])))[:15]
+        if is_update:
+            entry["hasUpdate"] = True
+            entry["updateTime"] = current_time
     else:
-        index["dates"].append({
+        entry = {
             "date": date_str,
             "title": metadata.get("title", ""),
             "headlines": metadata.get("headlines", [])[:8],
             "tags": metadata.get("tags", []),
-        })
+        }
+        if is_update:
+            entry["hasUpdate"] = True
+            entry["updateTime"] = current_time
+        index["dates"].append(entry)
 
     index["dates"].sort(key=lambda x: x["date"], reverse=True)
     index["lastUpdated"] = datetime.now().isoformat()
@@ -126,16 +152,14 @@ def update_search_index(metadata: dict):
     search_path.write_text(json.dumps(sindex, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
-def archive_report(date_str: str, source_html: Path):
+def archive_report(date_str: str, html_content: str):
     """归档 HTML 报告到 dist/archive/"""
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     dest = ARCHIVE_DIR / f"{date_str}.html"
 
-    if source_html.exists():
-        shutil.copy2(source_html, dest)
-        print(f"  Archived: {dest}")
-        return True
-    return False
+    dest.write_text(html_content, encoding='utf-8')
+    print(f"  Archived: {dest}")
+    return True
 
 
 def generate_rss():
@@ -196,13 +220,17 @@ def build_site():
         metadata = extract_report_content(source)
 
         if metadata:
-            # Copy as index.html for the site
+            # Read source HTML with path fix
+            raw_html = source.read_text(encoding='utf-8')
+            fixed_html = fix_ghpages_paths(raw_html)
+
+            # Write as index.html for the site
             dest_index = DIST_DIR / "index.html"
-            shutil.copy2(source, dest_index)
+            dest_index.write_text(fixed_html, encoding='utf-8')
             print(f"  Index updated: {dest_index}")
 
-            # Archive
-            archive_report(today, source)
+            # Archive (with fixed paths)
+            archive_report(today, fixed_html)
 
             # Update indices
             update_archive_index(today, metadata)

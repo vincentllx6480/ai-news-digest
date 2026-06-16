@@ -1,6 +1,39 @@
 {
   "dates": [
     {
+      "date": "0616",
+      "title": "今天 06.16 AI 速递",
+      "headlines": [
+        "📊 数据快览",
+        "📋 核心要闻简报",
+        "🌍 国际大模型动态",
+        "Claude Fable 5 发布后遭出口管制阻断",
+        "GPT-5 Preview + Agent API：百万上下文与持久化智能体",
+        "Gemini 3.0：80% 推理在设备端运行，重新定义隐私与延迟",
+        "Nemotron 3 Ultra 开源 + Cosmos 3 物理 AI 全模态模型",
+        "🇨🇳 国内大模型动态"
+      ],
+      "tags": [
+        "融资",
+        "Claude",
+        "OpenAI",
+        "阿里",
+        "IPO",
+        "Gemini",
+        "DeepSeek",
+        "Anthropic",
+        "GPT",
+        "智谱",
+        "Google",
+        "腾讯",
+        "Agent",
+        "字节",
+        "Kimi"
+      ],
+      "hasUpdate": true,
+      "updateTime": "09:47"
+    },
+    {
       "date": "0615",
       "title": "今天 06.15 AI 速递",
       "headlines": [
@@ -65,5 +98,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-15T15:06:45.981746"
+  "lastUpdated": "2026-06-16T09:47:10.429282"
 }
