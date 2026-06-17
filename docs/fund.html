@@ -131,8 +131,9 @@ function makeWeeklyChart(domId, weekly, signals) {
 
   const dates = weekly.map(w => w.date);
   const navs = weekly.map(w => w.nav);
+  const returns = weekly.map(w => w.return);
 
-  // Build markPoints for buy/sell signals mapped to nearest weekly date
+  // Build markPoints for buy/sell signals
   const buyMarks = [];
   const sellMarks = [];
   const seen = new Set();
@@ -150,22 +151,14 @@ function makeWeeklyChart(domId, weekly, signals) {
 
   const markPointData = [
     ...buyMarks.map(m => ({
-      name: '买入',
-      coord: m.coord,
-      value: m.value,
-      symbol: 'triangle',
-      symbolSize: 14,
-      symbolRotate: 0,
+      name: '买入', coord: m.coord, value: m.value,
+      symbol: 'triangle', symbolSize: 16, symbolRotate: 0,
       itemStyle: { color: BUY_COLOR, borderColor: '#fff', borderWidth: 1.5 },
       label: { show: false }
     })),
     ...sellMarks.map(m => ({
-      name: '卖出',
-      coord: m.coord,
-      value: m.value,
-      symbol: 'triangle',
-      symbolSize: 14,
-      symbolRotate: 180,
+      name: '卖出', coord: m.coord, value: m.value,
+      symbol: 'triangle', symbolSize: 16, symbolRotate: 180,
       itemStyle: { color: SELL_COLOR, borderColor: '#fff', borderWidth: 1.5 },
       label: { show: false }
     })),
@@ -175,23 +168,29 @@ function makeWeeklyChart(domId, weekly, signals) {
     tooltip: {
       trigger: 'axis',
       formatter: function(ps) {
+        if (!ps || ps.length === 0) return '';
         let html = '<b>' + ps[0].axisValue + '</b><br/>';
         ps.forEach(p => {
-          if (p.seriesName === '周净值') html += '净值: ' + p.value.toFixed(4) + '<br/>';
+          if (p.seriesName === '周净值') {
+            html += '净值: ' + p.value.toFixed(4) + '<br/>';
+            const idx = p.dataIndex;
+            if (idx < returns.length) {
+              const r = returns[idx];
+              html += '周涨幅: <span style="color:' + (r>=0?'#dc2626':'#16a34a') + ';font-weight:600">' + (r>=0?'+':'') + r.toFixed(2) + '%</span><br/>';
+            }
+          }
         });
-        if (markPointData.length > 0) {
-          const date = ps[0].axisValue;
-          const marks = markPointData.filter(m => m.coord[0] === date);
-          marks.forEach(m => html += '<span style="color:' + (m.name==='买入'?BUY_COLOR:SELL_COLOR) + '">' + m.name + ': ' + m.value + '</span><br/>');
-        }
+        const date = ps[0].axisValue;
+        const marks = markPointData.filter(m => m.coord[0] === date);
+        marks.forEach(m => html += '<span style="color:' + (m.name==='买入'?BUY_COLOR:SELL_COLOR) + '">' + m.name + ': ' + m.value + '</span><br/>');
         return html;
       }
     },
-    grid: { left: 50, right: 20, top: 20, bottom: 30 },
+    grid: { left: 50, right: 20, top: 30, bottom: 30 },
     xAxis: {
       type: 'category', data: dates, boundaryGap: false,
       axisLine: { lineStyle: { color: GRID_LINE } },
-      axisLabel: { color: TEXT_MUTED, fontSize: 9, rotate: 45, interval: Math.floor(dates.length / 8) },
+      axisLabel: { color: TEXT_MUTED, fontSize: 9, rotate: 45, interval: Math.floor(dates.length / 6) || 0 },
     },
     yAxis: {
       type: 'value', scale: true,
@@ -200,10 +199,22 @@ function makeWeeklyChart(domId, weekly, signals) {
     },
     series: [{
       name: '周净值', type: 'line', data: navs,
-      smooth: true, symbol: 'none',
+      smooth: true, symbol: 'circle', symbolSize: 6,
       lineStyle: { color: NAV_COLOR, width: 2 },
       areaStyle: { color: AREA_FILL },
+      itemStyle: { color: NAV_COLOR, borderColor: '#fff', borderWidth: 1 },
       markPoint: { data: markPointData, animation: false },
+      label: {
+        show: true,
+        position: 'top',
+        fontSize: 10,
+        fontWeight: 600,
+        color: '#5c5c5c',
+        formatter: function(p) {
+          const r = returns[p.dataIndex];
+          return (r >= 0 ? '+' : '') + r.toFixed(1) + '%';
+        },
+      },
     }]
   });
 
@@ -280,6 +291,14 @@ function makeMonthlyChart(domId, monthly, signals) {
       itemStyle: {
         color: function(p) { return p.value >= 0 ? RETURN_POS : RETURN_NEG; },
         borderRadius: [4, 4, 0, 0],
+      },
+      label: {
+        show: true,
+        position: 'top',
+        fontSize: 11,
+        fontWeight: 600,
+        color: '#5c5c5c',
+        formatter: function(p) { return (p.value >= 0 ? '+' : '') + p.value.toFixed(1) + '%'; },
       },
       markPoint: { data: markPointData, animation: false },
     }]
