@@ -27,6 +27,24 @@ def get_date_display():
     now = datetime.now()
     return f"{now.month:02d}.{now.day:02d}"
 
+def inject_fund_nav(html: str) -> str:
+    """在导航栏中注入「基金」入口，位于首页和归档之间"""
+    fund_nav = '''      <a href="/ai-news-digest/fund.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span class="label">基金</span>
+      </a>
+'''
+    # 只在尚未包含基金链接时注入
+    if '/ai-news-digest/fund.html' in html:
+        return html
+    # 在 </a> 后紧跟的 <a href="/ai-news-digest/archive/ 前插入
+    html = html.replace(
+        '<a href="/ai-news-digest/archive/">',
+        fund_nav + '      <a href="/ai-news-digest/archive/">'
+    )
+    return html
+
+
 def fix_ghpages_paths(html: str) -> str:
     """为所有本地绝对路径添加 /ai-news-digest/ 前缀（GitHub Pages 子路径）"""
     def fix_path(m):
@@ -223,6 +241,7 @@ def build_site():
             # Read source HTML with path fix
             raw_html = source.read_text(encoding='utf-8')
             fixed_html = fix_ghpages_paths(raw_html)
+            fixed_html = inject_fund_nav(fixed_html)
 
             # Write as index.html for the site
             dest_index = DIST_DIR / "index.html"
