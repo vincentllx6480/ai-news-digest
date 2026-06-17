@@ -14,24 +14,24 @@
         "新G7峰会AI专题日：12位全球AI CEO与领导人共商AI未来"
       ],
       "tags": [
-        "出口管制",
-        "大模型",
-        "Google",
-        "GPT",
-        "开源",
-        "融资",
         "Gemini",
-        "阿里",
-        "字节",
-        "腾讯",
+        "智谱",
         "盘古",
-        "Anthropic",
+        "Agent",
+        "出口管制",
+        "Google",
+        "大模型",
+        "腾讯",
+        "开源",
+        "阿里",
+        "Claude",
+        "字节",
+        "融资",
         "IPO",
-        "DeepSeek",
-        "OpenAI"
+        "Anthropic"
       ],
       "hasUpdate": true,
-      "updateTime": "22:33"
+      "updateTime": "22:44"
     },
     {
       "date": "0616",
@@ -131,5 +131,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-17T22:33:10.713483"
+  "lastUpdated": "2026-06-17T22:44:50.139876"
 }
