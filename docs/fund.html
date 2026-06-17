@@ -49,10 +49,8 @@
   .conf-high { color: #dc2626; font-weight: 700; }
   .rule-config { background: var(--panel-alt); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 24px; font-size: 13px; line-height: 1.8; }
   .rule-config strong { color: var(--accent); }
-  .chart-wrap { width: 100%; height: 320px; margin: 16px 0 8px; }
-  .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
-  @media (max-width: 768px) { .chart-row { grid-template-columns: 1fr; } }
-  .chart-box { background: var(--panel-alt); border-radius: var(--radius-sm); padding: 16px; }
+  .chart-wrap { width: 100%; height: 360px; margin: 16px 0 8px; }
+  .chart-box { background: var(--panel-alt); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0; }
   .chart-box h5 { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; text-align: center; }
   .signal-timeline { font-size: 12px; color: var(--muted); margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
   .signal-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin: 0 2px; }
@@ -119,33 +117,29 @@ const BUY_COLOR = '#16a34a';
 const SELL_COLOR = '#dc2626';
 const NAV_COLOR = '#3b82f6';
 const AREA_FILL = 'rgba(59,130,246,0.08)';
-const RETURN_POS = '#dc2626';
-const RETURN_NEG = '#16a34a';
 const TEXT_MUTED = '#999590';
 const GRID_LINE = '#e7e5e2';
 
-function makeWeeklyChart(domId, weekly, signals) {
+function makeDailyChart(domId, daily, signals) {
   const dom = document.getElementById(domId);
   if (!dom) return;
   const chart = echarts.init(dom);
 
-  const dates = weekly.map(w => w.date);
-  const navs = weekly.map(w => w.nav);
-  const returns = weekly.map(w => w.return);
+  const dates = daily.map(d => d.date.slice(5));
+  const navs = daily.map(d => d.nav);
+  const changes = daily.map(d => d.change);
 
-  // Build markPoints for buy/sell signals
+  // Build markPoints for buy/sell signals — exact date match
+  const signalMap = new Map(signals.map(s => [s.date, s]));
   const buyMarks = [];
   const sellMarks = [];
-  const seen = new Set();
-  signals.forEach(s => {
-    const idx = weekly.findIndex(w => w.date >= s.date);
-    if (idx >= 0 && !seen.has(idx)) {
-      seen.add(idx);
-      if (s.type === 'buy') {
-        buyMarks.push({ name: s.desc, coord: [dates[idx], navs[idx]], value: s.desc });
-      } else {
-        sellMarks.push({ name: s.desc, coord: [dates[idx], navs[idx]], value: s.desc });
-      }
+  daily.forEach((d, idx) => {
+    const s = signalMap.get(d.date);
+    if (!s) return;
+    if (s.type === 'buy') {
+      buyMarks.push({ coord: [dates[idx], navs[idx]], value: s.desc });
+    } else {
+      sellMarks.push({ coord: [dates[idx], navs[idx]], value: s.desc });
     }
   });
 
@@ -171,26 +165,24 @@ function makeWeeklyChart(domId, weekly, signals) {
         if (!ps || ps.length === 0) return '';
         let html = '<b>' + ps[0].axisValue + '</b><br/>';
         ps.forEach(p => {
-          if (p.seriesName === '周净值') {
-            html += '净值: ' + p.value.toFixed(4) + '<br/>';
+          if (p.seriesName === '净值') {
             const idx = p.dataIndex;
-            if (idx < returns.length) {
-              const r = returns[idx];
-              html += '周涨幅: <span style="color:' + (r>=0?'#dc2626':'#16a34a') + ';font-weight:600">' + (r>=0?'+':'') + r.toFixed(2) + '%</span><br/>';
-            }
+            html += '净值: ' + p.value.toFixed(4) + '<br/>';
+            const c = changes[idx];
+            html += '日涨幅: <span style="color:' + (c >= 0 ? '#dc2626' : '#16a34a') + ';font-weight:600">' + (c >= 0 ? '+' : '') + c.toFixed(2) + '%</span><br/>';
           }
         });
         const date = ps[0].axisValue;
         const marks = markPointData.filter(m => m.coord[0] === date);
-        marks.forEach(m => html += '<span style="color:' + (m.name==='买入'?BUY_COLOR:SELL_COLOR) + '">' + m.name + ': ' + m.value + '</span><br/>');
+        marks.forEach(m => html += '<span style="color:' + (m.name === '买入' ? BUY_COLOR : SELL_COLOR) + '">' + m.name + ': ' + m.value + '</span><br/>');
         return html;
       }
     },
-    grid: { left: 50, right: 20, top: 30, bottom: 30 },
+    grid: { left: 50, right: 20, top: 35, bottom: 30 },
     xAxis: {
       type: 'category', data: dates, boundaryGap: false,
       axisLine: { lineStyle: { color: GRID_LINE } },
-      axisLabel: { color: TEXT_MUTED, fontSize: 9, rotate: 45, interval: Math.floor(dates.length / 6) || 0 },
+      axisLabel: { color: TEXT_MUTED, fontSize: 9, rotate: 45, interval: Math.floor(dates.length / 7) || 0 },
     },
     yAxis: {
       type: 'value', scale: true,
@@ -198,8 +190,8 @@ function makeWeeklyChart(domId, weekly, signals) {
       axisLabel: { color: TEXT_MUTED, fontSize: 9 },
     },
     series: [{
-      name: '周净值', type: 'line', data: navs,
-      smooth: true, symbol: 'circle', symbolSize: 6,
+      name: '净值', type: 'line', data: navs,
+      smooth: true, symbol: 'circle', symbolSize: 5,
       lineStyle: { color: NAV_COLOR, width: 2 },
       areaStyle: { color: AREA_FILL },
       itemStyle: { color: NAV_COLOR, borderColor: '#fff', borderWidth: 1 },
@@ -211,96 +203,10 @@ function makeWeeklyChart(domId, weekly, signals) {
         fontWeight: 600,
         color: '#5c5c5c',
         formatter: function(p) {
-          const r = returns[p.dataIndex];
-          return (r >= 0 ? '+' : '') + r.toFixed(1) + '%';
+          const c = changes[p.dataIndex];
+          return (c >= 0 ? '+' : '') + c.toFixed(1) + '%';
         },
       },
-    }]
-  });
-
-  return chart;
-}
-
-function makeMonthlyChart(domId, monthly, signals) {
-  const dom = document.getElementById(domId);
-  if (!dom) return;
-  const chart = echarts.init(dom);
-
-  const labels = monthly.map(m => m.label);
-  const returns = monthly.map(m => m.return);
-
-  // Mark months with signals
-  const buyMarks = [];
-  const sellMarks = [];
-  signals.forEach(s => {
-    const m = monthly.find(m => m.date >= s.date);
-    if (m) {
-      if (s.type === 'buy') buyMarks.push({ name: 'B', coord: [m.label, m.return], value: s.desc });
-      else sellMarks.push({ name: 'S', coord: [m.label, m.return], value: s.desc });
-    }
-  });
-  // Deduplicate at same month
-  const dedup = (arr) => {
-    const seen = new Set();
-    return arr.filter(m => { const k = m.coord[0]; if (seen.has(k)) return false; seen.add(k); return true; });
-  };
-
-  const markPointData = [
-    ...dedup(buyMarks).map(m => ({
-      name: '买入', coord: m.coord, value: m.value,
-      symbol: 'triangle', symbolSize: 14, symbolRotate: 0,
-      itemStyle: { color: BUY_COLOR, borderColor: '#fff', borderWidth: 1.5 },
-      label: { show: false }
-    })),
-    ...dedup(sellMarks).map(m => ({
-      name: '卖出', coord: m.coord, value: m.value,
-      symbol: 'triangle', symbolSize: 14, symbolRotate: 180,
-      itemStyle: { color: SELL_COLOR, borderColor: '#fff', borderWidth: 1.5 },
-      label: { show: false }
-    })),
-  ];
-
-  chart.setOption({
-    tooltip: {
-      trigger: 'axis',
-      formatter: function(ps) {
-        if (!ps || ps.length === 0) return '';
-        let html = '<b>' + ps[0].axisValue + '</b><br/>';
-        ps.forEach(p => {
-          if (p.seriesName === '月收益率') html += '收益率: ' + (p.value >= 0 ? '+' : '') + p.value.toFixed(2) + '%<br/>';
-        });
-        const date = ps[0].axisValue;
-        const marks = markPointData.filter(m => m.coord[0] === date);
-        marks.forEach(m => html += '<span style="color:' + (m.name==='买入'?BUY_COLOR:SELL_COLOR) + '">' + m.name + ': ' + m.value + '</span><br/>');
-        return html;
-      }
-    },
-    grid: { left: 50, right: 20, top: 20, bottom: 30 },
-    xAxis: {
-      type: 'category', data: labels,
-      axisLine: { lineStyle: { color: GRID_LINE } },
-      axisLabel: { color: TEXT_MUTED, fontSize: 9 },
-    },
-    yAxis: {
-      type: 'value',
-      splitLine: { lineStyle: { color: GRID_LINE } },
-      axisLabel: { color: TEXT_MUTED, fontSize: 9, formatter: v => v + '%' },
-    },
-    series: [{
-      name: '月收益率', type: 'bar', data: returns,
-      itemStyle: {
-        color: function(p) { return p.value >= 0 ? RETURN_POS : RETURN_NEG; },
-        borderRadius: [4, 4, 0, 0],
-      },
-      label: {
-        show: true,
-        position: 'top',
-        fontSize: 11,
-        fontWeight: 600,
-        color: '#5c5c5c',
-        formatter: function(p) { return (p.value >= 0 ? '+' : '') + p.value.toFixed(1) + '%'; },
-      },
-      markPoint: { data: markPointData, animation: false },
     }]
   });
 
@@ -408,20 +314,16 @@ function renderAll(data) {
         '<div class="metric-item"><div class="val">' + hasSell + '/' + hasBuy + '</div><div class="lbl">卖出/买入信号</div></div>' +
         '<div class="metric-item"><div class="val">' + d.length + '天</div><div class="lbl">数据范围</div></div>' +
       '</div>' +
-      '<div class="chart-row">' +
-        '<div class="chart-box"><h5>周净值走势 + 买卖信号</h5><div class="chart-wrap" id="wk-' + code + '"></div></div>' +
-        '<div class="chart-box"><h5>月收益率 + 信号标注</h5><div class="chart-wrap" id="mo-' + code + '"></div></div>' +
-      '</div>' +
+      '<div class="chart-box"><h5>每日净值走势 · 买卖信号</h5><div class="chart-wrap" id="dv-' + code + '"></div></div>' +
       '<div class="signal-timeline">近两周信号: ' + formatSignalTimeline(sig, d) + '</div>' +
       '<h4>近期信号明细</h4>' + makeSignalTable(sig, d) +
       '<div class="rec-box ' + rec.cls + '"><strong>建议：' + rec.action + '</strong> &nbsp; 置信度：' + rec.conf + '<br>理由：' + rec.reason + '</div>';
 
     container.appendChild(card);
 
-    // Init charts after DOM inserted
+    // Init chart after DOM inserted
     setTimeout(() => {
-      allCharts.push(makeWeeklyChart('wk-' + code, fund.weekly, sig));
-      allCharts.push(makeMonthlyChart('mo-' + code, fund.monthly, sig));
+      allCharts.push(makeDailyChart('dv-' + code, fund.daily, sig));
     }, 50);
   });
 }
