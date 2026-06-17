@@ -1,6 +1,42 @@
 {
   "dates": [
     {
+      "date": "0617",
+      "title": "今天 06.17 AI 速递",
+      "headlines": [
+        "📊 数据快览",
+        "📋 核心要闻简报",
+        "🌍 国际大模型动态",
+        "Anthropic Fable 5 出口管制第五天僵局未破",
+        "OpenAI GPT-5.6 (iris-alpha) 曝光 + 秘密递交 IPO",
+        "NVIDIA Nemotron 3 Ultra 开源 + $250 亿债券融资",
+        "Google Gemini 3.5 Pro 即将发布 + Siri 已搭载定制 Gemini",
+        "🇨🇳 国内大模型动态",
+        "DeepSeek 500 亿首轮融资完成，特殊架构保控制权",
+        "华为盘古 2.0 开源，余承东挂帅",
+        "腾讯大幅下调员工 AI Token 额度",
+        "智谱冲刺科创板 150 亿 + MiniMax 启动 A 股 IPO"
+      ],
+      "tags": [
+        "融资",
+        "DeepSeek",
+        "Anthropic",
+        "OpenAI",
+        "NVIDIA",
+        "华为",
+        "腾讯",
+        "Gemini",
+        "GPT",
+        "IPO",
+        "出口管制",
+        "智谱",
+        "开源",
+        "盘古",
+        "Token"
+      ],
+      "hasUpdate": false
+    },
+    {
       "date": "0616",
       "title": "今天 06.16 AI 速递",
       "headlines": [
@@ -98,5 +134,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-16T09:47:10.429282"
+  "lastUpdated": "2026-06-17T09:00:00.000000"
 }
