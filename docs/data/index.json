@@ -4,31 +4,34 @@
       "date": "0618",
       "title": "今天 06.18 AI 速递",
       "headlines": [
-        "📊 数据快览",
-        "🔥 核心要闻简报",
-        "🌍 国际大模型动态",
-        "秘密递交IPO申请，估值冲击万亿美元",
-        "Fable 5/Mythos 5出口管制僵局持续",
-        "Gemini深度集成Android 17 + Apple Siri合作",
-        "Cosmos 3开源 + Nemotron 3 Ultra + Isaac GR00T",
-        "🇨🇳 国内大模型动态"
+        "&#x1F4CA; 数据快览",
+        "&#x1F4CB; 核心要闻简报",
+        "&#x1F30D; 国际大模型动态",
+        "Fable 5/Mythos 5 出口管制第六天：G7峰会成关键窗口",
+        "GPT-5.6 (iris-alpha) 曝光：150万Token上下文，已秘密递交IPO",
+        "联手宇树科技发布Isaac GR00T人形机器人 + Cosmos 3全模态物理AI",
+        "Gemini 3.5 Pro即将发布 + DiffusionGemma突破1000 tokens/s + Siri搭载定制Gemini",
+        "&#x1F1E8;&#x1F1F3; 国内大模型动态"
       ],
       "tags": [
-        "IPO",
-        "腾讯",
-        "DeepSeek",
-        "大模型",
-        "Anthropic",
-        "字节",
+        "GPT",
         "Claude",
         "智谱",
-        "Google",
+        "IPO",
+        "腾讯",
+        "融资",
+        "Anthropic",
+        "DeepSeek",
         "Agent",
-        "Gemini",
+        "Google",
+        "字节",
         "OpenAI",
-        "GPT",
-        "融资"
-      ]
+        "阿里",
+        "Gemini",
+        "大模型"
+      ],
+      "hasUpdate": true,
+      "updateTime": "09:22"
     },
     {
       "date": "0617",
@@ -161,5 +164,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-18T09:20:11.960671"
+  "lastUpdated": "2026-06-18T09:22:47.248058"
 }

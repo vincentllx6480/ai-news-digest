@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>今天 06.18 AI 速递</title>
-<meta name="description" content="AI 每日速递 2026.06.18：DeepSeek完成510亿融资·G7峰会AI专题日·Anthropic开设首尔办公室·MiniMax M3开源·小米MiMo Code发布·NVIDIA联手宇树科技人形机器人">
+<meta name="description" content="AI 每日速递 2026.06.18：DeepSeek完成500亿首轮融资·智谱IPO辅导验收·NVIDIA联手宇树发布GR00T人形机器人·小米开源MiMo Code·MiniMax M3开源市值回撤·Trump签署AI行政令">
 <link rel="icon" type="image/svg+xml" href="/ai-news-digest/assets/favicon.svg">
 <link rel="stylesheet" href="/ai-news-digest/css/site.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,6 +25,10 @@
   .tomorrow-item h4 { font-size: 14px; margin-bottom: 4px; }
   .footer-note { margin-top: 8px; font-size: 12px; color: var(--muted); }
   .footer-note a { color: var(--accent); }
+  .platform-data-card { padding: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; }
+  .platform-data-card .pd-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .platform-data-card .pd-meta { display: flex; gap: 14px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+  .platform-data-card .pd-meta span { display: inline-flex; align-items: center; gap: 3px; }
   .hero-desc { max-width: 680px; margin: 0 auto; color: var(--text-secondary); font-size: 17px; line-height: 1.6; }
   .brief-list li .hl { color: #dc2626; font-weight: 600; }
 </style>
@@ -69,295 +73,522 @@
 
   <!-- 1. Hero -->
   <section class="hero">
-    <div class="hero-eyebrow"><span class="live-dot"></span> 2026年6月18日 · 星期四 · 9:10 首发</div>
+    <div class="hero-eyebrow"><span class="live-dot"></span> 2026年6月18日 · 星期三 · <span class="new-badge">9:00 首发</span></div>
     <h1>今天 <span class="gradient-text">06.18</span> AI 速递</h1>
-    <p class="hero-desc">DeepSeek完成510亿首轮融资估值4000亿·G7峰会AI专题日12国领导人齐聚·Anthropic开设首尔办公室破出口管制僵局·MiniMax M3正式开源·小米MiMo Code开源对标Claude Code·NVIDIA联手宇树发布人形机器人</p>
+    <p class="hero-desc">DeepSeek完成500亿首轮融资·智谱科创板IPO辅导验收·NVIDIA联手宇树发布GR00T人形机器人·小米开源MiMo Code·MiniMax M3开源但市值回撤70%·Trump签署AI行政令</p>
     <div class="tag-row">
       <span class="tag-chip fund">融资快讯</span>
       <span class="tag-chip model">大模型</span>
       <span class="tag-chip policy">政策监管</span>
-      <span class="tag-chip platform">开发工具</span>
-      <span class="tag-chip product">机器人</span>
+      <span class="tag-chip platform">社交平台</span>
+      <span class="tag-chip product">产品动态</span>
     </div>
   </section>
 
   <!-- 2. 数据快览 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">📊</span> 数据快览</h2>
-      <p class="section-sub">2026年6月18日 AI 行业关键指标</p>
+  <div class="section-head"><h2><span class="section-icon">&#x1F4CA;</span> 数据快览</h2><span class="badge badge-hot">实时</span></div>
+  <section class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">500亿</div>
+      <div class="stat-label">DeepSeek首轮融资（元）</div>
+      <div class="stat-trend up">&#x2191; 创中国AI单轮纪录</div>
     </div>
-    <div class="stats-row">
-      <div class="stat-card" style="border-top:3px solid #1a56db;">
-        <div class="stat-label">DeepSeek 估值</div>
-        <div class="stat-value">¥4,000亿</div>
-        <div class="stat-change trend-up">↑ 首轮融资后</div>
-      </div>
-      <div class="stat-card" style="border-top:3px solid #7c3aed;">
-        <div class="stat-label">OpenAI IPO 估值</div>
-        <div class="stat-value">$1万亿</div>
-        <div class="stat-change trend-up">↑ 机密提交S-1</div>
-      </div>
-      <div class="stat-card" style="border-top:3px solid #0d9488;">
-        <div class="stat-label">Anthropic IPO 估值</div>
-        <div class="stat-value">$965亿</div>
-        <div class="stat-change trend-up">↑ 6月1日提交</div>
-      </div>
-      <div class="stat-card" style="border-top:3px solid #d97706;">
-        <div class="stat-label">MiniMax 市值波动</div>
-        <div class="stat-value">-70%</div>
-        <div class="stat-change trend-down">↓ 从高点1330→400港元</div>
-      </div>
+    <div class="stat-card">
+      <div class="stat-value">$8520亿</div>
+      <div class="stat-label">OpenAI秘密IPO估值</div>
+      <div class="stat-trend up">&#x2191; 今秋正式上市</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$9650亿</div>
+      <div class="stat-label">Anthropic IPO估值</div>
+      <div class="stat-trend up">&#x2191; 全球最大AI IPO</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">150亿</div>
+      <div class="stat-label">智谱科创板拟募资（元）</div>
+      <div class="stat-trend up">&#x2191; 辅导验收，即将申报</div>
     </div>
   </section>
 
   <!-- 3. 核心要闻简报 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">🔥</span> 核心要闻简报</h2>
-      <p class="section-sub">8条今日最重要的 AI 资讯</p>
-    </div>
-    <ul class="brief-list">
-      <li><span class="num">01</span><span><span class="hl">DeepSeek完成510亿元首轮融资</span> — 梁文锋出资200亿，腾讯/宁德时代/京东/网易/IDG入局，估值4000亿元。采用非常规架构确保创始人控制权，国家AI基金享唯一投票权。<a class="source-link" href="https://www.21jingji.com/article/20260618/herald/0b7a1326284fdab64e638fc8d8c13824.html" target="_blank">21财经</a></span></li>
-      <li><span class="num">02</span><span><span class="hl">G7峰会AI专题日：12国领导人+AI巨头CEO齐聚</span> — Anthropic、OpenAI、Google DeepMind CEO出席工作午餐，讨论"可信赖伙伴"方案放宽AI出口管制。<a class="source-link" href="https://www.163.com/dy/article/KVMDAMG705568W0A.html" target="_blank">网易</a></span></li>
-      <li><span class="num">03</span><span><span class="hl">Anthropic开设首尔办公室</span> — 在美政府限制Fable/Mythos外国访问后一周，Anthropic在韩国首尔设立办公室，称韩国为增长最快市场之一。<a class="source-link" href="https://en.yna.co.kr/view/AEN20260617009000320" target="_blank">Yonhap</a></span></li>
-      <li><span class="num">04</span><span><span class="hl">MiniMax M3正式开源</span> — 428B参数MoE架构，SWE-Bench Pro 59%超GPT-5.5，百万级上下文，国内首个Frontier三件套开源模型。<a class="source-link" href="https://www.pingwest.com/w/314704" target="_blank">品玩</a></span></li>
-      <li><span class="num">05</span><span><span class="hl">小米MiMo Code开源，对标Claude Code</span> — MIT许可，200+步骤长程任务超越Claude Code（SWE-bench 82% vs 79%），内置SQLite持久记忆。<a class="source-link" href="https://venturebeat.com/technology/xiaomis-new-open-source-agentic-ai-coding-harness-mimo-code-beats-claude-code-at-ultra-long-200-step-tasks" target="_blank">VentureBeat</a></span></li>
-      <li><span class="num">06</span><span><span class="hl">NVIDIA联手宇树科技发布人形机器人Isaac GR00T</span> — 黄仁勋Computex宣布，1.82m/68kg/75自由度，年底供货。宇树同日科创板IPO过会。<a class="source-link" href="https://m.cnstock.com/commonDetail/723689" target="_blank">上证报</a></span></li>
-      <li><span class="num">07</span><span><span class="hl">Android 17发布：深度集成Gemini和Lyria 3</span> — AI驱动的内容创作/翻译/音乐生成/AI气泡任务栏，跨平台文件共享兼容AirDrop。<a class="source-link" href="https://www.ithome.com/0/965/709.htm" target="_blank">IT之家</a></span></li>
-      <li><span class="num">08</span><span><span class="hl">2026世界人工智能大会倒计时30天</span> — 超300款AI产品全球首发，图灵奖得主姚期智、"强化学习之父"Richard Sutton等参会，主题"智能伙伴·共创未来"。<a class="source-link" href="https://www.xiancn.com/content/2026-06/18/content_7446510.htm" target="_blank">西安网</a></span></li>
-    </ul>
-  </section>
+  <div class="section-head"><h2><span class="section-icon">&#x1F4CB;</span> 核心要闻简报</h2><span class="badge badge-new">10 条</span></div>
+  <ol class="brief-list">
+    <li><span class="num">01</span><span><span class="hl">DeepSeek完成超500亿元首轮融资</span>，估值突破500亿美元（~3380亿元）。梁文锋出资200亿保控制权，特殊架构：5年锁定期+无投票权+穿透式LP核查。腾讯、宁德时代、京东、网易、IDG等参投，阿里巴巴因无法参与治理而放弃</span></li>
+    <li><span class="num">02</span><span><span class="hl">智谱科创板IPO辅导验收完成</span>，即将正式申报，拟募资不超过150亿元（120亿用于通用基座大模型）。港股已上市（市值约6300亿港元），推进"A+H"双资本平台战略</span></li>
+    <li><span class="num">03</span><span><span class="hl">NVIDIA联手宇树科技发布Isaac GR00T人形机器人</span>，黄仁勋Computex亲自站台。1.8米/68kg/75自由度，搭载Jetson Thor+Isaac GR00T基础模型+Cosmos 3世界模型，目标2026年底出货。宇树同日通过科创板IPO审核（73天过会）</span></li>
+    <li><span class="num">04</span><span><span class="hl">小米首次进军Coding Agent赛道</span>，开源MiMo Code终端编程助手（MIT协议）。基于OpenCode构建，内置SQLite FTS5持久记忆系统+语音输入。SWE-bench Verified 82% vs Claude Code 79%，200+步复杂任务超越。MiMo-V2.5定价$0.40/M输入Token</span></li>
+    <li><span class="num">05</span><span><span class="hl">Anthropic Fable 5/Mythos 5出口管制僵局持续</span>：已下线6天，公司与美政府每日会谈。G7峰会AI专题日（6月17日法国埃维安）讨论"可信伙伴"框架应对盟友信任危机</span></li>
+    <li><span class="num">06</span><span><span class="hl">MiniMax M3开源登顶国产模型</span>，SWE-Bench Pro 59.0%超越GPT-5.5。但同日API价格翻倍引发开发者反弹，市值从高点回撤70%（~2600亿港元蒸发），7月9日面临63%股份解禁</span></li>
+    <li><span class="num">07</span><span><span class="hl">特朗普签署AI行政令</span>：NSA主导前沿模型分类审查，30天自愿预发布窗口，不设强制许可。同时发布AI国家安全总统备忘录（NSPM），确立国防AI四支柱框架</span></li>
+    <li><span class="num">08</span><span><span class="hl">AI编程工具赛道全面爆发</span>：JetBrains Junie GA（SWE-Rebench 61.6%）、Stack Overflow推出Agent API（6月10日Beta）、Cohere开源North Mini Code（30B/3B激活）、GitHub Copilot改为Token计费致部分用户账单暴涨60倍</span></li>
+    <li><span class="num">09</span><span><span class="hl">OpenAI秘密递交IPO + GPT-5.6曝光</span>：S-1估值~$8520亿，收购编程Agent公司Ona，通过Oracle云扩大分发。泄露模型"iris-alpha"支持~150万Token上下文。苹果Siri已基于定制Gemini重建，年合约~$10亿覆盖10亿iPhone</span></li>
+    <li><span class="num">10</span><span><span class="hl">AI短剧成内容创作新风口</span>：抖音《逃婚姐妹花》3190万播放、《穿越山海经》3700万播放；小红书AI美剧《The Other Self》4条笔记涨粉6.6万；"豆包型人格"全网刷屏带动AIGC内容创作热潮</span></li>
+  </ol>
 
   <!-- 4. 国际大模型动态 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">🌍</span> 国际大模型动态</h2>
-      <p class="section-sub">OpenAI、Anthropic、Google、NVIDIA 最新进展</p>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-tag tag-model">OpenAI</div>
-        <h3>秘密递交IPO申请，估值冲击万亿美元</h3>
-        <p>继Anthropic 6月1日提交后，OpenAI于6月8日机密提交S-1，估值约$852B~$1T，计划秋季上市。同时披露不期望2030年前盈利，尽管月收入约$20亿。SpaceX同步IPO创"三强争霸"格局。</p>
-        <a class="source-link" href="https://www.bbc.com/news/articles/cd958eqg1n5o" target="_blank">BBC</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-model">Anthropic</div>
-        <h3>Fable 5/Mythos 5出口管制僵局持续</h3>
-        <p>美商务部6月12日下令暂停外国访问后，Anthropic称存在"误解"，正努力恢复。同时在首尔开设办公室，试图在管制框架下维持国际业务。Claude Opus 4.8不受影响继续可用。</p>
-        <a class="source-link" href="https://www.abc.net.au/news/2026-06-13/anthropic-ordered-to-halt-foreign-access-to-ai-models/106794456" target="_blank">ABC News</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-model">Google</div>
-        <h3>Gemini深度集成Android 17 + Apple Siri合作</h3>
-        <p>Android 17正式版发布，Gemini和Lyria 3深度集成。WWDC上Apple宣布Siri基于定制Gemini模型(~1.2T参数)重建，年合作价值约$10亿，覆盖超10亿iPhone用户。</p>
-        <a class="source-link" href="https://www.ithome.com/0/965/709.htm" target="_blank">IT之家</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-model">NVIDIA</div>
-        <h3>Cosmos 3开源 + Nemotron 3 Ultra + Isaac GR00T</h3>
-        <p>全球首个全模态物理AI模型Cosmos 3发布，支持文本/图像/视频/音频/动作五模态。Nemotron 3 Ultra提供企业级开源替代。联手宇树发布人形机器人参考设计，年底供货。</p>
-        <a class="source-link" href="https://news.cgtn.com/news/2026-06-01/NVIDIA-Unitree-unveil-new-humanoid-powered-by-Isaac-GR00T-1NCWlv6VRde/p.html" target="_blank">CGTN</a>
+  <div class="section-head"><h2><span class="section-icon">&#x1F30D;</span> 国际大模型动态</h2><span class="badge badge-hot">IPO竞赛+出口管制+人形机器人</span></div>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag tag-model">Anthropic</span>
+      <h3>Fable 5/Mythos 5 出口管制第六天：G7峰会成关键窗口</h3>
+      <p>自6月12日美国商务部下令暂停以来已进入第六天。Anthropic技术团队与商务部官员每日线上会谈，尚未达成解决方案。超80名网络安全高管联名要求解除限制。G7峰会AI专题日上，加拿大总理卡尼呼吁"构建和多元化AI能力"，12位AI CEO与G7领导人讨论"可信伙伴"框架应对盟友信任危机。美国国会两党议员6月4日发布"Great American AI Act"讨论稿。</p>
+      <div class="card-meta">
+        <a href="https://apnews.com/article/anthropic-trump-fable-mythos-tech-0a87a0f7773255419936af053ad8bdef" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          AP News
+        </a>
+        <a href="https://www.cnbc.com/2026/06/17/g7-trump-ai-tech-leaders-openai-anthropic-google.html" class="source-link" target="_blank" rel="noopener">CNBC</a>
       </div>
     </div>
-  </section>
+    <div class="card">
+      <span class="card-tag tag-model">OpenAI</span>
+      <h3>GPT-5.6 (iris-alpha) 曝光：150万Token上下文，已秘密递交IPO</h3>
+      <p>Codex后端日志泄露代号"iris-alpha"新模型，上下文窗口~150万Token（比GPT-5.5扩大50%）。首席科学家Pachocki称"实质性改进"。OpenAI已向SEC秘密递交S-1（估值~$8520亿），收购编程Agent公司Ona（6月12日），通过Oracle云和AWS Bedrock扩大分发。Sam Altman暗示即将降价应对竞争，但IPO压力制约利润空间。</p>
+      <div class="card-meta">
+        <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          WaveSpeed
+        </a>
+        <a href="https://www.engadget.com/2190934/anthropic-fable-ai-brings-the-capabilities-of-its-unreleased-mythos-model-to-regular-users/" class="source-link" target="_blank" rel="noopener">Engadget</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-model">NVIDIA</span>
+      <h3>联手宇树科技发布Isaac GR00T人形机器人 + Cosmos 3全模态物理AI</h3>
+      <p>黄仁勋在Computex 2026亲自发布1.8米/68kg/75自由度人形机器人参考设计，搭载Jetson Thor（Blackwell GPU, 2070 FP4 TOPS）+Isaac GR00T基础模型+Cosmos 3世界模型。Cosmos 3支持文本/图像/视频/环境音频/动作五大模态，Physics-IQ/RoboArena/VANTAGE-Bench三项第一。宇树科技同日通过科创板审核（73天过会，拟募资42亿元）。</p>
+      <div class="card-meta">
+        <a href="https://www.cnbc.com/2026/06/01/nvidia-unitree-humanoid-robotics-system-researchers.html" class="source-link" target="_blank" rel="noopener">CNBC</a>
+        <a href="https://news.cgtn.com/news/2026-06-01/NVIDIA-Unitree-unveil-new-humanoid-powered-by-Isaac-GR00T-1NCWlv6VRde/p.html" class="source-link" target="_blank" rel="noopener">CGTN</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-model">Google</span>
+      <h3>Gemini 3.5 Pro即将发布 + DiffusionGemma突破1000 tokens/s + Siri搭载定制Gemini</h3>
+      <p>Google I/O承诺的Gemini 3.5 Pro预计6月内发布，200万Token上下文+Deep Think推理。DiffusionGemma（26B MoE/3.8B激活）基于扩散文本生成，单H100达1000+ tokens/s。WWDC 2026确认Siri基于~1.2T参数定制Gemini模型重建（年合约~$10亿），覆盖超10亿iPhone用户。Gemini 3.5 Flash已GA（$1.50/$9.00/百万Token）。</p>
+      <div class="card-meta">
+        <a href="https://vfuturemedia.com/ai/june-2026-ai-model-race-gemini-3-5-claude-mythos-grok-5/" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          VFuture Media
+        </a>
+        <a href="https://www.deeplearning.ai/the-batch/diffusiongemma-breaks-1-000-tokens-second" class="source-link" target="_blank" rel="noopener">DeepLearning.AI</a>
+      </div>
+    </div>
+  </div>
 
   <!-- 5. 国内大模型动态 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">🇨🇳</span> 国内大模型动态</h2>
-      <p class="section-sub">DeepSeek、MiniMax、小米、智谱 最新进展</p>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-tag tag-fund">DeepSeek</div>
-        <h3>510亿首轮融资细节全曝光</h3>
-        <p>梁文锋出资约200亿保控制权（直接持股升至34%，总控制权约84%），腾讯100亿、宁德时代50亿、网易/京东/IDG各30亿。国家AI基金10亿享唯一投票权。资金投向算力基建+Agent产品化。</p>
-        <a class="source-link" href="https://36kr.com/p/3856984071027329" target="_blank">36氪</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-model">MiniMax</div>
-        <h3>M3正式开源，但市值蒸发70%</h3>
-        <p>M3以428B MoE+1M上下文+原生多模态开源，SWE-Bench Pro 59%超GPT-5.5。但同日涨价257%引发开发者反弹，股价从1330跌至400港元。7月9日面临63%股份解禁。</p>
-        <a class="source-link" href="https://www.pingwest.com/w/314704" target="_blank">品玩</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-product">小米</div>
-        <h3>MiMo Code开源：长程任务超越Claude Code</h3>
-        <p>小米首个AI编程Agent，基于OpenCode MIT许可，SWE-bench Verified 82% vs Claude Code 79%，终端基准测试73% vs 69%。内置SQLite FTS5持久记忆+语音输入，$0.40/M tokens激进定价。</p>
-        <a class="source-link" href="https://venturebeat.com/technology/xiaomis-new-open-source-agentic-ai-coding-harness-mimo-code-beats-claude-code-at-ultra-long-200-step-tasks" target="_blank">VentureBeat</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-product">智谱 & Cohere</div>
-        <h3>开源编程Agent赛道白热化</h3>
-        <p>智谱GLM-5.2开源登顶Code Arena。Cohere发布North Mini Code（30B/3B活跃/Apache 2.0），专注本地部署。JetBrains Junie正式GA，SWE-Rebench 61.6%。OpenCode星数达172k。</p>
-        <a class="source-link" href="https://cohere.com/blog/north-mini-code" target="_blank">Cohere</a>
+  <div class="section-head"><h2><span class="section-icon">&#x1F1E8;&#x1F1F3;</span> 国内大模型动态</h2><span class="badge badge-hot">DeepSeek融资+智谱IPO+小米入局</span></div>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag tag-model">DeepSeek</span>
+      <h3>500亿首轮融资敲定：梁文锋自掏200亿保控制权，估值3380亿</h3>
+      <p>6月16日DeepSeek完成首轮外部融资超500亿元（~$74亿），投后估值约3380亿元（~500亿美元），创中国AI单轮融资纪录。梁文锋通过特殊架构保控制权：外部资金注入有限合伙企业而非公司主体、无投票权/无董事会席位、5年超长锁定期、穿透式LP核查。腾讯（100亿）、宁德时代（50亿）、网易/京东/IDG（各30亿）等参投。资金用于自建智算中心（乌兰察布）+组建"Agent Harness"团队对标Claude Code。</p>
+      <div class="card-meta">
+        <a href="https://www.21jingji.com/article/20260618/herald/0b7a1326284fdab64e638fc8d8c13824.html" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          21财经
+        </a>
+        <a href="https://www.36kr.com/p/3855773631976456" class="source-link" target="_blank" rel="noopener">36氪</a>
       </div>
     </div>
-  </section>
+    <div class="card">
+      <span class="card-tag tag-model">智谱</span>
+      <h3>科创板IPO辅导验收完成，拟募资150亿，推进"A+H"双资本平台</h3>
+      <p>6月17日智谱科创板IPO辅导状态变更为"辅导验收"，即将正式申报。拟发行A股占2%-8%，募资不超过150亿元（120亿用于通用基座大模型）。智谱港股已于年初上市（市值~6300亿港元），成为国内首个推进"A+H"双资本平台的大模型企业。上交所同日发布大模型企业适用科创板第五套上市标准指引。</p>
+      <div class="card-meta">
+        <a href="https://finance.eastmoney.com/a/202606023757905767.html" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          东方财富
+        </a>
+        <a href="https://www.cnstock.com/commonDetail/731034" class="source-link" target="_blank" rel="noopener">中国证券网</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-model">MiniMax</span>
+      <h3>M3开源登顶国产模型，但涨价风波+市值回撤70%陷入"黑色6月"</h3>
+      <p>M3（428B/23B激活/1M上下文/原生多模态）SWE-Bench Pro 59.0%超越GPT-5.5，BrowseComp 83.5超越Opus 4.7。6月16日正式开源，华为云首发适配昇腾，支付宝Token Pay首批接入。但同日API价格翻倍（实际涨幅最高257%），无提前通知引发开发者大规模反弹。股价从1330港元高点跌至不足400港元，市值蒸发~2600亿港元。7月9日面临63%股份巨量解禁。</p>
+      <div class="card-meta">
+        <a href="https://www.minimaxi.com/models/text/m3" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          MiniMax
+        </a>
+        <a href="https://www.36kr.com/p/3852732438608512" class="source-link" target="_blank" rel="noopener">36氪</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-product">小米</span>
+      <h3>开源MiMo Code编程助手：200+步复杂任务超越Claude Code，首次切入Coding Agent</h3>
+      <p>6月10日小米突然开源MiMo Code（MIT协议），基于OpenCode构建。内置SQLite FTS5持久记忆系统突破上下文限制+语音输入（"send"/"execute"）。SWE-bench Verified 82% vs Claude Code 79%；Terminal Bench 2 73% vs 69%。免费限时提供MiMo-V2.5-Pro（1.02万亿参数MoE），MiMo-V2.5定价$0.40/M输入Token。构建"模型+Agent"生态闭环。</p>
+      <div class="card-meta">
+        <a href="https://venturebeat.com/technology/xiaomis-new-open-source-agentic-ai-coding-harness-mimo-code-beats-claude-code-at-ultra-long-200-step-tasks" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          VentureBeat
+        </a>
+        <a href="https://stcn.com/article/detail/3955787" class="source-link" target="_blank" rel="noopener">证券时报</a>
+      </div>
+    </div>
+  </div>
 
   <!-- 6. 融资快讯 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">💰</span> 融资快讯</h2>
-      <p class="section-sub">最新 AI 投融资事件</p>
-    </div>
-    <table class="data-table">
-      <thead><tr><th>公司</th><th>轮次</th><th>金额</th><th>估值</th><th>领域</th><th>亮点</th></tr></thead>
-      <tbody>
-        <tr><td><strong>DeepSeek</strong></td><td>A轮</td><td>¥510亿</td><td>¥4000亿</td><td>基础大模型</td><td>中国AI最大单轮融资，国家基金入局</td></tr>
-        <tr><td><strong>OpenAI</strong></td><td>IPO</td><td>—</td><td>~$1万亿</td><td>基础大模型</td><td>6月8日机密提交S-1，秋季上市</td></tr>
-        <tr><td><strong>Anthropic</strong></td><td>IPO</td><td>—</td><td>$965亿</td><td>基础大模型</td><td>6月1日提交，$65亿Pre-IPO融资</td></tr>
-        <tr><td><strong>宇树科技</strong></td><td>IPO过会</td><td>¥42亿</td><td>—</td><td>人形机器人</td><td>科创板73天过会，与NVIDIA战略合作</td></tr>
-        <tr><td><strong>MiniMax</strong></td><td>上市辅导</td><td>—</td><td>~400亿港元</td><td>基础大模型</td><td>科创板IPO辅导，A+H双上市计划</td></tr>
-        <tr><td><strong>OpenAI Partner</strong></td><td>战略</td><td>$1.5亿</td><td>—</td><td>企业服务</td><td>认证30万AI顾问，联合麦肯锡/BCG/埃森哲</td></tr>
-      </tbody>
-    </table>
-  </section>
+  <div class="section-head"><h2><span class="section-icon">&#x1F4B0;</span> 融资快讯</h2><span class="badge badge-hot">全球AI融资热</span></div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>公司</th>
+        <th>轮次</th>
+        <th>金额</th>
+        <th>估值</th>
+        <th>领域</th>
+        <th>亮点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>DeepSeek</strong></td>
+        <td>首轮</td>
+        <td>~500亿元</td>
+        <td>~3380亿元</td>
+        <td>大模型</td>
+        <td>梁文锋出资200亿保控制权，特殊架构无投票权5年锁定期</td>
+      </tr>
+      <tr>
+        <td><strong>智谱</strong></td>
+        <td>科创板IPO</td>
+        <td>~150亿元</td>
+        <td>~6300亿港元</td>
+        <td>大模型</td>
+        <td>辅导验收完成，"A+H"双资本平台，120亿投向基座大模型</td>
+      </tr>
+      <tr>
+        <td><strong>Pramaana Labs</strong></td>
+        <td>种子轮</td>
+        <td>$2700万</td>
+        <td>未披露</td>
+        <td>AI验证层</td>
+        <td>Khosla Ventures领投，数学方法保障AI输出正确性</td>
+      </tr>
+      <tr>
+        <td><strong>fonio.ai</strong></td>
+        <td>种子轮</td>
+        <td>$1700万</td>
+        <td>未披露</td>
+        <td>AI语音</td>
+        <td>20VC领投，奥地利第二大种子轮，SMB客服自动化</td>
+      </tr>
+      <tr>
+        <td><strong>ZeroDrift</strong></td>
+        <td>种子轮</td>
+        <td>$1000万</td>
+        <td>未披露</td>
+        <td>AI合规</td>
+        <td>a16z Speedrun参投，AI生成内容合规防火墙</td>
+      </tr>
+      <tr>
+        <td><strong>Probably</strong></td>
+        <td>种子轮</td>
+        <td>$900万</td>
+        <td>未披露</td>
+        <td>AI可靠性</td>
+        <td>a16z领投，减少LLM幻觉与事实错误</td>
+      </tr>
+      <tr>
+        <td><strong>Niteshift</strong></td>
+        <td>种子轮</td>
+        <td>$700万</td>
+        <td>未披露</td>
+        <td>AI编程</td>
+        <td>Greylock参投，AI编程Agent基础设施</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <!-- 7. 社交平台 & AI创作者生态 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">📱</span> 社交平台 & AI创作者生态</h2>
-      <p class="section-sub">平台AI功能更新与创作者工具</p>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-tag tag-platform">YouTube/Google</div>
-        <h3>Veo 3.1支持竖屏4K + YouTube Shorts集成</h3>
-        <p>Google升级Veo视频模型，支持参考图生成竖屏9:16视频、4K超分，深度集成YouTube Shorts和YouTube Create应用，8秒短视频生成。</p>
-        <a class="source-link" href="https://arstechnica.com/google/2026/01/googles-updated-veo-model-can-make-vertical-videos-from-reference-images-with-4k-upscaling/" target="_blank">Ars Technica</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-platform">Meta/Instagram</div>
-        <h3>Meta AI Studio：创作者AI"分身"</h3>
-        <p>Meta推出AI Studio，创作者可构建基于自身人设的AI聊天机器人，规模化粉丝互动。AI编辑工具深度集成Reels工作流。</p>
-        <a class="source-link" href="https://theinfluencermarketingfactory.com/best-creator-platforms-2026/" target="_blank">IMF</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-platform">TikTok/字节</div>
-        <h3>CapCut + Dreamina：字节AI创作生态闭环</h3>
-        <p>CapCut保持短视频AI编辑统治地位（免费/$7.99 Pro），Dreamina提供225免费日token的AI视频生成，Native lip-sync，优化TikTok/Reels/Shorts输出。</p>
-        <a class="source-link" href="https://dreamina.capcut.com/ai-video/best-ai-generator-for-social-media" target="_blank">Dreamina</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-platform">微信支付</div>
-        <h3>微信支付推出AI专属卡</h3>
-        <p>微信支付发布AI专属支付卡，允许AI Agent完成从智能推荐到自动结账的全流程，用户授权后实现对话式自动购买。</p>
-        <a class="source-link" href="https://www.ithome.com/0/965/709.htm" target="_blank">IT之家</a>
+  <!-- 7. 社交平台&AI创作者生态 -->
+  <div class="section-head"><h2><span class="section-icon">&#x1F4F1;</span> 社交平台 &amp; AI创作者生态</h2><span class="badge badge-hot">AI短剧+豆包人格全网刷屏</span></div>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag tag-platform">抖音</span>
+      <h3>AI短剧《逃婚姐妹花》3190万播放，《穿越山海经》3700万播放引领古风AI浪潮</h3>
+      <p>博主@鹤砚声使用小云雀Seedance2制作的古风穿越AI短剧《逃婚姐妹花》仅两集播放量超3190万，获赞超150万。博主@阿盐的《穿越山海经》总播放量突破3700万，孙悟空/哪吒/杨戬大战上古异兽。抖音AI短剧呈现连载化趋势，观众讨论点从"是不是AI做的"转向"内容好不好看"。</p>
+      <div class="card-meta">
+        <a href="https://m.ebrun.com/677856.html" class="source-link" target="_blank" rel="noopener">亿邦动力</a>
       </div>
     </div>
-  </section>
+    <div class="card">
+      <span class="card-tag tag-platform">抖音</span>
+      <h3>"豆包型人格"全网刷屏：博主复刻涨粉百万，衍生网络热词</h3>
+      <p>博主@克里西直播连麦豆包要求改名"邓超"并唱歌，单条视频获63万赞。衍生出"豆包型人格"热词：一本正经胡说八道、被戳穿立刻滑跪道歉。众多博主靠模仿豆包涨粉（如@菜豆包每条视频轻松破百万播放），成为6月最强AI meme。</p>
+      <div class="card-meta">
+        <a href="https://m.x-techcon.com/article/149196.html" class="source-link" target="_blank" rel="noopener">X-TechCon</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-platform">小红书</span>
+      <h3>可灵AI制作美剧风格短剧《The Other Self》4条笔记涨粉6.6万</h3>
+      <p>博主@Spongecake使用可灵AI制作AI美高题材短剧《The Other Self》，两集获赞超15万，仅4条笔记涨粉6.6万。评论区高赞称"几乎是没有AI的那种不适感"。AI情侣"晒娃"翻车视频（@曾文招）小红书获赞32万+抖音34万，引发用户分享AI翻车经历。</p>
+      <div class="card-meta">
+        <a href="https://m.ebrun.com/677856.html" class="source-link" target="_blank" rel="noopener">亿邦动力</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-platform">多平台</span>
+      <h3>Creator Economy 2026：84%创作者使用AI工具，$2346亿市场规模</h3>
+      <p>全球创作者经济规模达$2346亿，84%创作者日常使用AI工具。YouTube Veo 3.1支持竖屏AI视频生成+4K超分，Meta AI Studio让创作者部署AI数字分身。CapCut+Dreamina形成字节系AI创作闭环（225免费Token/天）。Opus Clip长转短工具成创作者标配。</p>
+      <div class="card-meta">
+        <a href="https://theinfluencermarketingfactory.com/best-creator-platforms-2026/" class="source-link" target="_blank" rel="noopener">Influencer Marketing Factory</a>
+      </div>
+    </div>
+  </div>
 
   <!-- 8. 政策与监管 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">⚖️</span> 政策与监管</h2>
-      <p class="section-sub">全球 AI 政策最新动态</p>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-tag tag-policy">G7峰会</div>
-        <h3>G7领导人承诺加强AI合作与"可信赖伙伴"方案</h3>
-        <p>法国埃维昂G7峰会AI专题日，讨论放宽盟友AI出口管制，建立"可信赖伙伴"机制。印度总理莫迪提出"MANAV愿景"：道德、问责、主权、可及。</p>
-        <a class="source-link" href="https://www.techpartner.news/news/g7-leaders-vow-closer-ties-on-ai-as-they-hash-out-trusted-partners-scheme-626719" target="_blank">TechPartner</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-policy">美国</div>
-        <h3>特朗普签署AI行政令：自愿框架+网络安全重点</h3>
-        <p>6月2日签署"推进先进AI创新与安全"行政令。NSA主导前沿模型分类评估，开发者可自愿提供30天预发布访问。明确不设强制许可证制度。</p>
-        <a class="source-link" href="https://www.whitehouse.gov/fact-sheets/2026/06/fact-sheet-president-donald-j-trump-promotes-advanced-artificial-intelligence-innovation-and-security/" target="_blank">White House</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-policy">美国国会</div>
-        <h3>两党"伟大美国AI法案"讨论草案发布</h3>
-        <p>Trahan(D-MA)和Obernolte(R-CA)发布两党AI立法讨论草案，涵盖国家安全、劳动力、网络威胁，建立联邦AI治理框架，公开征求利益相关方反馈。</p>
-        <a class="source-link" href="https://trahan.house.gov/news/documentsingle.aspx?DocumentID=3783" target="_blank">House.gov</a>
-      </div>
-      <div class="card">
-        <div class="card-tag tag-policy">中国</div>
-        <h3>西安警方破获AI生成虚假新闻案</h3>
-        <p>西安警方打掉利用AI生成虚假新闻攻击小米的犯罪团伙，4人被刑事拘留，3家MCN机构被牵连，查获非法资金超3400万元。</p>
-        <a class="source-link" href="https://www.ithome.com/0/965/709.htm" target="_blank">IT之家</a>
+  <div class="section-head"><h2><span class="section-icon">&#x1F3DB;</span> 政策与监管</h2><span class="badge badge-new">Trump行政令+G7+科创板新规</span></div>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag tag-policy">美国</span>
+      <h3>Trump签署AI行政令：NSA主导分类审查，30天自愿预发布窗口</h3>
+      <p>6月2日签署"推动先进AI创新与安全"行政令。NSA主导前沿模型分类基准测试，开发者可自愿提供最多30天预发布审查。明确不设强制许可/预审批。司法部优先执AI网络攻击刑事调查。此前Trump曾推迟签署，担忧"让中国领先"。同日发布AI国家安全总统备忘录，确立"采纳-适应-保证-问责"四支柱国防AI框架。</p>
+      <div class="card-meta">
+        <a href="https://www.whitehouse.gov/fact-sheets/2026/06/fact-sheet-president-donald-j-trump-promotes-advanced-artificial-intelligence-innovation-and-security/" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          白宫
+        </a>
+        <a href="https://www.ropesgray.com/en/insights/alerts/2026/06/trumps-ai-cybersecurity-order-a-voluntary-framework-with-mandatory-implications" class="source-link" target="_blank" rel="noopener">Ropes &amp; Gray</a>
       </div>
     </div>
-  </section>
+    <div class="card">
+      <span class="card-tag tag-policy">美国国会</span>
+      <h3>两党"Great American AI Act"讨论稿：联邦AI治理框架出炉</h3>
+      <p>6月4日国会议员Trahan（民主党）与Obernolte（共和党）联合发布跨党派AI立法讨论稿。涵盖国家安全、劳动力保护、前沿系统问责标准，公开征求利益相关方反馈。试图在创新与安全间寻找平衡，避免重蹈Anthropic出口管制争议。</p>
+      <div class="card-meta">
+        <a href="https://trahan.house.gov/news/documentsingle.aspx?DocumentID=3783" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          House.gov
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-policy">中国</span>
+      <h3>国家数据局召开AI数据规则座谈会：DeepSeek/字节/阿里/腾讯参与</h3>
+      <p>6月15日国家数据局举办"完善数据相关规则 赋能人工智能创新发展"座谈会。DeepSeek、字节跳动、阿里云、腾讯等企业参与。议题聚焦构建高质量数据供给体系+数据安全保障，释放中国在AI数据基础设施建设上的政策信号。</p>
+      <div class="card-meta">
+        <a href="https://www.ndrc.gov.cn/fzggw/wld/llh/zyhd/202606/t20260615_1405848.html" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          国家发改委
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="card-tag tag-policy">上交所</span>
+      <h3>上交所发布大模型企业科创板第五套上市标准指引，6月17日生效</h3>
+      <p>6月17日上交所正式发布《人工智能大模型企业适用科创板第五套上市标准》指引。明确要求：至少有一个大模型产品完成上线发布并实现规模化应用。为亏损但技术领先的AI企业（如智谱、MiniMax）打通A股上市通道。此前证监会2025年推出科创板"1+6"改革政策扩大适用范围。</p>
+      <div class="card-meta">
+        <a href="https://stcn.com/article/detail/3952486.html" class="source-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          证券时报
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- 9. 创业&商业变现机会 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">💡</span> 创业 & 商业变现机会</h2>
-      <p class="section-sub">基于今日资讯的可行商业机会</p>
+  <div class="section-head"><h2><span class="section-icon">&#x1F680;</span> 创业 &amp; 商业变现机会</h2><span class="badge badge-new">5 个可操作机会</span></div>
+
+  <div class="opp-card">
+    <h3>1. AI编程Agent定制化服务</h3>
+    <p>MiMo Code开源+OpenCode 17万星+GitHub Copilot涨价60倍，中小企业正大量迁移至开源方案。机会：为企业提供开源Coding Agent的私有化部署+定制调优+内部知识库集成服务。JetBrains Junie GA和Stack Overflow Agent API的推出验证了企业付费意愿。</p>
+    <div class="opp-meta">
+      <span class="opp-chip">&#x1F4CA; 市场规模</span>
+      <span class="opp-chip">GitHub Copilot年收入$40亿+</span>
+      <span class="opp-chip">&#x1F4C8; 增长信号</span>
+      <span class="opp-chip">Copilot涨价后迁移潮</span>
+      <span class="opp-chip">&#x2699; 技术门槛</span>
+      <span class="opp-chip">中（需熟悉Agent架构）</span>
+      <span class="opp-chip">&#x23F0; 时间窗口</span>
+      <span class="opp-chip">3-6个月抢占</span>
     </div>
-    <div class="opp-card">
-      <h3>AI编程Agent垂直化</h3>
-      <p>MiMo Code和MiniMax Code开源证明编程Agent赛道门槛降低。机会：面向特定行业（金融/医疗/制造）的垂直编程Agent，结合私有代码库微调。<span class="opp-chip">开发者工具</span><span class="opp-chip">低门槛</span></p>
+  </div>
+
+  <div class="opp-card">
+    <h3>2. AI短剧AIGC全流程工具链</h3>
+    <p>AI短剧《逃婚姐妹花》3190万播放、《穿越山海经》3700万播放验证了市场。但当前创作者需拼凑多个工具（小云雀/可灵/CapCut等）。机会：为AI短剧创作者提供从剧本生成→角色设定→场景生成→配音→剪辑的一站式工作流工具，按月订阅或按产出计费。</p>
+    <div class="opp-meta">
+      <span class="opp-chip">&#x1F4CA; 市场规模</span>
+      <span class="opp-chip">抖音短剧市场年规模~500亿</span>
+      <span class="opp-chip">&#x1F4C8; 增长信号</span>
+      <span class="opp-chip">AI短剧连续剧化趋势</span>
+      <span class="opp-chip">&#x2699; 技术门槛</span>
+      <span class="opp-chip">中（需整合多家模型API）</span>
+      <span class="opp-chip">&#x23F0; 时间窗口</span>
+      <span class="opp-chip">即刻可启动</span>
     </div>
-    <div class="opp-card">
-      <h3>人形机器人应用开发平台</h3>
-      <p>NVIDIA-宇树GR00T参考设计年底供货，将催生机器人应用生态。机会：类似"App Store for Robots"的技能开发与分发平台。<span class="opp-chip">机器人</span><span class="opp-chip">早期赛道</span></p>
+  </div>
+
+  <div class="opp-card">
+    <h3>3. AI输出验证与合规中间件</h3>
+    <p>Pramaana Labs（$27M种子轮）、Probably（$9M）、ZeroDrift（$10M）三家公司同期获融资验证了市场刚需。DeepSeek出口管制事件+AI行政令推动企业合规需求。机会：面向中国出海企业，提供AI输出内容的多层验证+合规审查SaaS，专注跨境电商/金融/医疗场景。</p>
+    <div class="opp-meta">
+      <span class="opp-chip">&#x1F4CA; 市场规模</span>
+      <span class="opp-chip">AI信任与安全市场$50亿+</span>
+      <span class="opp-chip">&#x1F4C8; 增长信号</span>
+      <span class="opp-chip">VC集中押注验证赛道</span>
+      <span class="opp-chip">&#x2699; 技术门槛</span>
+      <span class="opp-chip">中高（需NLP+规则引擎）</span>
+      <span class="opp-chip">&#x23F0; 时间窗口</span>
+      <span class="opp-chip">6-12个月构建壁垒</span>
     </div>
-    <div class="opp-card">
-      <h3>AI Agent支付基础设施</h3>
-      <p>微信支付AI专属卡+支付宝Token Pay同时布局AI Agent支付。机会：AI Agent的预算管理、支出审计、多Agent交易结算等中间件服务。<span class="opp-chip">金融科技</span><span class="opp-chip">新兴市场</span></p>
+  </div>
+
+  <div class="opp-card">
+    <h3>4. 人形机器人开发者工具与仿真平台</h3>
+    <p>NVIDIA+宇树发布Isaac GR00T，中国占全球84.7%人形机器人出货量。宇树IPO（拟募42亿）、UBTech专利812项领跑全球。机会：面向中国机器人企业+高校实验室，提供基于Cosmos 3的仿真训练工具、机器人应用商店、ROS2集成组件，类似"机器人领域的App Store"。</p>
+    <div class="opp-meta">
+      <span class="opp-chip">&#x1F4CA; 市场规模</span>
+      <span class="opp-chip">人形机器人2026出货~2万台</span>
+      <span class="opp-chip">&#x1F4C8; 增长信号</span>
+      <span class="opp-chip">黄仁勋称"十万亿美元市场"</span>
+      <span class="opp-chip">&#x2699; 技术门槛</span>
+      <span class="opp-chip">高（需机器人+AI交叉）</span>
+      <span class="opp-chip">&#x23F0; 时间窗口</span>
+      <span class="opp-chip">12-18个月形成生态</span>
     </div>
-    <div class="opp-card">
-      <h3>AI创作者经济工具</h3>
-      <p>创作者经济规模$2346亿，84%创作者使用AI工具。机会：面向中国创作者的AI原生内容生产+多平台分发+数据分析一体化SaaS。<span class="opp-chip">创作者经济</span><span class="opp-chip">大市场</span></p>
+  </div>
+
+  <div class="opp-card">
+    <h3>5. AI创作者AI分身/SaaS服务</h3>
+    <p>Meta AI Studio让创作者部署AI数字分身，"豆包型人格"全网刷屏验证了AI人格化IP的流量价值。机会：为国内抖音/小红书/视频号创作者提供AI分身SaaS，让粉丝与创作者的AI版本互动（问答+内容推荐+付费私域），按MAU收费。</p>
+    <div class="opp-meta">
+      <span class="opp-chip">&#x1F4CA; 市场规模</span>
+      <span class="opp-chip">中国创作者经济$300亿+</span>
+      <span class="opp-chip">&#x1F4C8; 增长信号</span>
+      <span class="opp-chip">Meta AI Studio验证方向</span>
+      <span class="opp-chip">&#x2699; 技术门槛</span>
+      <span class="opp-chip">中（微调+知识库+对话）</span>
+      <span class="opp-chip">&#x23F0; 时间窗口</span>
+      <span class="opp-chip">即刻可启动MVP</span>
     </div>
-    <div class="opp-card">
-      <h3>AI安全与合规服务</h3>
-      <p>美出口管制+中国AI假新闻执法+AI Agent安全，催生AI合规需求。机会：面向出海AI企业的合规咨询+技术方案（模型审计/数据跨境/内容审核）。<span class="opp-chip">安全合规</span><span class="opp-chip">刚性需求</span></p>
-    </div>
-  </section>
+  </div>
 
   <!-- 10. 关键指标追踪 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">📈</span> 关键指标追踪</h2>
-      <p class="section-sub">AI 行业关键公司与指标变化</p>
-    </div>
-    <table class="data-table">
-      <thead><tr><th>公司</th><th>指标</th><th>数值</th><th>变化</th></tr></thead>
-      <tbody>
-        <tr><td>DeepSeek</td><td>估值</td><td>¥4000亿</td><td><span class="trend-up">↑ 首轮融资后</span></td></tr>
-        <tr><td>OpenAI</td><td>月收入</td><td>~$20亿</td><td><span class="trend-up">↑ 持续增长</span></td></tr>
-        <tr><td>Anthropic</td><td>IPO估值</td><td>$965亿</td><td><span class="trend-up">↑ Pre-IPO $65亿融资</span></td></tr>
-        <tr><td>MiniMax</td><td>股价</td><td>~400港元</td><td><span class="trend-down">↓ 较3月高点-70%</span></td></tr>
-        <tr><td>NVIDIA</td><td>机器人布局</td><td>3大平台</td><td><span class="trend-up">↑ Cosmos+GR00T+Nemotron</span></td></tr>
-        <tr><td>OpenCode</td><td>GitHub Stars</td><td>172k</td><td><span class="trend-up">↑ 超越Aider(46k)</span></td></tr>
-        <tr><td>宇树科技</td><td>IPO状态</td><td>科创板过会</td><td><span class="trend-up">↑ 73天过会</span></td></tr>
-        <tr><td>GitHub Copilot</td><td>定价模式</td><td>按Token计费</td><td><span class="trend-down">↓ 用户月费$50→$3000</span></td></tr>
-      </tbody>
-    </table>
-  </section>
+  <div class="section-head"><h2><span class="section-icon">&#x1F4C8;</span> 关键指标追踪</h2><span class="badge badge-hot">每日更新</span></div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>公司/领域</th>
+        <th>指标</th>
+        <th>数值</th>
+        <th>趋势</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>DeepSeek</strong></td>
+        <td>首轮融资金额</td>
+        <td>~500亿元</td>
+        <td class="trend-up">&#x2191; 创中国AI纪录</td>
+      </tr>
+      <tr>
+        <td><strong>DeepSeek</strong></td>
+        <td>投后估值</td>
+        <td>~3380亿元（~$500亿）</td>
+        <td class="trend-up">&#x2191; 首轮即达</td>
+      </tr>
+      <tr>
+        <td><strong>智谱</strong></td>
+        <td>科创板IPO状态</td>
+        <td>辅导验收完成</td>
+        <td class="trend-up">&#x2191; 即将申报</td>
+      </tr>
+      <tr>
+        <td><strong>智谱</strong></td>
+        <td>拟募资金额</td>
+        <td>≤150亿元</td>
+        <td class="trend-up">&#x2191; A+H双平台</td>
+      </tr>
+      <tr>
+        <td><strong>MiniMax</strong></td>
+        <td>股价（港股）</td>
+        <td>&lt;400港元（高点1330港元）</td>
+        <td class="trend-down">&#x2193; 回撤~70%</td>
+      </tr>
+      <tr>
+        <td><strong>OpenAI</strong></td>
+        <td>秘密IPO估值</td>
+        <td>~$8520亿</td>
+        <td class="trend-up">&#x2191; 全球最大AI IPO</td>
+      </tr>
+      <tr>
+        <td><strong>Anthropic</strong></td>
+        <td>Fable 5下线天数</td>
+        <td>6天（6月12日起）</td>
+        <td class="trend-down">&#x2193; 无恢复时间表</td>
+      </tr>
+      <tr>
+        <td><strong>NVIDIA+宇树</strong></td>
+        <td>GR00T人形机器人</td>
+        <td>75自由度，定价未公布</td>
+        <td class="trend-up">&#x2191; 2026年底出货</td>
+      </tr>
+      <tr>
+        <td><strong>小米</strong></td>
+        <td>MiMo Code</td>
+        <td>SWE-bench 82% vs Claude Code 79%</td>
+        <td class="trend-up">&#x2191; 开源MIT协议</td>
+      </tr>
+      <tr>
+        <td><strong>GitHub Copilot</strong></td>
+        <td>价格变化</td>
+        <td>$50/月 → 最高$3000/月</td>
+        <td class="trend-down">&#x2193; 用户大规模迁移</td>
+      </tr>
+    </tbody>
+  </table>
 
   <!-- 11. 明日关注 -->
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="section-icon">🔮</span> 明日关注</h2>
-      <p class="section-sub">6月19日值得关注的事件与动态</p>
+  <div class="section-head"><h2><span class="section-icon">&#x1F514;</span> 明日关注</h2></div>
+  <div class="tomorrow-grid">
+    <div class="tomorrow-item">
+      <h4>&#x1F6A8; Anthropic出口管制解禁进展</h4>
+      <p>Fable 5/Mythos 5已下线6天，G7峰会后是否出现外交斡旋突破口？关注商务部是否发布新指引。</p>
     </div>
-    <div class="tomorrow-grid">
-      <div class="tomorrow-item"><h4>DeepSeek融资后续</h4><p>关注投资方正式公告、资金到位进度、算力基建具体规划披露</p></div>
-      <div class="tomorrow-item"><h4>G7峰会AI联合声明</h4><p>G7领导人联合公报中AI相关条款，"可信赖伙伴"方案细节是否公布</p></div>
-      <div class="tomorrow-item"><h4>OpenAI S-1文件细节</h4><p>更多财务数据可能泄露，关注收入结构、亏损规模、IPO定价区间</p></div>
-      <div class="tomorrow-item"><h4>Anthropic Fable 5恢复进展</h4><p>与商务部谈判进展，首尔办公室运营细节，国际合作伙伴反应</p></div>
-      <div class="tomorrow-item"><h4>Copilot定价反噬效应</h4><p>开发者迁移MiMo Code/OpenCode的数据，微软是否调整定价策略</p></div>
+    <div class="tomorrow-item">
+      <h4>&#x1F4B0; DeepSeek融资后续</h4>
+      <p>500亿融资细节持续披露中，关注是否有更多LP名单曝光及乌兰察布智算中心建设进展。</p>
     </div>
-  </section>
-
-  <!-- 12. Footer -->
-  <footer class="site-footer">
-    <p>由 Claude AI 驱动 · 每日自动生成 · 数据来源：RedFox API + WebSearch</p>
-    <p class="footer-note">
-      <a href="/ai-news-digest/archive/">历史归档</a> ·
-      <a href="/ai-news-digest/search.html">全文搜索</a> ·
-      <a href="/ai-news-digest/feed.xml">RSS订阅</a>
-    </p>
-  </footer>
+    <div class="tomorrow-item">
+      <h4>&#x1F3AE; Gemini 3.5 Pro正式发布</h4>
+      <p>Google I/O承诺的6月发布日期临近，关注200万Token上下文+Deep Think推理模式的实际表现。</p>
+    </div>
+    <div class="tomorrow-item">
+      <h4>&#x1F4CA; OpenAI GPT-5.6发布日期</h4>
+      <p>"iris-alpha"泄露后，关注OpenAI是否会在6月下旬正式发布对标Fable 5的更新版本。</p>
+    </div>
+    <div class="tomorrow-item">
+      <h4>&#x1F91D; 智谱科创板申报材料披露</h4>
+      <p>辅导验收完成后，关注正式IPO申报材料的公开文件，120亿基座模型投资的具体规划值得关注。</p>
+    </div>
+  </div>
 
 </main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/ai-news-digest/archive/">查看所有历史日报</a>
+    <a href="/ai-news-digest/search.html">全文搜索</a>
+    <a href="/ai-news-digest/trends.html">趋势追踪</a>
+    <a href="/ai-news-digest/feed.xml">RSS 订阅</a>
+  </div>
+  <p>由 Claude AI 驱动 · 每日自动生成 · 网站: ai-digest.paicoding.com</p>
+  <p class="footer-note">
+    数据来源：<a href="https://www.21jingji.com/" target="_blank" rel="noopener">21财经</a> ·
+    <a href="https://36kr.com/" target="_blank" rel="noopener">36氪</a> ·
+    <a href="https://www.cnbc.com/" target="_blank" rel="noopener">CNBC</a> ·
+    <a href="https://apnews.com/" target="_blank" rel="noopener">AP News</a> ·
+    <a href="https://www.whitehouse.gov/" target="_blank" rel="noopener">White House</a> ·
+    <a href="https://wavespeed.ai/" target="_blank" rel="noopener">WaveSpeed</a> ·
+    <a href="https://venturebeat.com/" target="_blank" rel="noopener">VentureBeat</a> ·
+    <a href="https://www.eastmoney.com/" target="_blank" rel="noopener">东方财富</a>
+    <br>更新时间：2026-06-18 09:00 CST · 每日持续更新中
+  </p>
+</footer>
+
 </body>
 </html>
