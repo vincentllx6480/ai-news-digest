@@ -1,6 +1,36 @@
 {
   "dates": [
     {
+      "date": "0618",
+      "title": "今天 06.18 AI 速递",
+      "headlines": [
+        "📊 数据快览",
+        "🔥 核心要闻简报",
+        "🌍 国际大模型动态",
+        "秘密递交IPO申请，估值冲击万亿美元",
+        "Fable 5/Mythos 5出口管制僵局持续",
+        "Gemini深度集成Android 17 + Apple Siri合作",
+        "Cosmos 3开源 + Nemotron 3 Ultra + Isaac GR00T",
+        "🇨🇳 国内大模型动态"
+      ],
+      "tags": [
+        "IPO",
+        "腾讯",
+        "DeepSeek",
+        "大模型",
+        "Anthropic",
+        "字节",
+        "Claude",
+        "智谱",
+        "Google",
+        "Agent",
+        "Gemini",
+        "OpenAI",
+        "GPT",
+        "融资"
+      ]
+    },
+    {
       "date": "0617",
       "title": "今天 06.17 AI 速递",
       "headlines": [
@@ -131,5 +161,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-17T22:44:50.139876"
+  "lastUpdated": "2026-06-18T09:20:11.960671"
 }
