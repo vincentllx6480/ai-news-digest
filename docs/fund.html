@@ -56,6 +56,24 @@
   .signal-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin: 0 2px; }
   .signal-dot.b { background: var(--buy-green); }
   .signal-dot.s { background: var(--sell-red); }
+  .daily-analysis { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+  .daily-analysis .da-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .daily-analysis .da-date { font-size: 13px; color: var(--muted); }
+  .daily-analysis .da-tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  .da-tag.overview { background: #e8f0fe; color: #1a56db; }
+  .da-tag.signal { background: #fef3c7; color: #92400e; }
+  .da-tag.risk { background: #fce7f3; color: #9d174d; }
+  .daily-analysis h2 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .daily-analysis .overview-text { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .daily-analysis h3 { font-size: 16px; font-weight: 700; margin: 20px 0 12px; color: var(--text); }
+  .fund-notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; margin: 12px 0; }
+  .fund-note { background: var(--panel-alt); border-radius: var(--radius-sm); padding: 16px; font-size: 13px; line-height: 1.7; }
+  .fund-note .fn-code { font-weight: 700; font-size: 14px; }
+  .fund-note .fn-name { color: var(--muted); font-size: 12px; margin-left: 6px; }
+  .fund-note .fn-signal { margin-top: 6px; }
+  .fund-note .fn-text { color: var(--text-secondary); margin-top: 4px; }
+  .daily-analysis .risk-note { background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-sm); padding: 16px; font-size: 13px; line-height: 1.7; margin-top: 16px; }
+  .daily-analysis .risk-note strong { color: #dc2626; }
   .fund-footer { text-align: center; padding: 40px 0 20px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 32px; }
   .nav-table-wrap { overflow-x: auto; margin: 12px 0; }
   .nav-table-wrap table { font-size: 13px; }
@@ -90,6 +108,56 @@
   <h1><span class="gradient-text">基金技术面分析</span></h1>
   <p class="sub" id="page-subtitle">加载中...</p>
 </div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- DAILY ANALYSIS BLOCK — 每日由 Claude 更新 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="daily-analysis" id="daily-analysis">
+  <div class="da-header">
+    <h2>今日盘面分析</h2>
+    <span class="da-date" id="da-date">2026-06-18</span>
+    <span class="da-tag overview">盘面综述</span>
+  </div>
+  <div class="overview-text" id="da-overview">
+    今日5只持仓基金全线收涨，半导体板块表现最为强劲。008281国泰半导体芯片ETF联接A领涨+4.12%，017811东方人工智能+2.05%，025209永赢半导体智选+2.75%。稀有金属014111止跌回升+1.26%，消费电子012320跟涨+2.86%。大盘科技股情绪回暖，芯片产业链全面反弹。
+  </div>
+
+  <h3>各基金信号解读</h3>
+  <div class="fund-notes" id="da-fund-notes">
+    <div class="fund-note" id="fn-014111">
+      <span class="fn-code">014111</span><span class="fn-name">嘉实稀有金属ETF联接C</span>
+      <div class="fn-signal"><span class="badge badge-hold">持有</span></div>
+      <div class="fn-text">止跌反弹+1.26%，结束连跌。近3天仍为负累计，未触发买入信号。继续持有观望，等待连续阳线确认底部。</div>
+    </div>
+    <div class="fund-note" id="fn-008281">
+      <span class="fn-code">008281</span><span class="fn-name">国泰CES半导体芯片ETF联接A</span>
+      <div class="fn-signal"><span class="badge badge-sell">卖出信号</span></div>
+      <div class="fn-text">今日大涨+4.12%，叠加昨日+5.81%，近2天累计已超9%。触发连涨卖出信号，建议减仓锁定利润。注意：连续两日暴涨后短线回调概率增大。</div>
+    </div>
+    <div class="fund-note" id="fn-017811">
+      <span class="fn-code">017811</span><span class="fn-name">东方人工智能主题混合C</span>
+      <div class="fn-signal"><span class="badge badge-hold">持有</span></div>
+      <div class="fn-text">连续两日上涨（昨日+7.72%，今日+2.05%），累计近10%。但今日涨幅收窄，动能减弱。持有观望，如明日继续缩量上涨考虑减仓。</div>
+    </div>
+    <div class="fund-note" id="fn-025209">
+      <span class="fn-code">025209</span><span class="fn-name">永赢先锋半导体智选混合发起C</span>
+      <div class="fn-signal"><span class="badge badge-hold">持有</span></div>
+      <div class="fn-text">连续两日上涨（昨日+7.53%，今日+2.75%），累计超10%。同样面临短线过热风险，建议分批减仓。</div>
+    </div>
+    <div class="fund-note" id="fn-012320">
+      <span class="fn-code">012320</span><span class="fn-name">东财消费电子指数增强C</span>
+      <div class="fn-signal"><span class="badge badge-hold">持有</span></div>
+      <div class="fn-text">昨日+4.84%，今日+2.86%，连续上涨。消费电子受AI终端利好提振，趋势向好但短线涨幅已大。持有观察。</div>
+    </div>
+  </div>
+
+  <div class="risk-note" id="da-risk">
+    <strong>风险提示：</strong>半导体板块连续两日暴涨，3只半导体相关基金近2天累计涨幅均超9%，短线回调压力显著。建议半导体仓位重的明天开盘减仓1/3-1/2锁定利润。稀有金属板块刚企稳，仍需观察持续性。整体仓位建议：半导体降至轻仓，稀有金属维持观望。
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════ -->
+<!-- END DAILY ANALYSIS BLOCK -->
+<!-- ═══════════════════════════════════════════ -->
 
 <div class="rule-config">
   <strong>分析框架</strong> — 短线周频交易：每月交易4次，每次持有1-5天。连续2-3天涨跌幅超5%即为买卖窗口。
