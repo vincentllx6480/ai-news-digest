@@ -1,6 +1,39 @@
 {
   "dates": [
     {
+      "date": "0622",
+      "title": "今天 06.22 AI 速递",
+      "headlines": [
+        "&#x1F4CA; 数据快览",
+        "&#x1F4F0; 核心要闻简报",
+        "&#x1F30D; 国际动态",
+        "Anthropic Fable 5 / Mythos 5 正式发布",
+        "OpenAI GPT-5.6 将于6月发布",
+        "Google Gemini 3.5 Pro 即将登场",
+        "微软Build 2026：一口气发7款自研MAI模型",
+        "&#x1F1E8;&#x1F1F3; 国内动态"
+      ],
+      "tags": [
+        "阿里",
+        "大模型",
+        "OpenAI",
+        "Google",
+        "IPO",
+        "Gemini",
+        "DeepSeek",
+        "腾讯",
+        "Agent",
+        "融资",
+        "Claude",
+        "智谱",
+        "Anthropic",
+        "GPT",
+        "Kimi"
+      ],
+      "hasUpdate": true,
+      "updateTime": "11:01"
+    },
+    {
       "date": "0618",
       "title": "今天 06.18 AI 速递",
       "headlines": [
@@ -164,5 +197,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-18T09:22:47.248058"
+  "lastUpdated": "2026-06-22T11:01:05.720533"
 }
