@@ -15,7 +15,7 @@ DATA_DIR = BASE_DIR / "docs" / "data"
 NAV_FILE = DATA_DIR / "fund-nav-6m.json"
 CHART_FILE = DATA_DIR / "fund-chart-data.json"
 
-FUNDS = ["014111", "008281", "017811", "025209", "012320"]
+FUNDS = ["014111", "008281", "017811", "025209", "012320", "012733"]
 
 
 def fetch_latest_page(code: str) -> list[dict]:
