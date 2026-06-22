@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>基金技术面分析</title>
-<meta name="description" content="5只基金技术面分析：稀有金属、半导体芯片、人工智能、消费电子">
+<meta name="description" content="6只基金技术面分析：稀有金属、半导体芯片、人工智能、消费电子">
 <link rel="icon" type="image/svg+xml" href="/ai-news-digest/assets/favicon.svg">
 <link rel="stylesheet" href="/ai-news-digest/css/site.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -119,7 +119,7 @@
     <span class="da-tag overview">盘面综述</span>
   </div>
   <div class="overview-text" id="da-overview">
-    2026-06-18 5只持仓基金5涨0跌，整体偏强。半导体芯片板块表现最亮眼。
+    2026-06-18 5只持仓基金6涨0跌，整体偏强。人工智能板块表现最亮眼。
   </div>
 
   <h3>各基金信号解读</h3>
@@ -149,10 +149,15 @@
       <div class="fn-signal"><span class="badge badge-sell">卖出信号</span></div>
       <div class="fn-text">2026-06-18 NAV 1.9309，近3天累计涨10.0%，短线获利盘压力大。近2天累计+7.8%，近3天累计+10.0%。</div>
     </div>
+    <div class="fund-note" id="fn-012733">
+      <span class="fn-code">012733</span><span class="fn-name">易方达中证人工智能主题ETF联接A</span>
+      <div class="fn-signal"><span class="badge badge-sell">卖出信号</span></div>
+      <div class="fn-text">2026-06-18 NAV 2.3982，近3天累计涨7.3%，短线获利盘压力大。近2天累计+7.1%，近3天累计+7.3%。</div>
+    </div>
   </div>
 
   <div class="risk-note" id="da-risk">
-    <strong>风险提示：</strong>4只基金触发卖出信号，短线注意减仓锁定利润。
+    <strong>风险提示：</strong>5只基金触发卖出信号，短线注意减仓锁定利润。
   </div>
 </div>
 <!-- ═══════════════════════════════════════════ -->
@@ -315,15 +320,15 @@ function getRecommendation(code, signals, daily) {
 let allCharts = [];
 
 function renderAll(data) {
-  const codes = ['014111', '008281', '017811', '025209', '012320'];
-  const emojis = ['01', '02', '03', '04', '05'];
+  const codes = ['014111', '008281', '017811', '025209', '012320', '012733'];
+  const emojis = ['01', '02', '03', '04', '05', '06'];
 
   // Update subtitle
   const lastDate = data['014111'].daily.slice(-1)[0].date;
   document.getElementById('page-subtitle').textContent = '数据截止 ' + lastDate + ' · Mode 1 纯技术面 · 短线周频策略';
 
   // Build summary table
-  let sumHTML = '<h2>五只基金总览</h2><table class="summary-table"><thead><tr><th>代码</th><th>名称</th><th>最新净值</th><th>今日涨幅</th><th>近3天累计</th><th>近1周累计</th><th>近6月信号</th><th>建议</th></tr></thead><tbody>';
+  let sumHTML = '<h2>六只基金总览</h2><table class="summary-table"><thead><tr><th>代码</th><th>名称</th><th>最新净值</th><th>今日涨幅</th><th>近3天累计</th><th>近1周累计</th><th>近6月信号</th><th>建议</th></tr></thead><tbody>';
 
   codes.forEach(code => {
     const fund = data[code];
