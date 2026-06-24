@@ -1,6 +1,39 @@
 {
   "dates": [
     {
+      "date": "0624",
+      "title": "AI 每日速递 · 2026.06.24",
+      "headlines": [
+        "&#x1F4CA; 数据快览",
+        "&#x1F4F0; 核心要闻简报",
+        "&#x1F30D; 国际动态",
+        "Anthropic秘密提交IPO，估值9650亿美元登顶",
+        "微软Build 2026发布7款自研MAI模型，摆脱OpenAI依赖",
+        "Google Gemini 3.5 Pro发布，2M上下文窗口",
+        "OpenAI GPT-5.6发布，Codex周活突破500万",
+        "&#x1F1E8;&#x1F1F3; 国内动态"
+      ],
+      "tags": [
+        "Agent",
+        "Anthropic",
+        "Claude",
+        "DeepSeek",
+        "IPO",
+        "Kimi",
+        "GPT",
+        "字节",
+        "腾讯",
+        "大模型",
+        "OpenAI",
+        "Gemini",
+        "Google",
+        "融资",
+        "智谱"
+      ],
+      "hasUpdate": true,
+      "updateTime": "09:29"
+    },
+    {
       "date": "0622",
       "title": "今天 06.22 AI 速递",
       "headlines": [
@@ -197,5 +230,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-22T11:01:05.720533"
+  "lastUpdated": "2026-06-24T09:29:10.680666"
 }

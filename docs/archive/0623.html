@@ -4,16 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>今天 06.23 AI 速递</title>
-<meta name="description" content="AI 每日速递 2026.06.23：智谱市值破万亿·DeepSeek 500亿融资落地·MiniMax M3多模态开源·Anthropic Fable 5被美政府关停·Loop Engineering新范式引爆·字节FORCE大会前瞻">
+<meta name="description" content="AI 每日速递 2026.06.23：智谱市值破万亿·DeepSeek 500亿融资落地·谷歌AI人才地震·三部门智能体规范出台·Anthropic OpenAI双双秘密IPO">
 <link rel="icon" type="image/svg+xml" href="/ai-news-digest/assets/favicon.svg">
 <link rel="stylesheet" href="/ai-news-digest/css/site.css">
 <style>
 /* === site.css (inlined for local viewing) === */
-/* ============================================================
-   AI 每日速递 - 网站全局样式
-   Design: Editorial Luxury + Double-Bezel Architecture
-   ============================================================ */
-
 :root {
   --bg: #faf9f7;
   --panel: #ffffff;
@@ -39,622 +34,72 @@
   --font: "Geist", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
   --font-mono: "Geist Mono", "SF Mono", "Cascadia Code", monospace;
 }
-
-/* Reset & Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-
-body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
 a { color: var(--accent); text-decoration: none; transition: color .2s; }
 a:hover { color: #1542b0; }
 img { max-width: 100%; height: auto; }
-
-/* Top Rainbow Bar */
-.rainbow-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  z-index: 1000;
-  background: linear-gradient(90deg,
-    #ef4444, #f97316, #eab308, #22c55e, #14b8a6,
-    #3b82f6, #6366f1, #8b5cf6, #ec4899, #ef4444
-  );
-  background-size: 200% 100%;
-  animation: rainbowFlow 8s linear infinite;
-}
+.rainbow-bar { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 1000; background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #22c55e, #14b8a6, #3b82f6, #6366f1, #8b5cf6, #ec4899, #ef4444); background-size: 200% 100%; animation: rainbowFlow 8s linear infinite; }
 @keyframes rainbowFlow { to { background-position: -200% 0; } }
-
-/* Site Navigation */
-.site-nav {
-  position: sticky;
-  top: 4px;
-  z-index: 999;
-  background: rgba(250, 249, 247, .88);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--text);
-  letter-spacing: -0.3px;
-}
-
-.nav-brand .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  box-shadow: 0 0 12px rgba(99, 102, 241, .35);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.nav-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 500;
-  transition: all .25s ease;
-}
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-  background: var(--accent-light);
-}
-
+.site-nav { position: sticky; top: 4px; z-index: 999; background: rgba(250,249,247,.88); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); letter-spacing: -0.3px; }
+.nav-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); box-shadow: 0 0 12px rgba(99, 102, 241, .35); }
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-links a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: all .25s ease; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-light); }
 .nav-links a svg { width: 16px; height: 16px; opacity: .7; }
-
-/* Main Layout */
-.site-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 24px 80px;
-}
-
-/* Hero Section */
-.hero {
-  padding: 48px 0 32px;
-  text-align: center;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border-radius: 999px;
-  background: var(--accent-light);
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.hero-eyebrow .live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: .5; transform: scale(1.3); }
-}
-
-.hero h1 {
-  font-size: clamp(36px, 6vw, 56px);
-  font-weight: 800;
-  letter-spacing: -1.2px;
-  line-height: 1.08;
-  margin-bottom: 16px;
-}
-
-.hero h1 .gradient-text {
-  background: linear-gradient(135deg, #1a56db 0%, #7c3aed 50%, #db2777 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero p {
-  max-width: 640px;
-  margin: 0 auto;
-  color: var(--text-secondary);
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* Stats Row */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 48px;
-}
-
-.stat-card {
-  position: relative;
-  padding: 24px;
-  border-radius: var(--radius-lg);
-  background: var(--panel);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-}
-
+.site-main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
+.hero { padding: 48px 0 32px; text-align: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 20px; }
+.hero-eyebrow .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.3); } }
+.hero h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -1.2px; line-height: 1.08; margin-bottom: 16px; }
+.hero h1 .gradient-text { background: linear-gradient(135deg, #1a56db 0%, #7c3aed 50%, #db2777 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero p { max-width: 640px; margin: 0 auto; color: var(--text-secondary); font-size: 18px; line-height: 1.6; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+.stat-card { position: relative; padding: 24px; border-radius: var(--radius-lg); background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow); overflow: hidden; }
+.stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
 .stat-card:nth-child(1)::before { background: #ef4444; }
 .stat-card:nth-child(2)::before { background: #3b82f6; }
 .stat-card:nth-child(3)::before { background: #22c55e; }
 .stat-card:nth-child(4)::before { background: #8b5cf6; }
-
-.stat-value {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-  margin-bottom: 6px;
-}
+.stat-value { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 6px; }
 .stat-label { color: var(--muted); font-size: 13px; font-weight: 500; }
 .stat-trend { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; margin-top: 6px; }
 .stat-trend.up { color: #16a34a; }
 .stat-trend.down { color: #dc2626; }
-
-/* Section Headers */
-.section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-}
-
-.section-head h2 {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-}
-
-.section-head .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.badge-new { background: #fef3c7; color: #92400e; }
-.badge-hot { background: #fee2e2; color: #991b1b; }
-
-/* Inline "新" badge for latest/updated articles */
-.new-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 7px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  vertical-align: middle;
-  margin-right: 6px;
-  line-height: 1.5;
-  background: #ef4444;
-  color: #fff;
-  animation: newPulse 2s ease-in-out infinite;
-}
-.new-badge.update {
-  background: #3b82f6;
-  animation: none;
-}
-@keyframes newPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .7; }
-}
-
-/* Cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-.card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
-  transition: all .25s ease;
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-  border-color: var(--line-strong);
-}
-
-.card-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .03em;
-  margin-bottom: 12px;
-}
-
-.tag-model { background: #e8f0fe; color: #1a56db; }
-.tag-fund { background: #fef3c7; color: #92400e; }
-.tag-product { background: #dcfce7; color: #166534; }
-.tag-policy { background: #f3e8ff; color: #7c3aed; }
-.tag-platform { background: #fce7f3; color: #9d174d; }
-
-.card h3 {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 8px;
-}
-
-.card h3 a { color: var(--text); }
-.card h3 a:hover { color: var(--accent); }
-
-.card p {
-  color: var(--text-secondary);
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.card-meta span { display: inline-flex; align-items: center; gap: 4px; }
-
-/* Source Link */
-.source-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--accent-light);
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 500;
-  transition: all .2s;
-}
-.source-link:hover { background: #d4e2fc; }
-.source-link svg { width: 12px; height: 12px; }
-
-/* Tables */
-.data-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin-bottom: 40px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-.data-table thead th {
-  background: var(--panel-alt);
-  padding: 14px 16px;
-  text-align: left;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  border-bottom: 1px solid var(--line);
-}
-
-.data-table tbody td {
-  padding: 14px 16px;
-  font-size: 14px;
-  border-bottom: 1px solid var(--line);
-  vertical-align: middle;
-}
-
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.section-head h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+.badge-hot { background: #fee2e2; color: #991b1b; font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+.new-badge { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: .04em; vertical-align: middle; margin-right: 6px; line-height: 1.5; background: #ef4444; color: #fff; animation: newPulse 2s ease-in-out infinite; }
+.new-badge.update { background: #3b82f6; animation: none; }
+@keyframes newPulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); transition: all .25s ease; }
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--line-strong); }
+.card h3 { font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+.card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 40px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.data-table thead th { background: var(--panel-alt); padding: 14px 16px; text-align: left; font-size: 12px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--line); }
+.data-table tbody td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .data-table tbody tr:last-child td { border-bottom: none; }
 .data-table tbody tr:hover { background: #fafaf9; }
-
-.trend-up { color: #16a34a; font-weight: 600; }
-.trend-down { color: #dc2626; font-weight: 600; }
-.trend-flat { color: var(--muted); }
-
-/* Opportunities */
-.opp-card {
-  position: relative;
-  padding: 24px 24px 24px 28px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  margin-bottom: 16px;
-  box-shadow: var(--shadow-sm);
-}
-
-.opp-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 18px;
-  bottom: 18px;
-  width: 4px;
-  border-radius: 0 3px 3px 0;
-}
-
+.data-table .amt { font-weight: 700; color: var(--accent); }
+.opp-card { position: relative; padding: 24px 24px 24px 28px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+.opp-card::before { content: ''; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 0 3px 3px 0; }
 .opp-card:nth-child(1)::before { background: #ef4444; }
 .opp-card:nth-child(2)::before { background: #f97316; }
 .opp-card:nth-child(3)::before { background: #14b8a6; }
 .opp-card:nth-child(4)::before { background: #7c3aed; }
 .opp-card:nth-child(5)::before { background: #3b82f6; }
-
 .opp-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.opp-card .opp-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 12px;
-}
-.opp-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  background: var(--panel-alt);
-  color: var(--text-secondary);
-}
-
-/* Platform Panels */
-.platform-tabs {
-  display: flex;
-  gap: 0;
-  margin-bottom: 0;
-  border-bottom: 2px solid var(--line);
-}
-
-.platform-tab {
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-  cursor: pointer;
-  border: none;
-  background: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: all .2s;
-  font-family: var(--font);
-}
-
-.platform-tab:hover { color: var(--text); }
-.platform-tab.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-.platform-panel { display: none; padding-top: 20px; }
-.platform-panel.active { display: block; }
-
-/* Archive Calendar */
-.archive-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.archive-day {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 18px 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--panel);
-  transition: all .2s;
-  text-align: center;
-}
-
-.archive-day:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-}
-
-.archive-day .date-num {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-
-.archive-day .date-month {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.archive-day .date-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  margin-top: 8px;
-}
-
-.archive-day.empty { opacity: .4; pointer-events: none; }
-.archive-day.empty .date-dot { background: var(--line); }
-
-/* Search */
-.search-box {
-  position: relative;
-  max-width: 640px;
-  margin: 0 auto 32px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 16px 48px 16px 20px;
-  border: 2px solid var(--line);
-  border-radius: var(--radius-xl);
-  font-size: 16px;
-  font-family: var(--font);
-  background: var(--panel);
-  outline: none;
-  transition: all .25s;
-}
-
-.search-box input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(26, 86, 219, .08);
-}
-
-.search-box svg {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  color: var(--muted);
-  pointer-events: none;
-}
-
-.search-results { margin-top: 24px; }
-.result-item {
-  padding: 20px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  margin-bottom: 12px;
-}
-.result-item mark { background: #fef08a; padding: 1px 4px; border-radius: 3px; }
-.result-item .result-date { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-
-/* RSS */
-.rss-info {
-  text-align: center;
-  padding: 48px 24px;
-}
-
-.rss-info .rss-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  background: #f97316;
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all .2s;
-}
-
-.rss-info .rss-link:hover {
-  background: #ea580c;
-  color: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(249, 115, 22, .3);
-}
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 40px 24px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
-}
-
+.opp-card .opp-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+.site-footer { border-top: 1px solid var(--line); padding: 40px 24px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
 .site-footer a { color: var(--accent); }
-.site-footer .footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .stats-row { grid-template-columns: repeat(2, 1fr); }
-  .card-grid { grid-template-columns: 1fr; }
-  .nav-inner { padding: 0 16px; }
-  .nav-links a span.label { display: none; }
-  .hero h1 { font-size: 32px; }
-  .archive-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-  .data-table { font-size: 12px; }
-  .data-table thead th,
-  .data-table tbody td { padding: 10px 12px; }
-}
-
-@media (max-width: 480px) {
-  .stats-row { grid-template-columns: 1fr; gap: 10px; }
-  .hero { padding: 32px 0 24px; }
-  .site-main { padding: 16px 16px 48px; }
-}
-
+@media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .card-grid { grid-template-columns: 1fr; } .nav-inner { padding: 0 16px; } .nav-links a span.label { display: none; } .hero h1 { font-size: 32px; } .data-table { font-size: 12px; } .data-table thead th, .data-table tbody td { padding: 10px 12px; } }
+@media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; gap: 10px; } .hero { padding: 32px 0 24px; } .site-main { padding: 16px 16px 48px; } }
 </style>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -679,31 +124,9 @@ img { max-width: 100%; height: auto; }
   .brief-list li .hl { color: #dc2626; font-weight: 600; }
   .card-links { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
   .card-links a { font-size: 12px; color: var(--accent); text-decoration: none; }
-  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .data-table th { text-align: left; padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--line); }
-  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
-  .data-table tr:last-child td { border-bottom: none; }
-  .data-table .amt { font-weight: 700; color: var(--accent); }
-  .opp-card { padding: 16px; background: linear-gradient(135deg, var(--panel-alt), var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); }
-  .opp-card h4 { font-size: 14px; margin-bottom: 4px; }
-  .opp-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
   .opp-card .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-left: 6px; }
   .opp-card .tag.hot { background: #fee2e2; color: #dc2626; }
   .opp-card .tag.new { background: #dbeafe; color: #2563eb; }
-  .section-head { display: flex; align-items: center; gap: 10px; margin: 40px 0 16px; }
-  .section-head h2 { font-size: 20px; margin: 0; }
-  .badge-hot { background: #fee2e2; color: #dc2626; font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
-  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .stat-card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
-  .stat-value { font-size: 24px; font-weight: 800; color: var(--accent); }
-  .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
-  .stat-trend { font-size: 11px; margin-top: 6px; }
-  .stat-trend.up { color: #16a34a; }
-  .stat-trend.down { color: #dc2626; }
-  .card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
-  .card h3 { font-size: 16px; margin-bottom: 8px; }
-  .card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
 </style>
 </head>
 <body>
@@ -746,9 +169,9 @@ img { max-width: 100%; height: auto; }
 
   <!-- 1. Hero -->
   <section class="hero">
-    <div class="hero-eyebrow"><span class="live-dot"></span> 2026年6月23日 · 星期二 · <span class="new-badge">9:00 首发</span></div>
+    <div class="hero-eyebrow"><span class="live-dot"></span> 2026年6月23日 · 星期二 · <span class="new-badge">9:00 首发 · 17:30 更新</span></div>
     <h1>今天 <span class="gradient-text">06.23</span> AI 速递</h1>
-    <p class="hero-desc">智谱市值破万亿港元·DeepSeek 500亿融资落地·MiniMax M3原生多模态开源·Anthropic Fable 5遭美政府关停引发G7激辩·Loop Engineering新范式引爆编程圈·字节FORCE大会前瞻</p>
+    <p class="hero-desc">上午：智谱市值破万亿港元·DeepSeek 500亿融资落地·MiniMax M3原生多模态开源·Anthropic Fable 5遭美政府关停<br><span class="new-badge" style="margin-right:4px">下午更新</span>五眼联盟AI安全警告·字节豆包FORCE大会·Getty暴涨145%·Coinbase上线AI IPO合约·七部门AI分层方案<br><span class="new-badge" style="margin-right:4px">早前更新</span>谷歌AI人才地震·三部门智能体规范·Anthropic&OpenAI秘密IPO·微软炮轰AI垄断·特朗普逆转禁令</p>
     <div class="tag-row">
       <span class="tag-chip fund">融资快讯</span>
       <span class="tag-chip model">大模型</span>
@@ -772,39 +195,68 @@ img { max-width: 100%; height: auto; }
       <div class="stat-trend up">&#x2191; 中国AI最大单轮</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">80.3%</div>
-      <div class="stat-label">Claude Fable 5 SWE-Bench</div>
-      <div class="stat-trend down">&#x2193; 已被美政府关停</div>
+      <div class="stat-value">$9650亿</div>
+      <div class="stat-label">Anthropic秘密IPO估值</div>
+      <div class="stat-trend up">&#x2191; 超OpenAI $8520亿</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">32项</div>
-      <div class="stat-label">金融AI监管指导意见</div>
-      <div class="stat-trend up">&#x2191; 覆盖7大方面</div>
+      <div class="stat-value">-7%</div>
+      <div class="stat-label">谷歌股价单日跌幅</div>
+      <div class="stat-trend down">&#x2193; 两AI巨星同日跳槽</div>
     </div>
   </section>
 
   <!-- 3. 核心要闻简报 -->
   <div class="section-head"><h2><span class="section-icon">&#x1F4F0;</span> 核心要闻简报</h2></div>
   <ul class="brief-list">
-    <li><span class="num">01</span> <span><span class="hl">[市值]</span> 智谱股价6月22日冲至2980港元，市值突破1.07万亿港元（≈2.4个美团），GLM-5.2以MIT协议开源，Code Arena编程评测全球第二。 <a href="https://m.bbtnews.com.cn/article/232680" target="_blank">来源</a></span></li>
-    <li><span class="num">02</span> <span><span class="hl">[融资]</span> DeepSeek首轮外部融资超500亿元正式落地，梁文锋个人出资200亿，腾讯、宁德时代、京东等入局。国家AI产业投资基金注资10亿元享投票权，外部投资者锁定5年。 <a href="https://finance.sina.com.cn/wm/2026-06-22/doc-iniehsct9307578.shtml" target="_blank">来源</a></span></li>
-    <li><span class="num">03</span> <span><span class="hl">[开源]</span> MiniMax M3正式开源：428B总参数/23B激活，首款从零完成多模态混合预训练的开源模型，搭载MSA稀疏注意力技术。股价较年初涨近3倍至637.5港元。 <a href="https://my.oschina.net/u/5247004/blog/19708361" target="_blank">来源</a></span></li>
-    <li><span class="num">04</span> <span><span class="hl">[关停]</span> 美国商务部6月12日下令Anthropic全球关停Fable 5和Mythos 5（"越狱"隐忧），至6月19日仍未恢复。G7峰会上马克龙警告："没人会买能被远程关停的AI。" AI主权成为采购考量。 <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank">来源</a></span></li>
-    <li><span class="num">05</span> <span><span class="hl">[IPO]</span> 智谱科创板IPO辅导验收，拟募150亿元。云知声成为继智谱、MiniMax后第三家筹划回A的港股AI企业。证监会：科创板第五套标准正式扩至AI大模型。 <a href="https://www.cnstock.com/commonDetail/731034" target="_blank">来源</a></span></li>
-    <li><span class="num">06</span> <span><span class="hl">[范式]</span> Claude Code之父Boris Cherny提出"Loop Engineering"新范式：从写Prompt转向设计循环机制。Claude Code已支持/loops和Routines，Agent可在工程师合上电脑后继续运行数千个。 <a href="https://36kr.com/p/3844224911346184" target="_blank">来源</a></span></li>
-    <li><span class="num">07</span> <span><span class="hl">[Agent]</span> 小米开源MiMo Code（MIT协议）：持久记忆系统+无限上下文管理+Compose编排模式，支持75+LLM Provider。OpenAI Codex整合进ChatGPT，10亿用户获Agent能力。 <a href="https://cloud.tencent.cn/developer/article/2687937" target="_blank">来源</a></span></li>
-    <li><span class="num">08</span> <span><span class="hl">[前瞻]</span> 字节FORCE原动力大会下周召开，或发布新模型。豆包付费内容6月下旬上线。阿里Qwen-Robot具身智能套件发布。英伟达ENPIRE框架：Agent自主做机器人研究，3小时成功率0→99%。 <a href="https://36kr.com/p/3863497186006274" target="_blank">来源</a></span></li>
+    <!-- 下午新增 17:30 -->
+    <li><span class="num">01</span> <span><span class="new-badge">新</span><span class="hl">[安全]</span> 五眼联盟发布紧急AI网络安全警告：前沿AI模型可能在"数月内"具备发动灾难性网络攻击的能力，敦促各国政府和企业立即加强防御。 <a href="https://www.cnn.com/2026/06/23/us/5-things-to-know-for-june-23-ai-warning-primaries-nuclear-weapons-uk-political-turmoil-montreal-shooting" target="_blank">CNN</a></span></li>
+    <li><span class="num">02</span> <span><span class="new-badge">新</span><span class="hl">[平台]</span> 字节豆包FORCE大会：日均Token调用量突破180万亿（增1500倍），发布豆包2.1 Pro（成本比Claude Opus 4.6低80%），火山引擎MaaS市场份额49.5%。 <a href="https://www.eet-china.com/mp/a504643.html" target="_blank">电子工程</a> <a href="https://36kr.com/p/3865431689935750" target="_blank">36氪</a></span></li>
+    <li><span class="num">03</span> <span><span class="new-badge">新</span><span class="hl">[合作]</span> Getty Images与OpenAI达成授权合作，图片库将出现在ChatGPT搜索中，Getty股价暴涨145%。此前Getty曾起诉Stability AI侵权。 <a href="https://www.theedgesingapore.com/news/artificial-intelligence/getty-images-surges-145-after-announcing-openai-deal" target="_blank">Bloomberg</a></span></li>
+    <li><span class="num">04</span> <span><span class="new-badge">新</span><span class="hl">[金融]</span> Coinbase上线OpenAI/Anthropic IPO前永续合约（PERP），非美国用户可在正式上市前交易两家AI巨头的估值预期。币安此前也已上线类似产品。 <a href="https://bravenewcoin.com/zh-CN/%E5%8F%AF%E8%A1%8C%E7%9A%84%E6%B4%9E%E8%A7%81/openai-and-anthropic-pre-ipo-perpetuals-go-live-on-coinbase-markets-as-tom-lee-warns-of-ai-ipo-market-shock" target="_blank">BraveNewCoin</a></span></li>
+    <li><span class="num">05</span> <span><span class="new-badge">新</span><span class="hl">[政策]</span> 七部门联合印发AI产业分层淘汰方案：通用大模型存量出清、行业大模型全面扶持、AI智能体两极分化，落地实效为唯一评判标准。 <a href="https://www.csdn.net/article/2026-06-23/162234027" target="_blank">CSDN</a></span></li>
+
+    <!-- 早前下午更新 -->
+    <li><span class="num">06</span> <span><span class="new-badge">新</span><span class="hl">[人才]</span> 谷歌AI人才地震：AlphaFold诺奖得主John Jumper跳槽Anthropic，Transformer作者Noam Shazeer加入OpenAI，谷歌股价暴跌7%市值蒸发$2100亿，创近一年最惨交易日。 <a href="https://finance.eastmoney.com/a/202606233778474172.html" target="_blank">东方财富</a> <a href="https://www.ndtvprofit.com/markets/alphabet-stock-tumbles-7-as-second-ai-star-exits-in-talent-war-shock-11673808" target="_blank">NDTV</a></span></li>
+    <li><span class="num">07</span> <span><span class="new-badge">新</span><span class="hl">[政策]</span> 三部门联合印发《智能体规范应用与创新发展实施意见》：国内首部AI智能体专项监管文件，明确19个应用场景和三级权限划分，要求建立可追溯可问责治理机制。 <a href="https://www.sohu.com/a/1040271741_120044037" target="_blank">搜狐</a></span></li>
+    <li><span class="num">08</span> <span><span class="new-badge">新</span><span class="hl">[IPO]</span> Anthropic已秘密递交IPO估值$9650亿（超OpenAI），Q2首次运营盈利年化营收$470亿。OpenAI同步秘密递交IPO估值$8520亿。SpaceX&xAI上市马斯克成首位万亿富豪。 <a href="https://finance.eastmoney.com/a/202606203776940868.html" target="_blank">东方财富</a></span></li>
+    <li><span class="num">09</span> <span><span class="new-badge">更新</span><span class="hl">[反转]</span> 特朗普不再视Anthropic为国家安全威胁，逆转此前Fable 5/Mythos 5关停决定。Anthropic与微软讨论定制Maia AI芯片供应，继$50亿投资后深化合作。 <a href="https://finance.eastmoney.com/a/202606203776940868.html" target="_blank">东方财富</a></span></li>
+    <li><span class="num">10</span> <span><span class="new-badge">新</span><span class="hl">[垄断]</span> 微软CEO纳德拉炮轰AI垄断："公众不会容忍少数公司垄断世界知识"，推出Copilot Cowork比Claude Cowork便宜30-40%，考虑整合DeepSeek模型。 <a href="https://www.stcn.com/article/detail/3974449.html" target="_blank">证券时报</a></span></li>
+
+    <!-- 上午核心要闻 -->
+    <li><span class="num">11</span> <span><span class="hl">[市值]</span> 智谱股价6月22日冲至2980港元，市值突破1.07万亿港元（≈2.4个美团），GLM-5.2以MIT协议开源，Code Arena编程评测全球第二。 <a href="https://m.bbtnews.com.cn/article/232680" target="_blank">来源</a></span></li>
+    <li><span class="num">12</span> <span><span class="hl">[融资]</span> DeepSeek首轮外部融资超500亿元正式落地，梁文锋个人出资200亿，腾讯、宁德时代、京东等入局。国家AI产业投资基金注资10亿元享投票权，外部投资者锁定5年。 <a href="https://finance.sina.com.cn/wm/2026-06-22/doc-iniehsct9307578.shtml" target="_blank">来源</a></span></li>
+    <li><span class="num">13</span> <span><span class="hl">[开源]</span> MiniMax M3正式开源：428B总参数/23B激活，首款从零完成多模态混合预训练的开源模型，搭载MSA稀疏注意力技术。股价较年初涨近3倍至637.5港元。 <a href="https://my.oschina.net/u/5247004/blog/19708361" target="_blank">来源</a></span></li>
+    <li><span class="num">14</span> <span><span class="hl">[关停]</span> 美国商务部6月12日下令Anthropic全球关停Fable 5和Mythos 5（"越狱"隐忧），至6月19日仍未恢复。G7峰会上马克龙警告："没人会买能被远程关停的AI。" <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank">来源</a></span></li>
+    <li><span class="num">15</span> <span><span class="hl">[范式]</span> Claude Code之父Boris Cherny提出"Loop Engineering"新范式：从写Prompt转向设计循环机制。Claude Code已支持/loops和Routines，Agent可在工程师合上电脑后继续运行数千个。 <a href="https://36kr.com/p/3844224911346184" target="_blank">来源</a></span></li>
   </ul>
 
   <!-- 4. 国际动态 -->
   <div class="section-head"><h2><span class="section-icon">&#x1F30D;</span> 国际动态</h2></div>
   <div class="card-grid">
     <div class="card">
-      <h3>Anthropic Fable 5/Mythos 5 被美政府全球关停</h3>
-      <p>6月9-10日发布的Fable 5（SWE-Bench Pro 80.3%）和Mythos 5（无安全限制版），6月12日被美国商务部以"越狱隐忧"为由下令全球关停。截至6月19日仍未恢复。Anthropic年化营收已达$470亿（年初$90亿），已秘密提交IPO。G7峰会上此事成为核心议题，马克龙警告"AI主权风险"。</p>
+      <h3><span class="new-badge">新</span>谷歌AI人才地震：两位巨星同日跳槽</h3>
+      <p>6月22日，谷歌DeepMind遭遇重创——2024年诺贝尔化学奖得主、AlphaFold共同创造者John Jumper宣布加入Anthropic；同日Transformer论文共同作者、Gemini联合负责人Noam Shazeer宣布加入OpenAI。谷歌股价单日暴跌超7%，市值蒸发约2100亿美元（1.4万亿元），创2月以来最大单日跌幅。分析师称谷歌正"在AI前沿人才争夺战中节节败退"。</p>
       <div class="card-links">
-        <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank">WaveSpeed</a>
-        <a href="https://www.ajupress.com/view/20260610133970634" target="_blank">AJU Press</a>
+        <a href="https://finance.eastmoney.com/a/202606233778474172.html" target="_blank">东方财富</a>
+        <a href="https://www.ndtvprofit.com/markets/alphabet-stock-tumbles-7-as-second-ai-star-exits-in-talent-war-shock-11673808" target="_blank">NDTV Profit</a>
+        <a href="https://www.stheadline.com/zh-hans/realtime-finance/3585967/" target="_blank">星岛头条</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge">新</span>微软纳德拉炮轰AI垄断，推低成本Copilot</h3>
+      <p>微软CEO萨提亚·纳德拉高调批评AI行业"垄断行为"："公众不会容忍少数模型和公司垄断全世界所有知识。"微软推出Copilot Cowork，声称每prompt比Anthropic Claude Cowork便宜30-40%。据报微软正考虑整合DeepSeek开源模型进一步降低成本，并将AI定位为"通用基础设施"而非独家前沿技术。</p>
+      <div class="card-links">
+        <a href="https://www.stcn.com/article/detail/3974449.html" target="_blank">证券时报</a>
+        <a href="https://www.chosun.com/english/industry-en/2026/06/23/DO6VAOTGY5FYBPOSTE3VE5QV3Y/" target="_blank">朝鲜日报</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge update">更新</span>特朗普逆转：不再视Anthropic为安全威胁</h3>
+      <p>继6月12日美国商务部下令关停Anthropic Fable 5和Mythos 5后，特朗普最新表态不再视Anthropic为国家安全威胁，为Fable 5解禁铺路。同时Anthropic正与微软讨论定制Maia AI芯片供应（继微软$50亿投资后），CEO Dario Amodei此前承认公司面临"算力瓶颈"。Anthropic已秘密递交IPO，估值$9650亿。</p>
+      <div class="card-links">
+        <a href="https://finance.eastmoney.com/a/202606203776940868.html" target="_blank">东方财富</a>
+        <a href="https://phys.sabanciuniv.edu/en/education/graduate?live-blog-13750534-2026-06-23-news-anthropic-and-microsoft-discuss-custom-ai-chip-supply-amid-5-billion-invest" target="_blank">Phys.org</a>
       </div>
     </div>
     <div class="card">
@@ -815,72 +267,114 @@ img { max-width: 100%; height: auto; }
         <a href="https://www.thepaper.cn/newsdetail_forward_33296711" target="_blank">澎湃</a>
       </div>
     </div>
-    <div class="card">
-      <h3>Google Gemini 3.5 Flash GA + Pro延迟</h3>
-      <p>Gemini 3.5 Flash 5月19日已GA（$1.50/$9.00 per MTok），Gemini 3.5 Pro仍处有限预览（2M上下文、"Deep Think"推理模式）。Gemma 4登陆Amazon Bedrock。Google AI Plus降至$4.99/月。G7峰会上Demis Hassabis力推"美国主导的AI联盟"。</p>
-      <div class="card-links">
-        <a href="https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" target="_blank">WaveSpeed</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>英伟达ENPIRE：Agent自主做机器人研究</h3>
-      <p>英伟达、CMU和Berkeley联合推出ENPIRE框架：8个Coding Agent各自控制一台双臂机器人，自主完成"读论文→改算法→训练→部署→分析→迭代"。Pin Insertion任务3小时成功率0→99%。Jim Fan："GEAR实验室一部分已彻夜自我改进，我们早上来读报告。"</p>
-      <div class="card-links">
-        <a href="https://36kr.com/p/3863497186006274" target="_blank">36氪</a>
-      </div>
-    </div>
   </div>
+
+    <div class="card">
+      <h3><span class="new-badge">新</span>五眼联盟发布AI网络安全紧急警告</h3>
+      <p>6月23日，五眼情报联盟（美英加澳新）发布联合声明：前沿AI模型可能在"数月内"具备发动灾难性网络攻击的能力，敦促各国政府和企业立即加强防御。声明指出"前沿AI的快速发展意味着网络风险假设可能在数月内过时"，紧随特朗普政府限制外国籍人员接触Anthropic最先进模型的命令。</p>
+      <div class="card-links">
+        <a href="https://www.cnn.com/2026/06/23/us/5-things-to-know-for-june-23-ai-warning-primaries-nuclear-weapons-uk-political-turmoil-montreal-shooting" target="_blank">CNN</a>
+        <a href="https://www.thenews.com.pk/latest/1406946-cybersecurity-faces-ai-threat-sooner-than-expected-five-eyes-spy-partners-warn" target="_blank">The News</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge">新</span>Getty Images与OpenAI合作，股价暴涨145%</h3>
+      <p>Getty Images宣布与OpenAI达成授权合作协议，其图片库将整合进ChatGPT的搜索和发现功能。消息公布后Getty股价一度暴涨145%，标志着此前曾起诉Stability AI侵权的Getty在AI时代的重大战略转向。</p>
+      <div class="card-links">
+        <a href="https://www.theedgesingapore.com/news/artificial-intelligence/getty-images-surges-145-after-announcing-openai-deal" target="_blank">Bloomberg</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge">新</span>中国超算LineShine登顶TOP500全球第一</h3>
+      <p>中国采用国产芯片的超算系统"LineShine"在TOP500超算排名中登顶全球第一，超越美国政府El Capitan系统。不过专家指出在AI专项基准测试中仅排第四——许多AI超算（如xAI Colossus）并未提交榜单。</p>
+      <div class="card-links">
+        <a href="https://www.tbsnews.net/world/china-beats-us-worlds-fastest-supercomputer-race-not-geared-ai-work-1470571" target="_blank">Reuters</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge">新</span>联合国要求AI公司披露环境成本</h3>
+      <p>联合国秘书长古特雷斯呼吁AI巨头公开披露数据中心的用水量、碳排放和土地使用影响，警告"到2030年AI可能消耗超过全球前五名以外任何国家的电力"，并启动联合国AI环境透明度倡议。</p>
+      <div class="card-links">
+        <a href="https://themalaytribune.com/un-chief-demands-tech-giants-be-honest-about-the-hidden-water-power-and-carbon-cost-of-the-ai-boom/" target="_blank">Reuters</a>
+      </div>
+    </div>
 
   <!-- 5. 国内动态 -->
   <div class="section-head"><h2><span class="section-icon">&#x1F1E8;&#x1F1F3;</span> 国内动态</h2></div>
   <div class="card-grid">
     <div class="card">
+      <h3><span class="new-badge">新</span>三部门发布《智能体规范应用与创新发展实施意见》</h3>
+      <p>6月23日，国家网信办、发改委、工信部联合印发国内首部AI智能体专项监管文件。明确智能体定义（自主感知/记忆/决策/交互/执行），列出19个典型应用场景，建立三级权限划分（仅限用户决策、需授权决策、自主决策），要求建立可追溯可问责治理机制。强调"人的主体性"底线，是全球最早出台的智能体专项监管政策之一。</p>
+      <div class="card-links">
+        <a href="https://www.sohu.com/a/1040271741_120044037" target="_blank">搜狐</a>
+      </div>
+    </div>
+    <div class="card">
       <h3>智谱 GLM-5.2 开源 + 市值破万亿</h3>
-      <p>6月17日发布GLM-5.2，MIT协议开源：Code Arena编程评测全球第二，Design Arena网页设计登顶全球第一（首次超越Claude Fable 5），百万Token无损上下文。6月22日股价2980港元，市值1.07万亿港元。科创板IPO辅导验收，拟募150亿元。2025年营收7.24亿（+131.9%）。</p>
+      <p>6月17日发布GLM-5.2，MIT协议开源：Code Arena编程评测全球第二，Design Arena网页设计登顶全球第一（首次超越Claude Fable 5），百万Token无损上下文。6月22日股价2980港元，市值1.07万亿港元。科创板IPO辅导验收，拟募150亿元。</p>
       <div class="card-links">
         <a href="https://m.bbtnews.com.cn/article/232680" target="_blank">北京商报</a>
         <a href="https://www.21jingji.com/article/20260622/herald/dded2f6efc378a87d16bed2cba40da79.html" target="_blank">21世纪</a>
       </div>
     </div>
     <div class="card">
-      <h3>MiniMax M3 原生多模态开源</h3>
-      <p>6月15日MiniMax M3开源：428B总参数/23B激活，首款从零完成多模态混合预训练的开源模型，搭载MSA稀疏注意力技术，推理/编码/金融场景优异。股价较年初发行价165港元涨至637.5港元（+286%），市值1934亿港元。去年营收7903万美元（+158.9%），海外收入占比超七成。</p>
+      <h3><span class="new-badge">新</span>DeepSeek人才流失隐忧 + V4-Flash极致低价</h3>
+      <p>核心研究员陆续离开：R1核心作者郭达雅加入字节，罗福莉加入小米任Mimo实验室负责人。但公开信息显示整体人才流失率不高。V4-Flash百万Token输出价仅$0.279，API理论利润率545%。270人团队训出1.6万亿参数模型却无商业化闭环，1.27亿月活均为免费用户。国产模型集体从"拼参数"转向"拼工程交付"。</p>
       <div class="card-links">
-        <a href="https://my.oschina.net/u/5247004/blog/19708361" target="_blank">OSChina</a>
+        <a href="https://www.huxiu.com/article/4869268.html" target="_blank">虎嗅</a>
+        <a href="https://caifuhao.eastmoney.com/news/20260622095604025477130" target="_blank">东方财富</a>
       </div>
     </div>
     <div class="card">
-      <h3>阿里Qwen-Robot + 字节Seedance 2.0 Mini</h3>
-      <p>阿里6月16日发布Qwen-Robot Suite具身智能套件（导航/机械臂/物理预测三模型），零样本适配多类机器人。字节Seedance 2.0 Mini视频生成模型成本减半（C端最低0.16元/秒），API 6月22日开放。豆包付费内容6月下旬上线，FORCE原动力大会下周召开或发布新模型。</p>
+      <h3>MiniMax M3 原生多模态开源 + A股IPO推进</h3>
+      <p>MiniMax M3开源：428B总参数/23B激活，首款从零完成多模态混合预训练的开源模型。股价较年初涨286%至637.5港元，市值1934亿港元。与中信证券签署A股科创板IPO辅导协议。2025年营收7903万美元（+158.9%），海外收入占比超70%，是四家中唯一毛利率持续改善的。</p>
       <div class="card-links">
         <a href="https://my.oschina.net/u/5247004/blog/19708361" target="_blank">OSChina</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>小米MiMo Code开源 + 云知声筹划回A</h3>
-      <p>小米6月11日开源MiMo Code V0.1.0（MIT协议）：三层持久记忆系统（MEMORY.md+checkpoint+tasks）、无限上下文管理、Compose全生命周期编排，支持75+ LLM Provider。云知声6月22日成为继智谱、MiniMax后第三家筹划回A的港股AI企业。</p>
-      <div class="card-links">
-        <a href="https://cloud.tencent.cn/developer/article/2687937" target="_blank">腾讯云</a>
-        <a href="https://www.yilantop.com/news/96077" target="_blank">易览</a>
       </div>
     </div>
   </div>
+
+    <div class="card">
+      <h3><span class="new-badge">新</span>字节豆包FORCE大会：Token调用量180万亿/日</h3>
+      <p>6月23日字节跳动FORCE原动力大会：豆包大模型日均Token调用量突破180万亿（较首发增长1500倍），火山引擎在中国公有云MaaS市场Token份额达49.5%。发布豆包2.1 Pro（综合成本比Claude Opus 4.6低近80%）、Seedance 2.5视频生成模型（预计7月上线）。年Token调用量超1万亿的企业已达200家。</p>
+      <div class="card-links">
+        <a href="https://www.eet-china.com/mp/a504643.html" target="_blank">电子工程</a>
+        <a href="https://36kr.com/p/3865431689935750" target="_blank">36氪</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge">新</span>DeepSeek成立Harness组：Model+Harness=Agent</h3>
+      <p>DeepSeek新成立Harness组，大规模招聘研究员、工程师和产品经理，核心理念为"Model + Harness = Agent"。聚焦Agent产品的上下文管理、长期记忆、Multi-Agent协作和自进化Agent方向，标志着DeepSeek系统性布局Agent基础设施与产品化。V4 Flash连续五周位居OpenRouter调用量榜首。</p>
+      <div class="card-links">
+        <a href="https://www.donews.com/article/detail/6885/103151.html" target="_blank">DoNews</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="new-badge">新</span>阿里发布HappyHorse 1.1视频生成模型</h3>
+      <p>阿里巴巴发布HappyHorse 1.1视频生成模型，在动态表现力、主体一致性和指令遵循方面系统性升级。单次生成3-15秒720p/1080p视频，最多支持9张角色参考图。通义千问在全球开源模型下载量中占比超50%，AI原生App月活排名第二。</p>
+      <div class="card-links">
+        <a href="https://www.eet-china.com/mp/a504643.html" target="_blank">电子工程</a>
+      </div>
+    </div>
 
   <!-- 6. 融资快讯 -->
   <div class="section-head"><h2><span class="section-icon">&#x1F4B0;</span> 融资快讯</h2></div>
   <table class="data-table">
     <thead><tr><th>公司</th><th>轮次</th><th>金额</th><th>关键投资方</th><th>备注</th></tr></thead>
     <tbody>
-      <tr><td>DeepSeek</td><td>首轮外部融资</td><td class="amt">超500亿元</td><td>梁文锋(200亿)、腾讯、宁德时代(50亿)、京东、国家AI产业基金(10亿)</td><td>投后估值超$500亿，外部投资者锁5年无投票权</td></tr>
+      <tr><td><span class="new-badge">新</span>Anthropic</td><td>秘密递交IPO</td><td class="amt">估值$9650亿</td><td>公开市场</td><td>Q2首次运营盈利，年化营收$470亿，超OpenAI估值</td></tr>
+      <tr><td><span class="new-badge">新</span>OpenAI</td><td>秘密递交IPO</td><td class="amt">估值$8520亿</td><td>公开市场</td><td>计划Q4上市，2025年净亏$385亿</td></tr>
+      <tr><td><span class="new-badge">新</span>SpaceX & xAI</td><td>已上市（6/12）</td><td class="amt">市值$2.43万亿</td><td>公开市场</td><td>马斯克成首位万亿（美元）富豪</td></tr>
+      <tr><td><span class="new-badge">新</span>Coinbase</td><td>上线永续合约</td><td class="amt">—</td><td>公开市场</td><td>上线OpenAI/Anthropic IPO前PERP合约，非美国用户可交易</td></tr>
+      <tr><td><span class="new-badge">新</span>中科闻歌(01956)</td><td>IPO招股截止</td><td class="amt">超购3934倍</td><td>6名基石$3100万</td><td>孖展1772亿港元，6月26日港交所上市</td></tr>
+      <tr><td><span class="new-badge">新</span>SpaceX</td><td>首发债券</td><td class="amt">$200亿+</td><td>公开市场</td><td>6月22日启动，融资用于AI领域扩张</td></tr>
+      <tr><td><span class="new-badge">新</span>阶跃星辰</td><td>新一轮</td><td class="amt">约170亿元</td><td>—</td><td>红筹架构已拆除，筹备A股</td></tr>
+      <tr><td>DeepSeek</td><td>首轮外部融资</td><td class="amt">超500亿元</td><td>梁文锋(200亿)、腾讯、宁德时代(50亿)、京东</td><td>投后估值超$500亿，外部投资者锁5年</td></tr>
       <tr><td>智谱</td><td>科创板IPO</td><td class="amt">150亿元（拟募）</td><td>公开市场</td><td>辅导验收，港股市值1.07万亿港元</td></tr>
-      <tr><td>MiniMax</td><td>回A科创板</td><td class="amt">—</td><td>中信证券辅导</td><td>港股股价涨286%，市值1934亿港元</td></tr>
-      <tr><td>云知声</td><td>筹划回A</td><td class="amt">—</td><td>多家券商接触中</td><td>继智谱/MiniMax后第三家</td></tr>
+      <tr><td>月之暗面（Kimi）</td><td>启动赴港IPO</td><td class="amt">估值超$300亿</td><td>—</td><td>ARR两月从1亿→$2亿，海外API收入占比超50%</td></tr>
+      <tr><td>MiniMax</td><td>回A科创板</td><td class="amt">—</td><td>中信证券辅导</td><td>港股涨286%，市值1934亿港元</td></tr>
       <tr><td>快手·可灵AI</td><td>首轮</td><td class="amt">超$20亿</td><td>泛大西洋投资（拟领投）</td><td>投后估值$180亿</td></tr>
-      <tr><td>月之暗面（Kimi）</td><td>新一轮</td><td class="amt">未披露</td><td>—</td><td>投前估值升至$300亿</td></tr>
-      <tr><td>中科闻歌</td><td>港股IPO招股中</td><td class="amt">8.27亿港元</td><td>公开市场</td><td>"决策大模型第一股"，市值约105亿港元</td></tr>
-      <tr><td>燧原科技</td><td>科创板IPO过会</td><td class="amt">—</td><td>阳光保险、平安人寿等险资</td><td>AI算力芯片</td></tr>
       <tr><td>硅基流动</td><td>未披露</td><td class="amt">超20亿元</td><td>携程战投、晶科能源、金蝶、联通</td><td>算力基础设施</td></tr>
-      <tr><td>摩尔线程/沐曦/壁仞</td><td>已上市</td><td class="amt">—</td><td>公开市场</td><td>国产GPU/AI芯片密集上市</td></tr>
     </tbody>
   </table>
 
@@ -888,47 +382,54 @@ img { max-width: 100%; height: auto; }
   <div class="section-head"><h2><span class="section-icon">&#x1F4DC;</span> 政策监管</h2></div>
   <div class="card-grid">
     <div class="card">
+      <h3><span class="new-badge">新</span>三部门《智能体规范应用与创新发展实施意见》</h3>
+      <p>6月23日网信办、发改委、工信部联合发布。国内首部AI智能体专项监管文件，全球最早之一。核心：定义智能体标准、19个应用场景、三级权限划分、可追溯可问责治理机制、数字身份+行为日志+区块链技术保障。强调"人的主体性"底线。</p>
+      <div class="card-links">
+        <a href="https://www.sohu.com/a/1040271741_120044037" target="_blank">搜狐</a>
+      </div>
+    </div>
+    <div class="card">
       <h3>科创板第五套标准正式扩至AI大模型</h3>
-      <p>6月17日陆家嘴论坛，证监会主席吴清宣布科创板第五套标准扩至AI大模型领域。上交所同日发布适用指引（15条）：需有产品上线并规模化应用、具备技术优势、明确商业化安排。支持量子科技、生物制造、具身智能等领域。业内称将吸引"AI六小虎"加速回流A股。</p>
+      <p>6月17日陆家嘴论坛，证监会主席吴清宣布科创板第五套标准扩至AI大模型领域。上交所同日发布适用指引（15条）：需有产品上线并规模化应用、具备技术优势、明确商业化安排。支持量子科技、生物制造、具身智能等领域。</p>
       <div class="card-links">
         <a href="https://www.21jingji.com/article/20260617/herald/d42f717e8b45d22e0ea7d485b7e18936.html" target="_blank">21世纪</a>
-        <a href="https://finance.eastmoney.com/a/202606203776934521.html" target="_blank">东方财富</a>
       </div>
     </div>
     <div class="card">
       <h3>金融监管总局发布AI安全开发应用指导意见</h3>
-      <p>6月18日发布32项指导意见：AI风险纳入全面风险管理体系、分类分级管理、高风险场景保留人工监督、外部生成式AI模型需经网信办备案。严禁滥用AI生成虚假信息、操纵市场价格。鼓励大型金融机构向中小机构输出算力。覆盖治理架构/开发应用/数据治理/算力建设/风险管理/能力提升/保障监督七大方面。</p>
+      <p>6月18日发布32项指导意见：AI风险纳入全面风险管理体系、分类分级管理、高风险场景保留人工监督、外部生成式AI模型需经网信办备案。严禁滥用AI生成虚假信息、操纵市场价格。鼓励大型金融机构向中小机构输出算力。</p>
       <div class="card-links">
         <a href="https://finance.people.com.cn/BIG5/n1/2026/0619/c1004-40743600.html" target="_blank">人民网</a>
       </div>
     </div>
+  </div>
+
     <div class="card">
-      <h3>陆家嘴论坛定调："一放一严"</h3>
-      <p>资本市场端为AI企业打开融资通道（"放得开"），金融监管端建立严格风控体系（"管得住"）。证监会将适时发布规范资本市场AI发展的指导意见，从严打击利用AI非法荐股、造谣传谣。中国农业银行提出"以AI应对AI"纵深防御。保险资金加速布局硬科技。</p>
+      <h3><span class="new-badge">新</span>七部门联合印发AI产业分层淘汰方案</h3>
+      <p>6月23日，七部门联合发布《促进平台经济大中小企业协同发展行动方案（2026-2028年）》，以落地实效为唯一评判标准精准划分三大赛道：通用大模型存量出清（仅支持头部原创企业）、行业大模型全面扶持（深度绑定专业知识，政策最大赢家）、AI智能体两极分化（真智能体扶持/伪智能体清退）。</p>
       <div class="card-links">
-        <a href="https://paper.cnstock.com/html/2026-06/18/content_2232998.htm" target="_blank">中国证券报</a>
+        <a href="https://www.csdn.net/article/2026-06-23/162234027" target="_blank">CSDN</a>
       </div>
     </div>
-  </div>
 
   <!-- 8. 创业机会 -->
   <div class="section-head"><h2><span class="section-icon">&#x1F52D;</span> 创业机会</h2></div>
   <div class="card-grid">
     <div class="opp-card">
+      <h4><span class="new-badge">新</span>智能体合规与审计中间件 <span class="tag hot">热</span></h4>
+      <p>三部门《智能体规范》出台催生刚需。为企业Agent提供权限分级管理、行为日志、可追溯审计、合规检查的中间件产品有明确监管驱动需求。</p>
+    </div>
+    <div class="opp-card">
       <h4>Loop Engineering 工具链 <span class="tag new">新</span></h4>
-      <p>Claude Code之父提出的新方向。开发者需要Loop设计器、调试器、监控仪表板、成本优化器。整个Loop Engineering工具链都是空白市场，先发优势明显。</p>
+      <p>Claude Code之父提出的新方向。开发者需要Loop设计器、调试器、监控仪表板、成本优化器。整个Loop Engineering工具链都是空白市场。</p>
     </div>
     <div class="opp-card">
       <h4>Agent安全合规中间件 <span class="tag hot">热</span></h4>
-      <p>Anthropic Fable 5被关停事件 + 金融监管总局32项意见，双重驱动Agent安全合规需求。为金融机构提供Agent审计、合规检查、人机协同工作流的中间件产品有明确合规需求。</p>
+      <p>Anthropic Fable 5被关停事件 + 金融监管总局32项意见 + 智能体规范三部门文件，三重驱动Agent安全合规需求。为金融机构提供Agent审计、合规检查、人机协同工作流的中间件产品有明确合规需求。</p>
     </div>
     <div class="opp-card">
       <h4>AI主权/本地化部署方案 <span class="tag hot">热</span></h4>
-      <p>Fable 5全球关停引发"AI主权"担忧。马克龙警告"没人买能被远程关停的AI"。为企业提供本地化部署、离线运行、不受制于单一供应商的AI方案需求激增。</p>
-    </div>
-    <div class="opp-card">
-      <h4>具身智能+机器人中间件 <span class="tag new">新</span></h4>
-      <p>英伟达ENPIRE + 阿里Qwen-Robot Suite + 小米MiMo Code，Agent从数字世界走向物理世界。机器人Agent的操作系统、任务编排、安全沙箱需求爆发。</p>
+      <p>Fable 5全球关停引发"AI主权"担忧，微软纳德拉趁机推低成本替代方案。为企业提供本地化部署、离线运行、不受制于单一供应商的AI方案需求激增。</p>
     </div>
     <div class="opp-card">
       <h4>国产算力适配与优化服务 <span class="tag hot">热</span></h4>
@@ -936,19 +437,36 @@ img { max-width: 100%; height: auto; }
     </div>
   </div>
 
+    <div class="opp-card">
+      <h4><span class="new-badge">新</span>AI安全合规与网络安全升级 <span class="tag hot">热</span></h4>
+      <p>五眼联盟紧急警告+三部门智能体规范+金融监管32条，三重驱动。企业急需AI安全评测、运行时行为监控、供应链合规审计的一站式解决方案。</p>
+    </div>
+    <div class="opp-card">
+      <h4><span class="new-badge">新</span>Agent基础设施（Harness层） <span class="tag new">新</span></h4>
+      <p>DeepSeek提出"Model+Harness=Agent"新范式，上下文管理、长期记忆、Multi-Agent协作、自进化Agent等基础设施层需求爆发。Harness中间件赛道空白。</p>
+    </div>
+    <div class="opp-card">
+      <h4><span class="new-badge">新</span>AI授权内容与数据合规交易 <span class="tag new">新</span></h4>
+      <p>Getty Images+OpenAI合作（股价涨145%）验证AI内容授权商业模式。为版权方提供AI训练数据合规授权、版税结算的技术平台有明确市场需求。</p>
+    </div>
+
   <!-- 9. 明日关注 -->
   <div class="section-head"><h2><span class="section-icon">&#x1F440;</span> 明日关注</h2></div>
   <div class="tomorrow-grid">
+    <div class="tomorrow-item"><h4><span class="new-badge">新</span>谷歌人才流失后续</h4>Jumper和Shazeer跳槽后，关注是否有更多谷歌AI人才出走，以及谷歌应对措施。</div>
+    <div class="tomorrow-item"><h4><span class="new-badge">新</span>智能体规范实施细则</h4>三部门文件后续将有行业细则和配套标准出台，关注具体合规要求。</div>
     <div class="tomorrow-item"><h4>智谱科创板IPO正式递交</h4>辅导验收后，正式招股书披露时间窗口临近。</div>
     <div class="tomorrow-item"><h4>OpenAI GPT-5.6 发布</h4>首席科学家确认6月发布，随时可能上线。</div>
     <div class="tomorrow-item"><h4>字节FORCE原动力大会</h4>下周召开，或发布新模型及豆包付费方案。</div>
-    <div class="tomorrow-item"><h4>Anthropic Fable 5 恢复进展</h4>被关停已超10天，关注美商务部是否会解禁。</div>
-    <div class="tomorrow-item"><h4>金融AI指导意见实施细则</h4>32项指导意见后续将有细则出台，关注具体合规要求。</div>
   </div>
+
+    <div class="tomorrow-item"><h4><span class="new-badge">新</span>五眼联盟AI安全后续措施</h4>关注五眼联盟警告后各国的具体防御部署和主要AI公司的安全回应。</div>
+    <div class="tomorrow-item"><h4><span class="new-badge">新</span>中科闻歌上市首日表现</h4>6月26日港交所挂牌，超购3934倍创纪录，关注开盘定价和首日涨幅。</div>
+    <div class="tomorrow-item"><h4><span class="new-badge">新</span>豆包2.1 Pro开发者生态</h4>FORCE大会后，关注字节豆包2.1 Pro的开发者采纳速度和行业落地案例。</div>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <p class="footer-note">AI 每日速递 · 自动采集生成 · 资讯来源：公开新闻报道与行业研究<br>数据更新时间：2026-06-23 09:00 CST · <a href="/ai-news-digest/feed.xml">RSS订阅</a> · <a href="/ai-news-digest/archive/">历史归档</a></p>
+    <p class="footer-note">AI 每日速递 · 自动采集生成 · 资讯来源：公开新闻报道与行业研究<br>数据更新时间：2026-06-23 09:00首发 · 17:30第二次更新 CST · <a href="/ai-news-digest/feed.xml">RSS订阅</a> · <a href="/ai-news-digest/archive/">历史归档</a></p>
   </footer>
 
 </main>
