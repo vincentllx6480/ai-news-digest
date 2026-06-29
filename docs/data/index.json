@@ -1,6 +1,38 @@
 {
   "dates": [
     {
+      "date": "0629",
+      "title": "AI每日速递 2026-06-29",
+      "headlines": [
+        "&#x1F4CA; 数据快览",
+        "&#x1F4F0; 核心要闻简报",
+        "&#x1F30D; 国际动态",
+        "OpenAI发布GPT-5.6系列，Sol击败Claude Mythos 5",
+        "谷歌算力告急：Alphabet创纪录融资$847.5亿",
+        "微软Build 2026：7款自研MAI模型 + Scout自主Agent",
+        "企业AI支出转向效率，OpenAI/Anthropic增长承压",
+        "&#x1F1E8;&#x1F1F3; 国内动态"
+      ],
+      "tags": [
+        "OpenAI",
+        "GPT",
+        "IPO",
+        "Anthropic",
+        "大模型",
+        "Claude",
+        "Agent",
+        "Gemini",
+        "DeepSeek",
+        "腾讯",
+        "字节",
+        "智谱",
+        "融资",
+        "Kimi"
+      ],
+      "hasUpdate": true,
+      "updateTime": "09:14"
+    },
+    {
       "date": "0624",
       "title": "AI 每日速递 · 2026.06.24",
       "headlines": [
@@ -230,5 +262,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-06-24T09:29:10.680666"
+  "lastUpdated": "2026-06-29T09:14:03.807703"
 }
