@@ -94,19 +94,20 @@ def analyze_fund(code, fund_data):
         signal_type = "sell"
         reasons.append("连跌3天，触发止损信号")
 
-    # 买入判断
-    if change <= -5:
-        signal_type = "buy"
-        reasons.append(f"单日暴跌{change:+.2f}%，触发重仓买入信号")
-    elif change <= -3:
-        signal_type = "buy"
-        reasons.append(f"单日跌{change:+.2f}%，触发买入信号")
-    elif cum3 and cum3 <= -5:
-        signal_type = "buy"
-        reasons.append(f"连续大跌{cum3:.1f}%，触发抄底窗口")
-    elif cum2 and prev and change < 0 and prev["change"] < 0 and change > -3:
-        signal_type = "buy"
-        reasons.append("连续小跌，可分批建仓")
+    # 买入判断（卖出优先：仅在无卖出信号时检查买入）
+    if signal_type == "hold":
+        if change <= -5:
+            signal_type = "buy"
+            reasons.append(f"单日暴跌{change:+.2f}%，触发重仓买入信号")
+        elif change <= -3:
+            signal_type = "buy"
+            reasons.append(f"单日跌{change:+.2f}%，触发买入信号")
+        elif cum3 and cum3 <= -5:
+            signal_type = "buy"
+            reasons.append(f"连续大跌{cum3:.1f}%，触发抄底窗口")
+        elif cum2 and prev and change < 0 and prev["change"] < 0 and change > -3:
+            signal_type = "buy"
+            reasons.append("连续小跌，可分批建仓")
 
     # 持有分析
     if signal_type == "hold":
