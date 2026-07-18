@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今天 07.15 AI 速递</title>
+<meta name="description" content="2026年7月15日 AI每日速递 — 微软联姻Anthropic、MCP Agent间通信、科创板AI上市通道打通、OpenAI发布ChatGPT Agent">
+<link rel="icon" type="image/svg+xml" href="/ai-news-digest/assets/favicon.svg">
+<link rel="stylesheet" href="/ai-news-digest/css/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf9f7; --panel: #ffffff; --panel-alt: #f5f4f1;
+  --line: #e7e5e2; --line-strong: #d4d1cc;
+  --text: #1a1a1a; --text-secondary: #5c5c5c; --muted: #999590;
+  --accent: #1a56db; --accent-light: #e8f0fe;
+  --green: #0d9488; --amber: #d97706; --red: #dc2626; --purple: #7c3aed;
+  --radius-sm: 10px; --radius: 16px; --radius-lg: 24px; --radius-xl: 32px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.03);
+  --shadow: 0 4px 16px rgba(0,0,0,.05), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.07), 0 4px 12px rgba(0,0,0,.03);
+  --font: "Geist", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+a { color: var(--accent); text-decoration: none; transition: color .2s; }
+a:hover { color: #1542b0; }
+
+.rainbow-bar { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 1000; background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #22c55e, #14b8a6, #3b82f6, #6366f1, #8b5cf6, #ec4899, #ef4444); background-size: 200% 100%; animation: rainbowFlow 8s linear infinite; }
+@keyframes rainbowFlow { to { background-position: -200% 0; } }
+
+.site-nav { position: sticky; top: 4px; z-index: 999; background: rgba(250,249,247,.88); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); }
+.nav-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); box-shadow: 0 0 12px rgba(99,102,241,.35); }
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-links a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: all .25s ease; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-light); }
+.nav-links a svg { width: 16px; height: 16px; opacity: .7; }
+
+.site-main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
+
+.hero { padding: 48px 0 32px; text-align: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: .04em; margin-bottom: 20px; }
+.hero-eyebrow .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(1.3); } }
+.hero h1 { font-size: clamp(36px,6vw,56px); font-weight: 800; letter-spacing: -1.2px; line-height: 1.08; margin-bottom: 16px; }
+.hero h1 .gradient-text { background: linear-gradient(135deg, #1a56db 0%, #7c3aed 50%, #db2777 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.section-head h2 { font-size: 22px; font-weight: 700; }
+
+.new-badge { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 700; vertical-align: middle; margin-right: 6px; background: #ef4444; color: #fff; animation: newPulse 2s ease-in-out infinite; }
+.new-badge.update { background: #3b82f6; animation: none; }
+@keyframes newPulse { 0%,100%{ opacity:1; } 50%{ opacity:.7; } }
+
+.card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.card h3 { font-size: 16px; margin-bottom: 8px; }
+.card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+
+.badge-hot { background: #fee2e2; color: #dc2626; font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat-card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+.stat-value { font-size: 24px; font-weight: 800; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { text-align: left; padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--line); }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.data-table tr:last-child td { border-bottom: none; }
+
+.site-footer { border-top: 1px solid var(--line); padding: 40px 24px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+.tag-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+.tag-chip { display: inline-flex; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .03em; }
+.tag-chip.model { background: #e8f0fe; color: #1a56db; }
+.tag-chip.fund { background: #fef3c7; color: #92400e; }
+.tag-chip.policy { background: #f3e8ff; color: #7c3aed; }
+.tag-chip.platform { background: #fce7f3; color: #9d174d; }
+.tag-chip.product { background: #dcfce7; color: #166534; }
+.brief-list { list-style: none; padding: 0; display: grid; gap: 6px; }
+.brief-list li { padding: 10px 16px; background: var(--panel-alt); border-radius: 10px; font-size: 14px; display: flex; gap: 10px; align-items: flex-start; }
+.brief-list li .num { color: var(--accent); font-weight: 700; flex-shrink: 0; min-width: 22px; }
+.brief-list li .hl { color: #dc2626; font-weight: 600; }
+.card-links { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.card-links a { font-size: 12px; color: var(--accent); text-decoration: none; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { text-align: left; padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--line); }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .amt { font-weight: 700; color: var(--accent); }
+.opp-card { padding: 16px; background: linear-gradient(135deg, var(--panel-alt), var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); }
+.opp-card h4 { font-size: 14px; margin-bottom: 4px; }
+.opp-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+.opp-card .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-left: 6px; }
+.opp-card .tag.hot { background: #fee2e2; color: #dc2626; }
+.opp-card .tag.new { background: #dbeafe; color: #2563eb; }
+.section-head { display: flex; align-items: center; gap: 10px; margin: 40px 0 16px; }
+.section-head h2 { font-size: 20px; margin: 0; }
+.badge-hot { background: #fee2e2; color: #dc2626; font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat-card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+.stat-value { font-size: 24px; font-weight: 800; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.stat-trend { font-size: 11px; margin-top: 6px; }
+.stat-trend.up { color: #16a34a; }
+.stat-trend.down { color: #dc2626; }
+.card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.card h3 { font-size: 16px; margin-bottom: 8px; }
+.card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.tomorrow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.tomorrow-item { padding: 16px; background: var(--panel-alt); border: 1px solid var(--line); border-radius: var(--radius); font-size: 13px; line-height: 1.6; }
+.tomorrow-item h4 { font-size: 14px; margin-bottom: 4px; }
+.footer-note { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.footer-note a { color: var(--accent); }
+.section-icon { font-size: 20px; }
+
+@media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .card-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 32px; } }
+</style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/ai-news-digest/" class="nav-brand"><span class="dot"></span>AI 每日速递</a>
+    <div class="nav-links">
+      <a href="/ai-news-digest/" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="label">首页</span>
+      </a>
+      <a href="/ai-news-digest/fund.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span class="label">基金</span>
+      </a>
+      <a href="/ai-news-digest/archive/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span class="label">归档</span>
+      </a>
+      <a href="/ai-news-digest/search.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="label">搜索</span>
+      </a>
+      <a href="/ai-news-digest/trends.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <span class="label">趋势</span>
+      </a>
+      <a href="/ai-news-digest/feed.xml">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        <span class="label">RSS</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="site-main">
+
+<!-- ═══════════════ 1. Hero ═══════════════ -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="live-dot"></span> 2026年7月15日 · 星期三 · <span class="new-badge">9:00 首发 · 17:30 更新</span></div>
+  <h1>今天 <span class="gradient-text">07.15</span> AI 速递</h1>
+  <p class="hero-desc">微软百亿联姻Anthropic重塑云格局 · MCP协议支持Agent间通信 · 科创板为AI企业打开IPO通道 · OpenAI首款硬件+自研芯片Jalapeño曝光 · DeepSeek梁文锋$360亿登顶AI首富 · 中国开源模型全球下载量占41%</p>
+  <div class="tag-row">
+    <span class="tag-chip policy">政策监管</span>
+    <span class="tag-chip fund">融资快讯</span>
+    <span class="tag-chip model">大模型</span>
+    <span class="tag-chip product">产品动态</span>
+    <span class="tag-chip platform">Agent生态</span>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. 数据快览 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4CA;</span> 数据快览</h2><span class="badge-hot">实时</span></div>
+<section class="stats-row">
+  <div class="stat-card">
+    <div class="stat-value">157起</div>
+    <div class="stat-label">7月国内AI融资事件</div>
+    <div class="stat-trend up">&#x2191; 同比+72起</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">¥113.89亿</div>
+    <div class="stat-label">7月披露融资总额</div>
+    <div class="stat-trend up">&#x2191; 同比近翻倍</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">538款</div>
+    <div class="stat-label">生成式AI备案服务</div>
+    <div class="stat-trend up">&#x2191; 备案持续增长</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">2.3亿</div>
+    <div class="stat-label">国内AI产品用户规模</div>
+    <div class="stat-trend up">&#x2191; 用户持续增长</div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3. 核心要闻简报 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4F0;</span> 核心要闻简报</h2></div>
+<ul class="brief-list">
+  <li><span class="num">01</span> <span><span class="hl">[巨头联姻]</span> 微软Ignite大会宣布与Anthropic、Nvidia三方合作：Anthropic向Azure采购$300亿算力，Nvidia投资$100亿，微软投资$50亿，Claude成为唯一覆盖三大云的模型。 <a href="https://www.tipranks.com/news/microsoft-google-and-openai-escalate-battle-for-700b-enterprise-ai-market" target="_blank">TipRanks</a></span></li>
+  <li><span class="num">02</span> <span><span class="hl">[Agent通信]</span> 微软官方发布MCP Agent-to-Agent通信方案，支持流式推送、断线重连、多轮交互，MCP从工具调用协议升级为Agent间通信基础设施。 <a href="https://developer.microsoft.com/blog/can-you-build-agent2agent-communication-on-mcp-yes" target="_blank">Microsoft</a></span></li>
+  <li><span class="num">03</span> <span><span class="hl">[科创板]</span> 证监会重启未盈利企业科创板第五套上市标准，扩大至AI领域，摩尔线程、沐曦股份等AI芯片企业已获受理，硬科技上市通道打通。 <a href="https://paper.cnstock.com/html/2025-07/08/content_2090498.htm" target="_blank">上海证券报</a></span></li>
+  <li><span class="num">04</span> <span><span class="hl">[OpenAI]</span> OpenAI发布ChatGPT Agent，可在安全虚拟机中自主浏览网页、运行代码、更新表格、生成PPT、预约会议，全部操作需用户审批。 <a href="https://www.tipranks.com/news/microsoft-google-and-openai-escalate-battle-for-700b-enterprise-ai-market" target="_blank">TipRanks</a></span></li>
+  <li><span class="num">05</span> <span><span class="hl">[政策重磅]</span> 国务院常务会议审议通过《"人工智能+"行动意见》，目标2027年AI与六大重点领域深度融合，智能终端普及率超70%。 <a href="https://www.news.cn/politics/20250731/8df99748130d44adac535685e5426978/c.html" target="_blank">新华社</a></span></li>
+  <li><span class="num">06</span> <span><span class="hl">[AI芯片]</span> DeepSeek与智谱相继传出自研AI推理芯片计划，大模型公司从纯软件竞争走向"模型-芯片-云"全栈布局。 <a href="https://www.c114.net.cn/industry/97769.html" target="_blank">C114</a></span></li>
+  <li><span class="num">07</span> <span><span class="hl">[安全治理]</span> 工信部发布《AI安全治理标准体系建设指南》，覆盖数据、算法、系统、应用四层级安全要求，配套国标密集出台。 <a href="http://mp.weixin.qq.com/s?__biz=MzI5NDUyMzI3OA==&mid=2247533395&idx=1&sn=810ac4a1275e3d481122a8d2fe38f6a9" target="_blank">法律动态</a></span></li>
+  <li><span class="num">08</span> <span><span class="hl">[编程工具]</span> 腾讯云CodeBuddy IDE内测，支持自然语言5分钟生成完整工程；GitLab Duo公测，多智能体协作覆盖需求到运维全流程。 <a href="https://www.broadview.com.cn/article/420727" target="_blank">博文视点</a></span></li>
+  <li><span class="num">09</span> <span><span class="new-badge">新</span><span class="hl">[硬件布局]</span> OpenAI首款硬件曝光：屏幕less AI音箱，$65亿收购Jony Ive创立的io Products，集成GPT-Live全双工语音，计划2027年发布。Apple起诉OpenAI窃取商业机密，OpenAI正式否认。 <a href="https://www.theedgesingapore.com/news/tech/openais-first-device-movable-screenless-speaker-built-ai-companion--sources" target="_blank">Edge Singapore</a></span></li>
+  <li><span class="num">10</span> <span><span class="new-badge">新</span><span class="hl">[自研芯片]</span> OpenAI发布首款AI推理芯片Jalapeño：台积电3nm工艺，成本比同级GPU低50%，性能对标Nvidia Blackwell。同步发布GPT-5.6系列（Sol/Terra/Luna），Codex周活突破500万。 <a href="https://www.sohu.com/a/1050622686_115565" target="_blank">搜狐科技</a></span></li>
+  <li><span class="num">11</span> <span><span class="new-badge">新</span><span class="hl">[首富诞生]</span> DeepSeek梁文锋身家$360亿登顶全球AI圈首富。DeepSeek开启新一轮融资，投前估值$710亿（4800亿人民币），计划上交所上市，目标2027年挂牌。 <a href="https://news.qq.com/rain/a/20260715A05SLQ00" target="_blank">腾讯新闻</a></span></li>
+  <li><span class="num">12</span> <span><span class="new-badge">新</span><span class="hl">[AGI预警]</span> DeepMind CEO Hassabis提议建FINRA式AI监管机构，要求前沿模型发布前30天接受评估。警告AGI（通用人工智能）可能在几年内到来，影响将是"工业革命10倍，速度10倍"。 <a href="https://indianexpress.com/article/technology/artificial-intelligence/demis-hassabis-agi-proposes-frontier-ai-standards-body-10786981/" target="_blank">Indian Express</a></span></li>
+  <li><span class="num">13</span> <span><span class="new-badge">新</span><span class="hl">[出口管制]</span> Nvidia因应美国出口管制新规，将新加坡、马来西亚、日本获批AI芯片买家数量削减过半，旨在堵截先进芯片经第三国流入中国的渠道。 <a href="https://www.bernama.com/tv/news.php?id=2580948" target="_blank">Bernama</a></span></li>
+  <li><span class="num">14</span> <span><span class="new-badge">新</span><span class="hl">[开源崛起]</span> 中国开源模型HuggingFace下载量占全球41%，OpenRouter上Top 6模型全部来自中国公司。DoorDash、Siemens、Airbnb等企业已采用中国AI工具。 <a href="https://www.edgen.tech/es/news/post/chinese-open-source-ai-models-surpass-us-with-41-of-downloads" target="_blank">Edgen</a></span></li>
+  <li><span class="num">15</span> <span><span class="new-badge">新</span><span class="hl">[Apple中国]</span> Apple Intelligence中国版完成备案，阿里通义千问模型整合为AI合作伙伴，阿里美股盘前涨超3%。 <a href="http://wdatahk.aastocks.com/tc/usq/quote/stock-news-content.aspx?symbol=BABA&id=GLH2554274L&source=GLH" target="_blank">AASTOCKS</a></span></li>
+  <li><span class="num">16</span> <span><span class="new-badge">新</span><span class="hl">[价格战]</span> 知名投资人Chamath警告AI"每桶智能"价格悬殊：OpenAI($26) vs Anthropic($56) vs Meta($1.50) vs 中国公司($0.50)，低价模型性能已达高价模型80-95%。 <a href="https://www.benzinga.com/markets/tech/26/07/60461111/chamath-palihapitiya-says-meta-and-elon-musk-could-end-the-50-barrel-of-intelligence-era" target="_blank">Benzinga</a></span></li>
+</ul>
+
+<!-- ═══════════════ 4. 国际动态 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F30D;</span> 国际动态</h2></div>
+<div class="card-grid">
+  <div class="card">
+    <h3>微软百亿联姻Anthropic，云计算格局重塑</h3>
+    <p>微软Ignite大会宣布与Anthropic和Nvidia达成三方战略合作。Anthropic承诺向Azure采购300亿美元算力，Nvidia投资最高100亿美元，微软投资50亿美元。Claude成为唯一同时覆盖AWS、Google Cloud和Azure三大云平台的前沿模型。此举标志着微软从与OpenAI的独家绑定转向多模型生态。</p>
+    <div class="card-links">
+      <a href="https://www.tipranks.com/news/microsoft-google-and-openai-escalate-battle-for-700b-enterprise-ai-market" target="_blank">TipRanks</a>
+      <a href="https://www.axios.com/2025/07/01/foundation-models-apple-anthropic" target="_blank">Axios</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>OpenAI发布ChatGPT Agent，自主执行多步骤任务</h3>
+    <p>OpenAI于7月17日推出ChatGPT Agent升级版，运行在安全虚拟机中，可自主浏览网页、运行代码、更新电子表格、生成演示文稿、预约会议，全部操作需用户逐一审批。这标志着AI从对话助手向任务执行Agent的关键转变。</p>
+    <div class="card-links">
+      <a href="https://www.tipranks.com/news/microsoft-google-and-openai-escalate-battle-for-700b-enterprise-ai-market" target="_blank">TipRanks</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Google Gemini 2.5 Pro发布，IMO数学竞赛夺金</h3>
+    <p>Google发布Gemini 2.5 Pro及Flash-Lite变体，推出Gemini CLI开源Agent工具。Gemini Deep Think在国际数学奥林匹克竞赛中取得金牌级表现，与OpenAI系统并列达到人类专家级推理水平。Google同步启动"Gemini Drops"月度更新计划。</p>
+    <div class="card-links">
+      <a href="https://www.tipranks.com/news/microsoft-google-and-openai-escalate-battle-for-700b-enterprise-ai-market" target="_blank">TipRanks</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Apple洽谈模型合作，Siri需要外部AI大脑</h3>
+    <p>据Bloomberg报道，Apple正在与Anthropic和OpenAI同时洽谈，计划引入外部基础模型来驱动Siri。苹果自研模型进度落后，可能放弃全自研路线，转而通过合作补齐AI能力短板。这一选择将深刻影响消费级AI的入口格局。</p>
+    <div class="card-links">
+      <a href="https://www.axios.com/2025/07/01/foundation-models-apple-anthropic" target="_blank">Axios</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>OpenAI硬件+芯片双线布局：AI音箱与自研芯片Jalapeño</h3>
+    <p>OpenAI首款消费硬件曝光：屏幕less可移动AI音箱，$65亿收购前苹果设计主管Jony Ive创立的io Products。同时发布首款自研推理芯片Jalapeño（台积电3nm），成本较GPU降50%，性能对标Blackwell。GPT-5.6系列同步发布，GPT-Live全双工语音全球上线。但Apple已起诉OpenAI窃取商业机密，OpenAI正式否认指控。</p>
+    <div class="card-links">
+      <a href="https://www.theedgesingapore.com/news/tech/openais-first-device-movable-screenless-speaker-built-ai-companion--sources" target="_blank">Edge Singapore</a>
+      <a href="https://www.163.com/dy/article/L1SV33IN0514R9OJ.html" target="_blank">网易</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>DeepMind CEO发出AGI预警，提议建全球AI监管机构</h3>
+    <p>Google DeepMind CEO Demis Hassabis警告AGI可能在几年内到来，影响将是"工业革命的10倍，以10倍速度发生"。他提议建立美国主导的Frontier AI Standards Body（FINRA模式），要求前沿模型发布前接受30天强制评估。同时Anthropic在未来生命研究所AI安全指数中以C+获最高评级，OpenAI/DeepMind获C，xAI/DeepSeek不及格。</p>
+    <div class="card-links">
+      <a href="https://indianexpress.com/article/technology/artificial-intelligence/demis-hassabis-agi-proposes-frontier-ai-standards-body-10786981/" target="_blank">Indian Express</a>
+      <a href="https://www.yna.co.kr/view/AKR20260715005300091?input=1215m" target="_blank">韩联社</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 5. 国内动态 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F1E8;&#x1F1F3;</span> 国内动态</h2></div>
+<div class="card-grid">
+  <div class="card">
+    <h3>DeepSeek与智谱双双布局自研AI芯片</h3>
+    <p>DeepSeek约一年前启动AI推理芯片项目，正秘密扩充芯片设计团队，已与芯片设计、晶圆代工和存储厂商接触。智谱也在评估自研定制AI芯片。两家估值超500亿和万亿的公司同时下场造芯，标志着大模型竞争从算法延伸到硬件全栈。</p>
+    <div class="card-links">
+      <a href="https://www.c114.net.cn/industry/97769.html" target="_blank">C114通信网</a>
+      <a href="https://zhengguannews.cn/zghnews/409135.html" target="_blank">正观新闻</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>智谱港股市值破万亿，拟A股科创板再募150亿</h3>
+    <p>智谱AI港股盘中市值突破1万亿港元，年内涨幅超1900%，成为国内首家万亿市值大模型企业。同时智谱拟通过科创板募资不超过150亿元，其中120亿元用于通用基座大模型研发，并推出AutoGLM企业级AI Agent CoCo。</p>
+    <div class="card-links">
+      <a href="https://zhengguannews.cn/zghnews/409135.html" target="_blank">正观新闻</a>
+      <a href="https://stcn.com/article/detail/2770499.html" target="_blank">证券时报</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>腾讯云CodeBuddy IDE内测，5分钟生成完整工程</h3>
+    <p>腾讯云推出CodeBuddy IDE内测版，从辅助插件升级为全流程开发平台。国内版采用腾讯混元+DeepSeek-V3双模型驱动，Craft智能体可基于自然语言5分钟内生成前后端+UI+部署的完整工程，电商活动页开发从2天压缩至1.5小时。</p>
+    <div class="card-links">
+      <a href="https://www.broadview.com.cn/article/420727" target="_blank">博文视点</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>商汤科技再融25亿港元加码具身智能</h3>
+    <p>商汤科技以每股1.5港元配发约16.67亿股，募资25亿港元，由无极资本独家认购。资金将投入具身智能机器人、RWA和数字资产等新业务。这是商汤上市以来第三次再融资，此前已合计融资近48亿港元。</p>
+    <div class="card-links">
+      <a href="https://finance.eastmoney.com/news/1354,202507243466640858.html" target="_blank">东方财富</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>DeepSeek梁文锋$360亿登顶AI首富，估值$710亿冲刺IPO</h3>
+    <p>彭博亿万富豪指数显示，DeepSeek创始人梁文锋身家达$360亿（2440亿人民币），超越Anthropic和OpenAI创始人登顶全球AI圈首富。DeepSeek开启新一轮融资，投前估值$710亿（4800亿人民币），较首轮涨37%，计划上交所上市、2027年挂牌。年化营收逼近$5亿。同时字节跳动豆包日亏数千万，业内热议是否分拆独立融资。</p>
+    <div class="card-links">
+      <a href="https://news.qq.com/rain/a/20260715A05SLQ00" target="_blank">腾讯新闻</a>
+      <a href="https://36kr.com/p/3896466745672834" target="_blank">36氪</a>
+      <a href="https://www.qbitai.com/2026/07/450101.html" target="_blank">量子位</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>中国开源模型下载量占全球41%，OpenRouter Top 6全是国货</h3>
+    <p>中国开源模型在HuggingFace下载量占比达41%，OpenRouter上Top 6全部来自中国公司。DoorDash、Siemens、Airbnb已采用中国AI工具处理低成本任务。智谱Z.ai的GLM-5.2获Marc Andreessen盛赞"首个击败美国模型的中国AI"，全球企业正加速寻找美国之外的AI替代方案。</p>
+    <div class="card-links">
+      <a href="https://www.edgen.tech/es/news/post/chinese-open-source-ai-models-surpass-us-with-41-of-downloads" target="_blank">Edgen</a>
+      <a href="https://www.sohu.com/a/1050433563_260616" target="_blank">搜狐</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 6. 融资快讯 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4B0;</span> 融资快讯</h2></div>
+<table class="data-table">
+  <thead><tr><th>公司</th><th>轮次</th><th>金额</th><th>关键投资方</th><th>备注</th></tr></thead>
+  <tbody>
+    <tr><td>云知声</td><td>IPO</td><td class="amt">3.2亿港元</td><td>港交所</td><td>AGI第一股，上市首日涨44.59%</td></tr>
+    <tr><td>商汤科技</td><td>再融资</td><td class="amt">25亿港元</td><td>无极资本</td><td>加码具身智能与数字资产</td></tr>
+    <tr><td>仓储物流机器人企业</td><td>IPO</td><td class="amt">~27亿港元</td><td>港交所</td><td>年内AI领域最大IPO</td></tr>
+    <tr><td>智谱AI</td><td>拟IPO</td><td class="amt">≤150亿元</td><td>科创板</td><td>120亿用于基座大模型研发</td></tr>
+    <tr><td>摩尔线程</td><td>拟IPO</td><td class="amt">待披露</td><td>科创板</td><td>未盈利AI芯片企业获受理</td></tr>
+    <tr><td>存算一体AI芯片</td><td>B轮</td><td class="amt">8亿元</td><td>多家机构</td><td>边缘计算芯片方向</td></tr>
+    <tr><td>具身智能团队</td><td>Pre-A轮</td><td class="amt">1.2亿元</td><td>多家机构</td><td>人形机器人多模态感知</td></tr>
+    <tr><td>液冷数据中心</td><td>战略融资</td><td class="amt">6.8亿元</td><td>产业资本</td><td>AI算力基础设施</td></tr>
+    <tr><td>法律大模型</td><td>A轮</td><td class="amt">1.8亿元</td><td>多家机构</td><td>垂直领域大模型商业化</td></tr>
+    <tr><td>AI质检系统</td><td>C轮</td><td class="amt">3亿元</td><td>产业资本</td><td>制造业AI质检落地</td></tr>
+    <tr><td><span class="new-badge">新</span>DeepSeek</td><td>新一轮</td><td class="amt">≥100亿元</td><td>腾讯/宁德时代等</td><td>投前估值$710亿，梁文锋个人出资$20亿</td></tr>
+    <tr><td><span class="new-badge">新</span>月之暗面(Kimi)</td><td>多轮</td><td class="amt">累计~$40亿</td><td>多家机构</td><td>上半年四轮融资，筹备港股IPO</td></tr>
+    <tr><td><span class="new-badge">新</span>阶跃星辰</td><td>B轮</td><td class="amt">$25亿</td><td>多家机构</td><td>年初获¥50亿，5月再融$25亿</td></tr>
+    <tr><td><span class="new-badge">新</span>MiniMax</td><td>配售</td><td class="amt">160亿港元</td><td>港股公开市场</td><td>IPO后再配售+可转债</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ 7. 政策监管 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4DC;</span> 政策监管</h2></div>
+<div class="card-grid">
+  <div class="card">
+    <h3>国务院审议通过"人工智能+"行动意见</h3>
+    <p>7月31日国常会审议通过《关于深入实施"人工智能+"行动的意见》，部署强化算力、算法、数据供给，构建开源开放生态。目标2027年AI与科技、产业、消费、民生、治理、全球合作六大领域深度融合，智能终端普及率超70%。</p>
+    <div class="card-links">
+      <a href="https://www.news.cn/politics/20250731/8df99748130d44adac535685e5426978/c.html" target="_blank">新华社</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>工信部发布AI安全治理标准体系</h3>
+    <p>工信部技术委员会发布《工业和信息化领域人工智能安全治理标准体系建设指南（2025版）》，首次提出系统化安全治理框架，覆盖数据安全、算法安全、系统安全、应用安全四个层级。同时多项AI国家标准密集出台，包括服务能力成熟度评估、计算平台安全框架等。</p>
+    <div class="card-links">
+      <a href="http://mp.weixin.qq.com/s?__biz=MzI5NDUyMzI3OA==&mid=2247533395&idx=1&sn=810ac4a1275e3d481122a8d2fe38f6a9" target="_blank">AI法律动态</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>金砖国家签署AI全球治理声明</h3>
+    <p>金砖国家于7月6日签署《人工智能全球治理声明》，中国深度参与，强调"以人为本"、包容性发展和联合国主导的全球AI治理框架。国资委同时表态将加紧推动AI应用规范和伦理准则制定，积极参与国际AI治理规则建设。</p>
+    <div class="card-links">
+      <a href="https://www.cnfin.com/hg-lb/detail/20250728/4275798_1.html" target="_blank">中国金融信息网</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>中央网信办"清朗"行动第一阶段：处置1.4万款AI产品</h3>
+    <p>中央网信办"清朗·整治AI应用乱象"专项行动第一阶段成果：处置违规AI产品1.4万余款，清理违法信息600余万条，处置账号2.6万余个，下架违规开源数据集9个。北京、上海、浙江、广东建立多部门联动监管机制。第二阶段将聚焦AI虚假信息、深度伪造、侵害未成年人等突出问题。</p>
+    <div class="card-links">
+      <a href="http://www.nxzfw.gov.cn/gnyw/202607/t20260707_1131690.html" target="_blank">宁夏政法</a>
+      <a href="https://m.gmw.cn/2026-07/07/content_1304522592.htm" target="_blank">光明网</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>国家发改委披露"十五五"AI产业五大思路 + 欧盟AI法案生效</h3>
+    <p>发改委提出加快自主创新、强化应用牵引、深化生态协同、坚持开放共赢、确保安全可控五大方向。同时欧盟AI法案首阶段正式生效，违规罚款最高达全球营业额3%，全球AI监管格局加速形成。</p>
+    <div class="card-links">
+      <a href="http://www.news.cn/tech/20260708/e547acc13a994087b3fa3f2514fa897d/c.html" target="_blank">新华网</a>
+      <a href="https://stcn.com/article/detail/4013492.html" target="_blank">证券时报</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 8. 创业机会 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F680;</span> 创业机会</h2></div>
+<div class="card-grid">
+  <div class="opp-card">
+    <h4>MCP生态工具链 <span class="tag hot">热</span></h4>
+    <p>微软推动MCP成为Agent间通信标准，JFrog、腾讯等已发布MCP Server。围绕MCP协议的安全审计、可视化监控、服务市场等工具链需求爆发。</p>
+  </div>
+  <div class="opp-card">
+    <h4>垂直领域Agent落地 <span class="tag hot">热</span></h4>
+    <p>法律、医疗、教育领域大模型融资活跃，法律大模型获1.8亿A轮。企业级Agent编排、多Agent协作框架成为差异化切入点。</p>
+  </div>
+  <div class="opp-card">
+    <h4>AI安全与合规 <span class="tag new">新</span></h4>
+    <p>AI内容标识办法9月实施，CVE-2025-6514等MCP漏洞曝光。AI内容检测、安全审计、合规标识工具成为刚需，政策驱动市场快速增长。</p>
+  </div>
+  <div class="opp-card">
+    <h4>AI芯片设计服务 <span class="tag new">新</span></h4>
+    <p>DeepSeek、智谱等大模型公司自研芯片趋势下，AI推理芯片设计服务、chiplet集成、存算一体架构咨询需求上升。</p>
+  </div>
+  <div class="opp-card">
+    <h4><span class="new-badge update">更新</span>大模型公司IPO投行服务 <span class="tag hot">热</span></h4>
+    <p>DeepSeek（估值$710亿）、月之暗面（累计$40亿）、阶跃星辰（$25亿）密集筹备IPO。大模型公司资本运作、合规咨询、估值建模等服务需求激增。</p>
+  </div>
+</div>
+
+<!-- ═══════════════ 9. 明日关注 ═══════════════ -->
+<div class="section-head"><h2><span class="section-icon">&#x1F440;</span> 明日关注</h2></div>
+<div class="tomorrow-grid">
+  <div class="tomorrow-item">
+    <h4><span class="new-badge">新</span>OpenAI硬件+芯片后续</h4>
+    <p>关注Jalapeño芯片量产时间表、AI音箱定价及Apple诉讼进展，硬件布局是否改变AI竞争格局。</p>
+  </div>
+  <div class="tomorrow-item">
+    <h4><span class="new-badge update">更新</span>DeepSeek融资+IPO进展</h4>
+    <p>估值$710亿第二轮融资能否落地，上交所上市申请时间表，梁文锋身家变化。</p>
+  </div>
+  <div class="tomorrow-item">
+    <h4>AGI监管框架讨论</h4>
+    <p>DeepMind CEO提议的FINRA式AI监管机构能否获国际支持，30天预发布评估是否成为行业标准。</p>
+  </div>
+  <div class="tomorrow-item">
+    <h4>中国开源模型出海动态</h4>
+    <p>全球41%下载量能否持续，美国是否会进一步限制中国开源模型的海外分发。</p>
+  </div>
+  <div class="tomorrow-item">
+    <h4>科创板AI企业受理进展</h4>
+    <p>摩尔线程、沐曦股份等AI芯片企业IPO审核进度，DeepSeek是否为科创板申报。</p>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-note">AI 每日速递 · 自动采集生成 · 资讯来源：公开新闻报道与行业研究<br>数据更新时间：2026-07-15 09:00 首发 · 17:30 更新 CST · <a href="/ai-news-digest/feed.xml">RSS订阅</a> · <a href="/ai-news-digest/archive/">历史归档</a></p>
+</footer>
+
+</body>
+</html>

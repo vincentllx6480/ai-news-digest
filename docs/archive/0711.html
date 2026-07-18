@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 每日速递 — 2026.07.11</title>
+<meta name="description" content="OpenAI GPT-5.6 正式开放，DeepSeek与智谱自研AI芯片，可灵AI融资30亿美元BAT同台，智能体互联国标发布">
+<link rel="icon" type="image/svg+xml" href="/ai-news-digest/assets/favicon.svg">
+<link rel="stylesheet" href="/ai-news-digest/css/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf9f7; --panel: #ffffff; --panel-alt: #f5f4f1;
+  --line: #e7e5e2; --line-strong: #d4d1cc;
+  --text: #1a1a1a; --text-secondary: #5c5c5c; --muted: #999590;
+  --accent: #1a56db; --accent-light: #e8f0fe;
+  --green: #0d9488; --amber: #d97706; --red: #dc2626; --purple: #7c3aed;
+  --radius-sm: 10px; --radius: 16px; --radius-lg: 24px; --radius-xl: 32px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.03);
+  --shadow: 0 4px 16px rgba(0,0,0,.05), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.07), 0 4px 12px rgba(0,0,0,.03);
+  --font: "Geist", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+a { color: var(--accent); text-decoration: none; transition: color .2s; }
+a:hover { color: #1542b0; }
+
+.rainbow-bar { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 1000; background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #22c55e, #14b8a6, #3b82f6, #6366f1, #8b5cf6, #ec4899, #ef4444); background-size: 200% 100%; animation: rainbowFlow 8s linear infinite; }
+@keyframes rainbowFlow { to { background-position: -200% 0; } }
+
+.site-nav { position: sticky; top: 4px; z-index: 999; background: rgba(250,249,247,.88); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); }
+.nav-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); box-shadow: 0 0 12px rgba(99,102,241,.35); }
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-links a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: all .25s ease; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-light); }
+.nav-links a svg { width: 16px; height: 16px; opacity: .7; }
+
+.site-main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
+
+.hero { padding: 48px 0 32px; text-align: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: .04em; margin-bottom: 20px; }
+.hero-eyebrow .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(1.3); } }
+.hero h1 { font-size: clamp(36px,6vw,56px); font-weight: 800; letter-spacing: -1.2px; line-height: 1.08; margin-bottom: 16px; }
+.hero h1 .gradient-text { background: linear-gradient(135deg, #1a56db 0%, #7c3aed 50%, #db2777 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.section-head h2 { font-size: 22px; font-weight: 700; }
+
+.new-badge { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 700; vertical-align: middle; margin-right: 6px; background: #ef4444; color: #fff; animation: newPulse 2s ease-in-out infinite; }
+.new-badge.update { background: #3b82f6; animation: none; }
+@keyframes newPulse { 0%,100%{ opacity:1; } 50%{ opacity:.7; } }
+
+.card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.card h3 { font-size: 16px; margin-bottom: 8px; }
+.card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+
+.badge-hot { background: #fee2e2; color: #dc2626; font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat-card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+.stat-value { font-size: 24px; font-weight: 800; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { text-align: left; padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--line); }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.data-table tr:last-child td { border-bottom: none; }
+
+.site-footer { border-top: 1px solid var(--line); padding: 40px 24px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+@media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .card-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 32px; } }
+
+.tag-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+.tag-chip { display: inline-flex; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .03em; }
+.tag-chip.model { background: #e8f0fe; color: #1a56db; }
+.tag-chip.fund { background: #fef3c7; color: #92400e; }
+.tag-chip.policy { background: #f3e8ff; color: #7c3aed; }
+.tag-chip.platform { background: #fce7f3; color: #9d174d; }
+.tag-chip.product { background: #dcfce7; color: #166534; }
+.brief-list { list-style: none; padding: 0; display: grid; gap: 6px; }
+.brief-list li { padding: 10px 16px; background: var(--panel-alt); border-radius: 10px; font-size: 14px; display: flex; gap: 10px; align-items: flex-start; }
+.brief-list li .num { color: var(--accent); font-weight: 700; flex-shrink: 0; min-width: 22px; }
+.brief-list li .hl { color: #dc2626; font-weight: 600; }
+.card-links { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.card-links a { font-size: 12px; color: var(--accent); text-decoration: none; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { text-align: left; padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--line); }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .amt { font-weight: 700; color: var(--accent); }
+.opp-card { padding: 16px; background: linear-gradient(135deg, var(--panel-alt), var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); }
+.opp-card h4 { font-size: 14px; margin-bottom: 4px; }
+.opp-card p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+.opp-card .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-left: 6px; }
+.opp-card .tag.hot { background: #fee2e2; color: #dc2626; }
+.opp-card .tag.new { background: #dbeafe; color: #2563eb; }
+.section-head { display: flex; align-items: center; gap: 10px; margin: 40px 0 16px; }
+.section-head h2 { font-size: 20px; margin: 0; }
+.badge-hot { background: #fee2e2; color: #dc2626; font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat-card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+.stat-value { font-size: 24px; font-weight: 800; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.stat-trend { font-size: 11px; margin-top: 6px; }
+.stat-trend.up { color: #16a34a; }
+.stat-trend.down { color: #dc2626; }
+.card { padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.card h3 { font-size: 16px; margin-bottom: 8px; }
+.card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.tomorrow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.tomorrow-item { padding: 16px; background: var(--panel-alt); border: 1px solid var(--line); border-radius: var(--radius); font-size: 13px; line-height: 1.6; }
+.tomorrow-item h4 { font-size: 14px; margin-bottom: 4px; }
+.footer-note { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.footer-note a { color: var(--accent); }
+.section-icon { font-size: 20px; }
+</style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/ai-news-digest/" class="nav-brand"><span class="dot"></span>AI 每日速递</a>
+    <div class="nav-links">
+      <a href="/ai-news-digest/" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="label">首页</span>
+      </a>
+      <a href="/ai-news-digest/fund.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span class="label">基金</span>
+      </a>
+      <a href="/ai-news-digest/archive/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span class="label">归档</span>
+      </a>
+      <a href="/ai-news-digest/search.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="label">搜索</span>
+      </a>
+      <a href="/ai-news-digest/trends.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <span class="label">趋势</span>
+      </a>
+      <a href="/ai-news-digest/feed.xml">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        <span class="label">RSS</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="site-main">
+
+<!-- 1. Hero -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="live-dot"></span> 2026年7月11日 · 星期六 · <span class="new-badge">9:00 首发 · 17:30 更新</span></div>
+  <h1>今天 <span class="gradient-text">07.11</span> AI 速递</h1>
+  <p class="hero-desc">OpenAI GPT-5.6 正式开放三档模型 · Apple起诉OpenAI窃取商业机密 · 首个全国产十万卡AI超集群落成 · SK海力士纳斯达克上市首日涨13% · 大模型公司集体自研芯片 · 可灵AI融资30亿美元BAT罕见同台</p>
+  <div class="tag-row">
+    <span class="tag-chip policy">政策监管</span>
+    <span class="tag-chip fund">融资快讯</span>
+    <span class="tag-chip model">大模型</span>
+    <span class="tag-chip product">自研芯片</span>
+    <span class="tag-chip platform">Agent生态</span>
+  </div>
+</section>
+
+<!-- 2. 数据快览 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4CA;</span> 数据快览</h2><span class="badge-hot">实时</span></div>
+<section class="stats-row">
+  <div class="stat-card"><div class="stat-value">3 档</div><div class="stat-label">GPT-5.6 模型矩阵</div><div class="stat-trend up">&#x2191; Sol/Terra/Luna</div></div>
+  <div class="stat-card"><div class="stat-value">$30亿</div><div class="stat-label">可灵AI单轮融资</div><div class="stat-trend up">&#x2191; 全球视频模型最高</div></div>
+  <div class="stat-card"><div class="stat-value">$265亿</div><div class="stat-label">SK海力士纳斯达克IPO</div><div class="stat-trend up">&#x2191; 首日涨近13%</div></div>
+  <div class="stat-card"><div class="stat-value">46%</div><div class="stat-label">中国模型占美国企业用量</div><div class="stat-trend up">&#x2191; 年初仅4.5%</div></div>
+</section>
+
+<!-- 3. 核心要闻简报 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4F0;</span> 核心要闻简报</h2></div>
+<ul class="brief-list">
+  <li><span class="num">01</span> <span><span class="hl">[大模型]</span> OpenAI 正式向公众开放 GPT-5.6 系列，含旗舰 Sol、均衡 Terra、轻量 Luna 三档模型，Sol 支持最多 4 并行子 Agent。 <a href="https://www.engadget.com/2210308/openai-rolls-out-gpt5-6-july-9/" target="_blank">Engadget</a> <a href="https://tech.yahoo.com/ai/chatgpt/articles/openai-releases-gpt-5-6-172419375.html" target="_blank">Yahoo</a></span></li>
+  <li><span class="num">02</span> <span><span class="hl">[自研芯片]</span> DeepSeek 秘密启动自研 AI 推理芯片约一年，智谱 AI 同步评估定制芯片，大模型公司集体"背叛"英伟达。 <a href="https://www.36kr.com/p/3886547036437129" target="_blank">36氪</a> <a href="https://news.cheaa.com/2026/0709/656362.shtml" target="_blank">中国家电网</a></span></li>
+  <li><span class="num">03</span> <span><span class="hl">[融资]</span> 快手旗下可灵 AI 完成近 30 亿美元融资，腾讯、阿里、百度罕见同台，估值 180 亿美元，对赌 5 年内 IPO。 <a href="https://finance.eastmoney.com/a/202607033793633951.html" target="_blank">东方财富</a> <a href="https://m.thepaper.cn/newsDetail_forward_33512862" target="_blank">澎湃</a></span></li>
+  <li><span class="num">04</span> <span><span class="hl">[政策]</span> 中国与科技巨头开会讨论限制海外访问国内先进 AI 模型，将 AI 技术列为关键国家资产管控。 <a href="https://shovelready.com/shovelready/description.asp?live-blog-16127767-2026-07-08-zhi-qing-ren-shi-tou-lu-zhong-guo-dang-ju-jin-qi-yu-ke-ji-ju-bai-kai-hui-tao-lun" target="_blank">路透社</a></span></li>
+  <li><span class="num">05</span> <span><span class="hl">[标准]</span> 我国发布智能体互联领域首套国家标准体系 GB/Z 185-2026，含身份码、发现、交互、工具调用等 7 部分。 <a href="https://www.samr.gov.cn:3030/xw/mtjj/art/2026/art_99ea3855892f4b43b06032ba21f85bf3.html" target="_blank">市场监管总局</a> <a href="https://www.dianqizazhi.com/2026/07/09/73189.html" target="_blank">电器杂志</a></span></li>
+  <li><span class="num">06</span> <span><span class="hl">[国际]</span> Anthropic Claude Fable 5 恢复上线，推出 Reflect 使用习惯分析功能；在编程和数学基准上仍领先 GPT-5.6。 <a href="https://finance.jrj.com.cn/2026/07/08213457743675.shtml" target="_blank">金融界</a> <a href="https://www.tmtpost.com/8060184.html?rss=10jqka" target="_blank">钛媒体</a></span></li>
+  <li><span class="num">07</span> <span><span class="hl">[产品]</span> Meta 发布首个付费 AI 模型 Muse Spark 1.1，主打企业编程场景；同时宣布在加拿大投建 130 亿加元 AI 数据中心。 <a href="https://tech.yahoo.com/ai/articles/whirlwind-72-hours-rival-ai-152446155.html" target="_blank">Yahoo</a></span></li>
+  <li><span class="num">08</span> <span><span class="hl">[工具]</span> JetBrains 推出 AI for Teams 统一管理平台，支持 MCP/ACP 协议，转向积分制商业模式，终结 IDE 工具碎片化。 <a href="https://www.infoworld.com/article/4194091/jetbrains-to-roll-out-ai-capabilities-for-software-development-teams-and-organizations.html" target="_blank">InfoWorld</a> <a href="https://ai.zhiding.cn/2026/0710/3192869.shtml" target="_blank">至顶网</a></span></li>
+  <li><span class="num">09</span> <span><span class="new-badge">新</span><span class="hl">[法律]</span> Apple 在加州北区法院起诉 OpenAI 系统性窃取商业机密，涉前 VP 汤秦等多名前员工，要求销毁全部涉案材料并重新设计 AI 硬件。 <a href="https://news.qq.com/rain/a/20260711A02JDF00" target="_blank">腾讯新闻</a> <a href="https://tvrinfo.ro/apple-acuza-openai-ca-a-folosit-secrete-comerciale-furate-pentru-a-si-dezvolta-viitoarele-dispozitive-bazate-pe-ai-intr-un-nou-proces/" target="_blank">TVR Info</a></span></li>
+  <li><span class="num">10</span> <span><span class="new-badge">新</span><span class="hl">[基建]</span> 中科曙光"曙光8000（登峰）"全国产十万卡 AI 超集群正式投用，全链路国产化，已完成 300 余项超智融合应用优化。 <a href="https://fund.eastmoney.com/a/202607113802224071.html" target="_blank">东方财富</a> <a href="https://gzstv.cn/a/c29e349e2b0940faabc651c377db4e63" target="_blank">中新网</a></span></li>
+  <li><span class="num">11</span> <span><span class="new-badge">新</span><span class="hl">[出海]</span> 海外企业加速拥抱中国大模型，中国 AI 模型占美国企业 Token 用量 46%（年初仅 4.5%），成本低 90-95% 而性能仅落后 1-4%。 <a href="http://www.nbd.com.cn/articles/2026-07-11/4468106.html" target="_blank">每日经济新闻</a> <a href="https://www.sohu.com/a/1048883893_115362" target="_blank">搜狐</a></span></li>
+</ul>
+
+<!-- 4. 国际动态 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F30D;</span> 国际动态</h2></div>
+<div class="card-grid">
+  <div class="card">
+    <h3>OpenAI GPT-5.6 正式向公众开放</h3>
+    <p>经历美国政府国家安全审查延迟后，GPT-5.6 于 7 月 9 日正式上线。旗舰 Sol 模型在 Terminal-Bench 达 91.9%，支持"ultra"模式协调 4 个并行子 Agent（API 模式 16 个）。同时发布 ChatGPT Work 企业 Agent，可自主创建文档、表格、演示文稿和网站，对标 Anthropic Claude Cowork。定价：Sol $5/$30、Terra $2.50/$15、Luna $1/$6（每百万 Token）。</p>
+    <div class="card-links"><a href="https://www.engadget.com/2210308/openai-rolls-out-gpt5-6-july-9/" target="_blank">Engadget</a> <a href="https://tech.yahoo.com/ai/chatgpt/articles/openai-releases-gpt-5-6-172419375.html" target="_blank">Yahoo Tech</a> <a href="https://www.rte.ie/news/business/2026/0708/1582377-openai-to-launch-most-capable-gpt-model/" target="_blank">RTE</a></div>
+  </div>
+  <div class="card">
+    <h3>Anthropic Fable 5 恢复 + Reflect 功能上线</h3>
+    <p>经历出口管制风波后，Claude Fable 5 已于 7 月 1 日全面恢复。Fable 5 在 SWE-Bench Pro（80% vs 64.6%）和 FrontierMath（87.8% vs 83%）上仍领先 GPT-5.6。7 月 9 日推出 Reflect 功能，让用户追踪分析 Claude 使用习惯。Anthropic 企业 API 市场份额 5 月已达 34.4%，首次超越 OpenAI 的 32.3%。估值逼近 9650 亿美元，IPO 筹备加速。</p>
+    <div class="card-links"><a href="https://finance.jrj.com.cn/2026/07/08213457743675.shtml" target="_blank">金融界</a> <a href="https://www.tmtpost.com/8060184.html?rss=10jqka" target="_blank">钛媒体</a></div>
+  </div>
+  <div class="card">
+    <h3>Meta 首个付费模型 Muse Spark 1.1 + $130亿数据中心</h3>
+    <p>Meta 7 月 9 日发布 Muse Spark 1.1，是其首个付费 AI 模型，定价极低，主打企业编程场景。同时宣布在加拿大阿尔伯塔投建 130 亿加元 AI 数据中心。Meta 全球大模型市场份额约 10%，正在从开源免费向商业化转型。</p>
+    <div class="card-links"><a href="https://tech.yahoo.com/ai/articles/whirlwind-72-hours-rival-ai-152446155.html" target="_blank">Yahoo</a></div>
+  </div>
+  <div class="card">
+    <h3>微软"去 OpenAI 化"加速，7 款自研 MAI 模型上线</h3>
+    <p>微软在 Build 2026 发布 7 款自研 MAI 模型，声称比 GPT-5.5 成本效率高 10 倍。已在 Excel 和 Outlook 中用 MAI 替换 OpenAI/Anthropic 模型，每周处理数万次 AI 请求。OpenAI-微软排他协议已转为非排他（至 2032 年），GPT-5.6 仅为 Copilot"首选"模型。</p>
+    <div class="card-links"><a href="https://finance.jrj.com.cn/2026/07/08213457743675.shtml" target="_blank">金融界</a> <a href="https://www.tmtpost.com/8060184.html?rss=10jqka" target="_blank">钛媒体</a></div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>Apple 起诉 OpenAI 窃取商业机密</h3>
+    <p>Apple 7月11日在加州北区联邦法院起诉 OpenAI，指控其系统性挖角前苹果员工窃取未发布硬件设计等商业机密。诉状点名 OpenAI 首席硬件官汤秦（前苹果产品设计 VP）及前工程师 Chang Liu，称其离职前下载数十份苹果机密文件。Apple 要求 OpenAI 销毁全部涉案材料并重新设计即将推出的 AI 硬件产品。OpenAI 回应称"对其他公司的商业机密不感兴趣"，标志前合作伙伴关系急剧恶化。</p>
+    <div class="card-links"><a href="https://news.qq.com/rain/a/20260711A02JDF00" target="_blank">腾讯新闻</a> <a href="https://tvrinfo.ro/apple-acuza-openai-ca-a-folosit-secrete-comerciale-furate-pentru-a-si-dezvolta-viitoarele-dispozitive-bazate-pe-ai-intr-un-nou-proces/" target="_blank">TVR Info</a></div>
+  </div>
+</div>
+
+<!-- 5. 国内动态 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F1E8;&#x1F1F3;</span> 国内动态</h2></div>
+<div class="card-grid">
+  <div class="card">
+    <h3>DeepSeek、智谱相继入局自研 AI 芯片</h3>
+    <p>路透社 7 月 7 日报道，DeepSeek 已秘密启动自研 AI 推理芯片约一年，团队正在扩充，正与芯片设计、晶圆代工和存储厂商接触，方向聚焦大模型推理降本。同日 The Information 报道智谱 AI 也在评估自研定制芯片。全球趋势：OpenAI 已发布与博通联合设计的 Jalapeño 推理芯片，AI 竞争正从模型战升级为"芯片-模型-云"全栈战争。</p>
+    <div class="card-links"><a href="https://www.36kr.com/p/3886547036437129" target="_blank">36氪</a> <a href="https://news.cheaa.com/2026/0709/656362.shtml" target="_blank">中国家电网</a> <a href="https://4g.stockstar.com/detail/IG2026070800021760" target="_blank">证券之星</a></div>
+  </div>
+  <div class="card">
+    <h3>可灵 AI 完成 30 亿美元融资，BAT 罕见同台</h3>
+    <p>快手旗下视频生成大模型可灵 AI 完成近 30 亿美元战略融资，投后估值 180 亿美元，创全球视频模型单轮最高纪录。腾讯、阿里、百度三大巨头罕见联合入局，中东主权资本 BlueFive Capital 首次投资中国 AI 视频。2026 年 Q1 营收 6.5 亿元（同比增 300%），海外收入占 70%。对赌 5 年内港股 IPO，OpenAI Sora 已于 3 月关停。</p>
+    <div class="card-links"><a href="https://finance.eastmoney.com/a/202607033793633951.html" target="_blank">东方财富</a> <a href="https://m.thepaper.cn/newsDetail_forward_33512862" target="_blank">澎湃新闻</a> <a href="http://www.nbd.com.cn/articles/2026-07-03/4451976.html" target="_blank">每日经济新闻</a></div>
+  </div>
+  <div class="card">
+    <h3>中国考虑限制海外访问国内 AI 大模型</h3>
+    <p>路透社 7 月 8 日报道，中国当局与阿里（通义千问）、字节（豆包）、智谱 AI（GLM）等科技巨头开会，讨论限制海外访问中国最先进 AI 模型。此前字节豆包和阿里千问已应监管要求下线拟人化智能体功能。此举被视为对美国 AI 技术出口限制的对等回应，中国正将先进 AI 技术列为关键国家资产管控。</p>
+    <div class="card-links"><a href="https://shovelready.com/shovelready/description.asp?live-blog-16127767-2026-07-08-zhi-qing-ren-shi-tou-lu-zhong-guo-dang-ju-jin-qi-yu-ke-ji-ju-bai-kai-hui-tao-lun" target="_blank">路透社</a> <a href="https://www.fxstreet.hk/analysis/zhong-guo-fan-ji-mei-guo-kao-lu-shi-shi-zi-shen-de-ren-gong-zhi-neng-xian-zhi-cuo-shi-202607080649" target="_blank">FXStreet</a></div>
+  </div>
+  <div class="card">
+    <h3>大模型商业化报告发布：定价两极分化</h3>
+    <p>《中国 AI 大模型商业化报告（2026 上）》7 月 3 日发布：算力成本占模型总成本 57%-70%；智谱 AI 累计提价 83%，而 DeepSeek V4 Pro 降价 75%；行业已脱离"烧钱抢份额"阶段。头部创业公司 2026 年以来累计融资超 1300 亿元。阿里三年投 3800 亿建 AI 基础设施，字节 AI 资本开支上调至 2000 亿元。</p>
+    <div class="card-links"><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BDAI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%95%86%E4%B8%9A%E5%8C%96%E6%8A%A5%E5%91%8A/68129511" target="_blank">百度百科</a> <a href="https://36kr.com/p/3888340710947333" target="_blank">36氪</a></div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>首个全国产十万卡 AI 超集群落成</h3>
+    <p>中科曙光 7 月 10 日宣布"曙光8000（登峰）"——中国首个全国产十万卡 AI 超集群正式建成投用，接入国家超算互联网。采用"超智融合"架构实现 FP64 到 INT8 全精度计算，芯片/计算/存储/网络/散热全链路国产化。已完成 300 余项超智融合应用优化，覆盖大模型、机器人、新材料、量子计算等 20 余领域，超 70 个应用实现万卡级部署，标志中国 AI 基础设施正式迈入十万卡时代。</p>
+    <div class="card-links"><a href="https://fund.eastmoney.com/a/202607113802224071.html" target="_blank">东方财富</a> <a href="https://gzstv.cn/a/c29e349e2b0940faabc651c377db4e63" target="_blank">中新网</a> <a href="https://stcn.com/article/detail/4012721.html" target="_blank">证券时报</a></div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>海外企业加速拥抱中国大模型</h3>
+    <p>OpenRouter 数据显示，中国 AI 模型占美国企业 Token 用量的 46%（年初仅 4.5%）。Coinbase 和初创公司 Lindy 等成为高调采用者，核心驱动：中国模型（DeepSeek-V4/GLM-5.2/Kimi K2.7）成本低 90-95%，性能仅落后 1-4%。API 账单"高过全员工资"正迫使海外企业重新评估供应商。</p>
+    <div class="card-links"><a href="http://www.nbd.com.cn/articles/2026-07-11/4468106.html" target="_blank">每日经济新闻</a> <a href="https://www.sohu.com/a/1048883893_115362" target="_blank">搜狐</a></div>
+  </div>
+
+<!-- 6. 融资快讯 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4B0;</span> 融资快讯</h2></div>
+<table class="data-table">
+  <thead><tr><th>公司</th><th>轮次</th><th>金额</th><th>关键投资方</th><th>备注</th></tr></thead>
+  <tbody>
+    <tr><td><span class="new-badge">新</span>SK海力士</td><td>纳斯达克IPO</td><td class="amt">~$265亿</td><td>—</td><td>7月10日纳斯达克挂牌，首日涨近13%，全球第二大外企美股IPO</td></tr>
+    <tr><td><span class="new-badge">新</span>MiniMax</td><td>配售+CB</td><td class="amt">~$20亿</td><td>主权基金/长线/多策略</td><td>7月10日完成，7倍超额认购，创始人放弃薪资至AGI，推进科创板二次上市</td></tr>
+    <tr><td>可灵AI</td><td>战略融资</td><td class="amt">~$30亿</td><td>腾讯/阿里/百度/BlueFive</td><td>估值$180亿，对赌5年IPO，全球视频模型最高单轮</td></tr>
+    <tr><td>跨维智能</td><td>B轮</td><td class="amt">¥10亿+</td><td>深创投/前海母基金/周群飞</td><td>估值¥100亿+，冲刺具身引擎港股第一股</td></tr>
+    <tr><td>云豹智能</td><td>IPO受理</td><td class="amt">¥30.35亿</td><td>腾讯(持股20%)</td><td>国产DPU芯片龙头，创业板，估值¥142.73亿</td></tr>
+    <tr><td>DeepSeek</td><td>多轮累计</td><td class="amt">~¥500亿</td><td>未披露</td><td>V4 Pro降价75%，启动自研推理芯片</td></tr>
+    <tr><td>智谱AI</td><td>配售+累计</td><td class="amt">HK$357.5亿</td><td>未披露</td><td>港股上市募资$40亿，股价飙升，评估自研芯片</td></tr>
+    <tr><td>阶跃星辰</td><td>多轮累计</td><td class="amt">~¥220亿</td><td>未披露</td><td>国内大模型创业第一梯队</td></tr>
+    <tr><td>月之暗面</td><td>多轮累计</td><td class="amt">~$27亿</td><td>阿里/红杉等</td><td>Kimi产品线持续迭代</td></tr>
+    <tr><td>Anthropic</td><td>Pre-IPO</td><td class="amt">估值$9650亿</td><td>—</td><td>企业API市占34.4%超OpenAI，筹备IPO</td></tr>
+    <tr><td>OpenAI</td><td>Pre-IPO</td><td class="amt">估值$8520亿</td><td>软银等</td><td>GPT-5.6正式上线，ChatGPT Work发布</td></tr>
+  </tbody>
+</table>
+
+<!-- 7. 政策监管 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F4DC;</span> 政策监管</h2></div>
+<div class="card-grid">
+  <div class="card">
+    <h3>智能体互联首套国家标准体系发布</h3>
+    <p>国家市场监管总局 7 月 3 日批准发布 GB/Z 185-2026《人工智能 智能体互联》系列 7 项国家标准，构建从身份标识到协同执行的完整闭环：身份码 → 能力描述 → 供需发现 → 协同交互 → 工具调用。华为、清华、火山引擎、小米等 30 余家产学研单位参与编制，海淀区率先试点，百余家企业参与开源生态。后续将推进智能体审计、交易等细分标准。</p>
+    <div class="card-links"><a href="https://www.samr.gov.cn:3030/xw/mtjj/art/2026/art_99ea3855892f4b43b06032ba21f85bf3.html" target="_blank">市场监管总局</a> <a href="https://www.dianqizazhi.com/2026/07/09/73189.html" target="_blank">电器杂志</a> <a href="https://www.china-aii.com/xyzx/202607062.jhtml" target="_blank">工联院</a></div>
+  </div>
+  <div class="card">
+    <h3>中国考虑限制海外访问国内 AI 模型</h3>
+    <p>路透社 7 月 8 日报道，中国当局召集阿里、字节、智谱 AI 等企业，讨论限制海外获取中国先进 AI 模型。此前豆包和千问已应监管要求下线拟人化智能体功能。此举措与美国对华 AI 芯片出口管制形成对等态势，将 AI 技术列为国家关键资产。</p>
+    <div class="card-links"><a href="https://shovelready.com/shovelready/description.asp?live-blog-16127767-2026-07-08-zhi-qing-ren-shi-tou-lu-zhong-guo-dang-ju-jin-qi-yu-ke-ji-ju-bai-kai-hui-tao-lun" target="_blank">路透社</a> <a href="https://www.fxstreet.hk/analysis/zhong-guo-fan-ji-mei-guo-kao-lu-shi-shi-zi-shen-de-ren-gong-zhi-neng-xian-zhi-cuo-shi-202607080649" target="_blank">FXStreet</a></div>
+  </div>
+  <div class="card">
+    <h3>美国AI国家安全审查延迟 GPT-5.6 发布</h3>
+    <p>特朗普政府对前沿 AI 模型实施自愿性 30 天预发布审查机制，导致 GPT-5.6 和 Anthropic Fable 5 均出现延迟。Fable 5 更因越狱漏洞被临时下线。审查机制正在演变为事实上的准入壁垒，OpenAI 最终于 7 月 9 日获华盛顿批准上线。</p>
+    <div class="card-links"><a href="https://www.engadget.com/2210308/openai-rolls-out-gpt5-6-july-9/" target="_blank">Engadget</a> <a href="https://www.rte.ie/news/business/2026/0708/1582377-openai-to-launch-most-capable-gpt-model/" target="_blank">RTE</a></div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>AI 陪伴类服务新规 7 月 15 日生效</h3>
+    <p>网信办等五部门联合发布的《人工智能拟人化交互服务管理办法》将于 7 月 15 日正式施行。核心要求：禁止向未成年人提供虚拟亲密关系、强制年龄验证与"未成年模式"、每 2 小时弹出防沉迷提醒、用户交互数据加密存储。字节豆包和阿里通义千问已提前下线拟人化智能体功能。违规产品面临下架和罚款。</p>
+    <div class="card-links"><a href="https://www.lw.com/en/insights/china-introduces-rules-for-ai-companion-and-emotional-interaction-services" target="_blank">Latham & Watkins</a> <a href="https://www.scmp.com./tech/big-tech/article/3359482/bytedance-and-alibaba-disable-humanlike-ai-custom-agents-new-rules-loom" target="_blank">南华早报</a></div>
+  </div>
+  <div class="card">
+    <h3><span class="new-badge">新</span>发改委披露 AI"十五五"五大工作思路</h3>
+    <p>国家发改委 7 月 7 日在上海发布会上公布 AI 产业"十五五"五大方向：自主创新（模型/算力/数据研发）、应用驱动（开放高价值场景）、生态协同（软硬件适配、开源闭源共荣）、开放共赢（国际合作、支持全球南方）、安全可控（加速 AI 立法、防数据滥用和深度伪造）。</p>
+    <div class="card-links"><a href="http://www.news.cn/tech/20260708/e547acc13a994087b3fa3f2514fa897d/c.html" target="_blank">新华网</a> <a href="https://global.chinadaily.com.cn/a/202607/05/WS6a4a4e32a310986e2b463967.html" target="_blank">中国日报</a></div>
+  </div>
+</div>
+
+<!-- 8. 创业机会 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F680;</span> 创业机会</h2></div>
+<div class="card-grid">
+  <div class="opp-card">
+    <h4>AI 推理芯片设计服务 <span class="tag hot">热</span></h4>
+    <p>DeepSeek/智谱/OpenAI 集体自研芯片，催生推理芯片定制设计、ASIC 后端、chiplet 集成等需求。国产替代窗口期，面向大模型公司的芯片定制服务商机会巨大。</p>
+  </div>
+  <div class="opp-card">
+    <h4>MCP 生态工具与合规平台 <span class="tag hot">热</span></h4>
+    <p>GB/Z 185-2026 智能体互联国标落地，170+ AAIF 成员推动 MCP 标准化。智能体身份管理、审计日志、互操作测试、合规认证等工具需求爆发，尤其是面向政府和金融客户。</p>
+  </div>
+  <div class="opp-card">
+    <h4>AI 视频生成出海 <span class="tag hot">热</span></h4>
+    <p>可灵 AI 海外收入占 70%，Sora 已关停，中国 AI 视频公司全球化窗口打开。视频本地化、多语言配音、海外合规、创作者生态运营等配套服务需求增长。</p>
+  </div>
+  <div class="opp-card">
+    <h4>具身智能 + 机器人操作系统 <span class="tag new">新</span></h4>
+    <p>跨维智能估值破百亿，人形机器人出货近千台。具身智能引擎、仿真训练平台、机器人 MCP 工具链等基础设施层创业机会正在形成。</p>
+  </div>
+  <div class="opp-card">
+    <h4>AI 编程 Agent 编排平台 <span class="tag new">新</span></h4>
+    <p>JetBrains 转向积分制、Orca 并行 Agent 运行时受关注。多 Agent 编排调度、跨 IDE 统一管理、Agent 输出质量评估、企业策略管控等基础设施需求明确。</p>
+  </div>
+</div>
+
+<!-- 9. 明日关注 -->
+<div class="section-head"><h2><span class="section-icon">&#x1F440;</span> 明日关注</h2></div>
+<div class="tomorrow-grid">
+  <div class="tomorrow-item"><h4>GPT-5.6 用户评测与基准成绩</h4>首批社区评测和第三方基准对比将陆续出炉，关注 Sol 在编程和 Agent 任务上的实际表现。</div>
+  <div class="tomorrow-item"><h4><span class="new-badge">新</span>Apple vs OpenAI 诉讼进展</h4>关注双方首次听证会时间、OpenAI 硬件团队回应，以及是否影响 OpenAI IPO 进程。</div>
+  <div class="tomorrow-item"><h4><span class="new-badge">新</span>SK 海力士 IPO 次日表现与 HBM 供应</h4>纳斯达克上市次日股价走势，以及 CEO 警告"内存短缺持续至 2030 年后"对 AI 供应链影响。</div>
+  <div class="tomorrow-item"><h4>DeepSeek/智谱芯片进展细节</h4>关注 DeepSeek 自研芯片的制程工艺、合作代工厂以及智谱 ASIC 方案的具体路线图。</div>
+  <div class="tomorrow-item"><h4><span class="new-badge">新</span>AI 陪伴新规 7.15 生效日</h4>7 月 15 日正式施行首日，各平台产品下架/整改力度及用户反馈。</div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-note">AI 每日速递 · 自动采集生成 · 资讯来源：公开新闻报道与行业研究<br>数据更新时间：2026-07-11 17:30 CST · <a href="/ai-news-digest/feed.xml">RSS订阅</a> · <a href="/ai-news-digest/archive/">历史归档</a></p>
+</footer>
+
+</body>
+</html>
